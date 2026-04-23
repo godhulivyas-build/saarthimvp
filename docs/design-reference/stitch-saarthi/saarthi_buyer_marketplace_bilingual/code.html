@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saarthi | Buyer Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-primary-fixed-variant": "#005312",
+                "on-error-container": "#93000a",
+                "surface": "#f7fbf0",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#004a75",
+                "primary-fixed": "#a3f69c",
+                "tertiary": "#005a8c",
+                "on-background": "#181d17",
+                "surface-tint": "#1b6d24",
+                "surface-container-high": "#e5eadf",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#eef2e8",
+                "surface-container": "#ebefe5",
+                "background": "#f7fbf0",
+                "tertiary-fixed": "#cee5ff",
+                "on-primary-fixed": "#002204",
+                "outline-variant": "#bfcaba",
+                "on-primary-container": "#cbffc2",
+                "on-secondary-container": "#653900",
+                "error-container": "#ffdad6",
+                "surface-container-low": "#f1f5eb",
+                "secondary": "#8b5000",
+                "on-surface": "#181d17",
+                "surface-variant": "#e0e4da",
+                "primary-fixed-dim": "#88d982",
+                "on-tertiary-fixed": "#001d32",
+                "inverse-surface": "#2d322b",
+                "inverse-primary": "#88d982",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed": "#2c1600",
+                "secondary-fixed": "#ffdcbe",
+                "secondary-fixed-dim": "#ffb870",
+                "on-secondary-fixed-variant": "#693c00",
+                "tertiary-fixed-dim": "#96ccff",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f7fbf0",
+                "on-secondary": "#ffffff",
+                "outline": "#707a6c",
+                "tertiary-container": "#0073b2",
+                "surface-container-highest": "#e0e4da",
+                "on-error": "#ffffff",
+                "primary": "#0d631b",
+                "secondary-container": "#ff9800",
+                "on-surface-variant": "#40493d",
+                "surface-dim": "#d7dbd2",
+                "on-tertiary-container": "#e9f2ff",
+                "primary-container": "#2e7d32"
+              },
+              "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+              },
+              "fontFamily": {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float-anim { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-sm flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold text-green-800 dark:text-green-500">Saarthi</span>
+</div>
+<div class="hidden md:flex flex-1 max-w-xl mx-8">
+<div class="w-full relative flex items-center">
+<input class="w-full bg-surface-container-low border-none rounded-full py-2.5 px-12 focus:ring-2 focus:ring-primary/20 text-on-surface-variant" placeholder="Search for crops, mandi or farmers... / फसल, मंडी या किसान खोजें..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 text-on-surface-variant">search</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-full hover:bg-green-50 transition-colors text-zinc-600">
+<span class="material-symbols-outlined">translate</span>
+</button>
+<button class="p-2 rounded-full hover:bg-green-50 transition-colors text-zinc-600">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<div class="flex pt-20 min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full z-40 bg-white dark:bg-zinc-900 w-72 rounded-r-3xl shadow-xl flex-col py-8 px-4">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3 mb-2">
+<img alt="User" class="w-12 h-12 rounded-2xl object-cover" data-alt="portrait of a confident smiling middle aged indian farmer with a warm sunlit expression wearing traditional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB9Mrns4dFXzzCaNfmkCxdCPJ_z84TjNIqIcK3DHRrS3Av_UxRb9_9EfvLN28bwJSHv49h9fHV2cTdoUXyWfnetJRJo8cJvIjIOoZAY50t-pkVbwKhzJNlEfhgfwPZiVFQbvmx-IV5ZDiXpoFmPDEL4POmwyTfDaOIE5FkhIj8sxajlRW0dFDy1DG5KgY5hFGWmpm13iZAqa9EuGpWvv8Q1USD4nhwmRK9RTYLWcRkHWQ_Rl0dEfGWvfLFBJAPBbr_zNby48_kCz4"/>
+<div>
+<p class="font-bold text-green-800 leading-tight">Saarthi Dashboard</p>
+<p class="text-xs text-zinc-500">Verified Member / सत्यापित सदस्य</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-zinc-500 dark:text-zinc-400 m-2 flex flex-col px-4 py-3 hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="font-medium text-sm">Mandi Prices</span>
+</div>
+<span class="text-[10px] ml-9 opacity-70">मंडी भाव</span>
+</a>
+<a class="bg-green-100 dark:bg-green-900/40 text-green-900 dark:text-green-100 rounded-xl m-2 flex flex-col px-4 py-3 hover:pl-6 transition-all" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-medium text-sm">Marketplace</span>
+</div>
+<span class="text-[10px] ml-9 opacity-70">बाज़ार</span>
+</a>
+<a class="text-zinc-500 dark:text-zinc-400 m-2 flex flex-col px-4 py-3 hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-medium text-sm">Job Leads</span>
+</div>
+<span class="text-[10px] ml-9 opacity-70">काम के अवसर</span>
+</a>
+<a class="text-zinc-500 dark:text-zinc-400 m-2 flex flex-col px-4 py-3 hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">ac_unit</span>
+<span class="font-medium text-sm">Cold Storage</span>
+</div>
+<span class="text-[10px] ml-9 opacity-70">कोल्ड स्टोरेज</span>
+</a>
+<a class="text-zinc-500 dark:text-zinc-400 m-2 flex flex-col px-4 py-3 hover:bg-surface-container-low transition-all rounded-xl" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-medium text-sm">Payments</span>
+</div>
+<span class="text-[10px] ml-9 opacity-70">भुगतान</span>
+</a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full py-4 bg-orange-100 text-orange-800 rounded-2xl font-bold flex flex-col items-center justify-center hover:bg-orange-200 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">support_agent</span>
+<span>Contact Saathi Didi</span>
+</div>
+<span class="text-[10px] opacity-80">साथी दीदी से संपर्क करें</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-72 p-6 md:p-10 mb-20 md:mb-0">
+<!-- Header Section -->
+<div class="mb-10">
+<h1 class="text-4xl md:text-5xl font-black text-on-surface tracking-tight mb-2">Marketplace <span class="text-2xl md:text-3xl font-medium block text-zinc-400">/ बाज़ार</span></h1>
+<p class="text-on-surface-variant max-w-2xl font-medium leading-relaxed">
+                Premium farm-to-buyer ecosystem. Connect with verified farmers and inspect the harvest in real-time.<br/>
+<span class="text-sm opacity-70 font-normal">प्रीमियम फार्म-टू-बायर इकोसिस्टम। सत्यापित किसानों से जुड़ें और वास्तविक समय में फसल का निरीक्षण करें।</span>
+</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Filters Sidebar -->
+<aside class="w-full lg:w-64 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-6">
+<h3 class="font-bold text-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">filter_alt</span>
+                        Filters / फ़िल्टर
+                    </h3>
+<div class="space-y-6">
+<div>
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3 block">Crop Type / फसल का प्रकार</label>
+<div class="space-y-3">
+<label class="flex items-start gap-3 group cursor-pointer">
+<div class="w-5 h-5 mt-0.5 rounded-md bg-white border-2 border-primary-fixed-dim group-hover:border-primary transition-colors flex-shrink-0"></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Wheat (Sharbati)</span>
+<span class="text-[11px] text-on-surface-variant">गेहूं (शरबती)</span>
+</div>
+</label>
+<label class="flex items-start gap-3 group cursor-pointer">
+<div class="w-5 h-5 mt-0.5 rounded-md bg-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white text-xs">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Basmati Rice</span>
+<span class="text-[11px] text-on-surface-variant">बासमती चावल</span>
+</div>
+</label>
+<label class="flex items-start gap-3 group cursor-pointer">
+<div class="w-5 h-5 mt-0.5 rounded-md bg-white border-2 border-primary-fixed-dim group-hover:border-primary transition-colors flex-shrink-0"></div>
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Mustard Seeds</span>
+<span class="text-[11px] text-on-surface-variant">सरसों के बीज</span>
+</div>
+</label>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3 block">Quality / गुणवत्ता</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1 rounded-full bg-primary text-white text-[10px] font-bold">A+ Prime</button>
+<button class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[10px] font-bold">A Quality</button>
+</div>
+</div>
+<div>
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3 block">Distance / दूरी</label>
+<input class="w-full h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+<div class="flex justify-between text-[10px] mt-2 font-bold text-on-surface-variant">
+<span>0 KM</span>
+<span>200 KM</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-tertiary-container text-white p-6 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-bold text-lg mb-1">Quality Assured</h4>
+<p class="text-[10px] opacity-90 leading-tight mb-4">Every batch is physically inspected by Saarthi experts before listing.<br/>सूचीबद्ध होने से पहले हर बैच का साथी विशेषज्ञों द्वारा भौतिक निरीक्षण किया जाता है।</p>
+<button class="text-xs font-bold underline">Learn More / और जानें</button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-7xl opacity-20">verified_user</span>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1">
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="close up of golden ripe wheat stalks in a sun drenched field at sunset with warm atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-_oj11JC3-sjzq3ot6ONNV8dqG_bZYWsgjjCeXoa7SUZjT2dRzlLf25ePvwXblqsxWhTlnY7PBzkOt47l_jWVsO7NMAGi73rXbVu8b9SW83kVqRE9hzkdBFnQ5KVqHTOg3p9lSELawtRTniI2NZ_e4QH1gBGO3SFPXwewtTfF9ggo4L_iPrCJkzJ9xppyQAMJQUxVkztxwmYDrRIYcc1NRKoKArTAbvhkR8IgzlFGiCP68NvbYwl8PR4VTtOCBa5cwQOvMnvuPv8"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase text-primary">High Grade / उच्च श्रेणी</span>
+<span class="bg-tertiary-container text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase">Score: 98</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-2xl font-bold text-on-surface leading-tight">Golden Sharbati Wheat</h3>
+<p class="text-sm font-medium text-zinc-500">सुनहरा शरबती गेहूं</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-sm font-medium text-on-surface-variant">Rajesh Kumar</span>
+<div class="flex items-center gap-1 bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-0.5 rounded-full text-[9px] font-bold">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                            VERIFIED / सत्यापित
+                                        </div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-2xl font-black text-primary">₹32<span class="text-sm font-normal text-on-surface-variant">/kg</span></p>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mt-1">Min / कम से कम: 500kg</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-xl">
+<p class="text-[9px] font-bold text-on-surface-variant uppercase mb-1">Stock / उपलब्ध स्टॉक</p>
+<p class="font-bold text-lg leading-tight">12.5 Tons</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl">
+<p class="text-[9px] font-bold text-on-surface-variant uppercase mb-1">Distance / दूरी</p>
+<p class="font-bold text-lg leading-tight">42 KM</p>
+</div>
+</div>
+<div class="mt-auto space-y-3">
+<div class="flex gap-3">
+<button class="flex-1 py-3 bg-surface-container text-on-surface font-bold rounded-xl flex flex-col items-center justify-center hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">videocam</span>
+<span class="text-xs">Video Inspect</span>
+</div>
+<span class="text-[9px] font-medium opacity-60">वीडियो निरीक्षण</span>
+</button>
+<button class="flex-1 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-xl flex flex-col items-center justify-center hover:opacity-90 transition-opacity">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">chat</span>
+<span class="text-xs">Chat</span>
+</div>
+<span class="text-[9px] font-medium opacity-60">बातचीत</span>
+</button>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center">
+<span>Buy Now</span>
+<span class="text-[10px] font-normal opacity-90">अभी खरीदें</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow group flex flex-col">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="overhead view of high quality long grain basmati rice grains scattered naturally on a dark rustic surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnM-OqzdpoeKXPabn3hHPFAkT_mEjtY3bBE3S71aj0RrFkxETERFBgp9RTfzX8iyChYBXzi29pQH0PLR-org2JJxQcCc5B0QCISKn924P-o8yBPrK8rmhAJ-lgVcNqVG5ibOy2wifsl8gdaHs8VUO7UrsiSO-UoJSpEfkJEokrSV3oyBnnKWFCCTde6uozEQE6jHOqwuWiXvxvw9v11igUmAqta_KcaVWTAC3628n0WeNdyAHoBUAwCMk16Wrk7veT3igJHiaqd7c"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase text-primary">Export Quality / निर्यात गुणवत्ता</span>
+<span class="bg-tertiary-container text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase">Score: 92</span>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-2xl font-bold text-on-surface leading-tight">Basmati Rice (1121)</h3>
+<p class="text-sm font-medium text-zinc-500">बासमती चावल (1121)</p>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-sm font-medium text-on-surface-variant">Suman Devi</span>
+<div class="flex items-center gap-1 bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-0.5 rounded-full text-[9px] font-bold">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                            VERIFIED / सत्यापित
+                                        </div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-2xl font-black text-primary">₹85<span class="text-sm font-normal text-on-surface-variant">/kg</span></p>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mt-1">Min / कम से कम: 200kg</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="bg-surface-container-low p-3 rounded-xl">
+<p class="text-[9px] font-bold text-on-surface-variant uppercase mb-1">Stock / उपलब्ध स्टॉक</p>
+<p class="font-bold text-lg leading-tight">4.2 Tons</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-xl">
+<p class="text-[9px] font-bold text-on-surface-variant uppercase mb-1">Distance / दूरी</p>
+<p class="font-bold text-lg leading-tight">118 KM</p>
+</div>
+</div>
+<div class="mt-auto space-y-3">
+<div class="flex gap-3">
+<button class="flex-1 py-3 bg-surface-container text-on-surface font-bold rounded-xl flex flex-col items-center justify-center hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">videocam</span>
+<span class="text-xs">Video Inspect</span>
+</div>
+<span class="text-[9px] font-medium opacity-60">वीडियो निरीक्षण</span>
+</button>
+<button class="flex-1 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-xl flex flex-col items-center justify-center hover:opacity-90 transition-opacity">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">chat</span>
+<span class="text-xs">Chat</span>
+</div>
+<span class="text-[9px] font-medium opacity-60">बातचीत</span>
+</button>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex flex-col items-center">
+<span>Buy Now</span>
+<span class="text-[10px] font-normal opacity-90">अभी खरीदें</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating AI Button & Tooltip -->
+<div class="fixed bottom-24 right-6 md:bottom-10 md:right-10 z-[100] flex flex-col items-end gap-3 group">
+<!-- Tooltip -->
+<div class="bg-white dark:bg-zinc-800 text-on-surface border border-zinc-200 dark:border-zinc-700 p-4 rounded-2xl shadow-2xl max-w-xs md:max-w-sm mb-2 transform scale-95 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 origin-bottom-right">
+<p class="font-bold text-sm text-primary mb-1">Need help finding the best crops? Tap here!</p>
+<p class="text-xs text-on-surface-variant italic">Kya aapko sahi fasal dhoondhne mein madad chahiye? Yahan dabayein!</p>
+<div class="absolute bottom-[-10px] right-8 w-5 h-5 bg-white dark:bg-zinc-800 border-r border-b border-zinc-200 dark:border-zinc-700 transform rotate-45"></div>
+</div>
+<!-- Saathi Didi Floating Action Button -->
+<button class="float-anim w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full shadow-[0_10px_40px_-10px_rgba(249,115,22,0.6)] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all relative">
+<span class="material-symbols-outlined text-3xl md:text-4xl">support_agent</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 border-2 border-white rounded-full"></div>
+</button>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-[2.5rem]">
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[9px] font-bold uppercase tracking-wider mt-1 text-center">Home<br/><span class="font-normal lowercase opacity-70">घर</span></span>
+</div>
+<div class="flex flex-col items-center justify-center bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 rounded-full px-5 py-2">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[9px] font-bold uppercase tracking-wider mt-1 text-center">Market<br/><span class="font-normal lowercase opacity-70">बाज़ार</span></span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400">
+<span class="material-symbols-outlined">cloud</span>
+<span class="text-[9px] font-bold uppercase tracking-wider mt-1 text-center">Weather<br/><span class="font-normal lowercase opacity-70">मौसम</span></span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400">
+<span class="material-symbols-outlined">mic</span>
+<span class="text-[9px] font-bold uppercase tracking-wider mt-1 text-center">Help<br/><span class="font-normal lowercase opacity-70">मदद</span></span>
+</div>
+</nav>
+</body></html>

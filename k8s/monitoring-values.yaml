@@ -1,0 +1,23 @@
+# Values for kube-prometheus-stack (Helm) suitable for local Docker Desktop Kubernetes.
+# Keep this minimal: the goal is to show K8s health metrics in Grafana quickly.
+
+grafana:
+  enabled: true
+  adminPassword: "admin"
+  service:
+    type: ClusterIP
+
+prometheus:
+  enabled: true
+  prometheusSpec:
+    retention: 12h
+
+alertmanager:
+  enabled: false
+
+kubeStateMetrics:
+  enabled: true
+
+nodeExporter:
+  enabled: true
+

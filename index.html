@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sarthi Setu — सारथी सेतु</title>
+    <meta name="description" content="Farm se Market tak. Mandi prices, buyers and transport in one simple app for MP farmers." />
+    <meta name="theme-color" content="#16a34a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes scaleIn { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
+      .anim-fade-up { animation: fadeInUp 0.6s ease-out both; }
+      .anim-fade { animation: fadeIn 0.5s ease-out both; }
+      .anim-scale { animation: scaleIn 0.5s ease-out both; }
+      .anim-delay-1 { animation-delay: 0.1s; }
+      .anim-delay-2 { animation-delay: 0.2s; }
+      .anim-delay-3 { animation-delay: 0.3s; }
+      .anim-delay-4 { animation-delay: 0.4s; }
+      .anim-delay-5 { animation-delay: 0.5s; }
+      @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      .ticker-scroll { animation: ticker 30s linear infinite; }
+      .ticker-scroll:hover { animation-play-state: paused; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50 text-gray-900 saarthi-v2">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

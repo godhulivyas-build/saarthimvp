@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saarthi - भारत का स्मार्ट कृषि साथी | India's Smart Agri Partner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-primary-fixed-variant": "#005312",
+                "on-error-container": "#93000a",
+                "surface": "#f7fbf0",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#004a75",
+                "primary-fixed": "#a3f69c",
+                "tertiary": "#005a8c",
+                "on-background": "#181d17",
+                "surface-tint": "#1b6d24",
+                "surface-container-high": "#e5eadf",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#eef2e8",
+                "surface-container": "#ebefe5",
+                "background": "#f7fbf0",
+                "tertiary-fixed": "#cee5ff",
+                "on-primary-fixed": "#002204",
+                "outline-variant": "#bfcaba",
+                "on-primary-container": "#cbffc2",
+                "on-secondary-container": "#653900",
+                "error-container": "#ffdad6",
+                "surface-container-low": "#f1f5eb",
+                "secondary": "#8b5000",
+                "on-surface": "#181d17",
+                "surface-variant": "#e0e4da",
+                "primary-fixed-dim": "#88d982",
+                "on-tertiary-fixed": "#001d32",
+                "inverse-surface": "#2d322b",
+                "inverse-primary": "#88d982",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed": "#2c1600",
+                "secondary-fixed": "#ffdcbe",
+                "secondary-fixed-dim": "#ffb870",
+                "on-secondary-fixed-variant": "#693c00",
+                "tertiary-fixed-dim": "#96ccff",
+                "on-primary": "#ffffff",
+                "surface-bright": "#f7fbf0",
+                "on-secondary": "#ffffff",
+                "outline": "#707a6c",
+                "tertiary-container": "#0073b2",
+                "surface-container-highest": "#e0e4da",
+                "on-error": "#ffffff",
+                "primary": "#0d631b",
+                "secondary-container": "#ff9800",
+                "on-surface-variant": "#40493d",
+                "surface-dim": "#d7dbd2",
+                "on-tertiary-container": "#e9f2ff",
+                "primary-container": "#2e7d32"
+              },
+              "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+              },
+              "fontFamily": {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7fbf0; color: #181d17; }
+        .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); }
+        .hero-gradient { background: linear-gradient(135deg, #0d631b 0%, #2e7d32 100%); }
+        @keyframes pulse-ring {
+          0% { transform: scale(0.8); opacity: 0.5; }
+          100% { transform: scale(1.5); opacity: 0; }
+        }
+        .pulse-btn::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: inherit;
+          border-radius: inherit;
+          z-index: -1;
+          animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Saathi Didi Floating Action Button -->
+<div class="fixed bottom-24 right-6 md:bottom-8 md:right-8 z-[60] flex flex-col items-center gap-2 group">
+<div class="bg-white px-4 py-2 rounded-lg shadow-xl text-xs font-bold text-secondary mb-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-secondary-fixed">
+        पूछें सारथी दीदी से! / Ask Saathi Didi!
+    </div>
+<button class="pulse-btn w-16 h-16 md:w-20 md:h-20 bg-secondary-container text-on-secondary-container rounded-full shadow-2xl flex items-center justify-center relative active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-4xl">mic</span>
+<div class="absolute -top-1 -right-1 bg-red-500 w-4 h-4 rounded-full border-2 border-white"></div>
+</button>
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md shadow-sm">
+<nav class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<div class="text-2xl font-bold text-green-800 dark:text-green-500 headline tracking-tighter">Saarthi</div>
+</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center space-x-6">
+<a class="text-green-700 dark:text-green-400 font-bold flex flex-col items-center" href="#">
+<span class="text-sm">Home</span>
+<span class="text-[10px] opacity-70">होम</span>
+</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-green-50 px-3 py-1 rounded-lg transition-colors flex flex-col items-center" href="#">
+<span class="text-sm">Marketplace</span>
+<span class="text-[10px] opacity-70">मार्केट</span>
+</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-green-50 px-3 py-1 rounded-lg transition-colors flex flex-col items-center" href="#">
+<span class="text-sm">Mandi Prices</span>
+<span class="text-[10px] opacity-70">मंडी भाव</span>
+</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:bg-green-50 px-3 py-1 rounded-lg transition-colors flex flex-col items-center" href="#">
+<span class="text-sm">Logistics</span>
+<span class="text-[10px] opacity-70">लॉजिस्टिक्स</span>
+</a>
+</div>
+<div class="flex items-center space-x-4">
+<div class="hidden sm:flex flex-col items-end leading-tight text-zinc-500 mr-2">
+<span class="text-xs font-bold">English / हिंदी</span>
+<span class="text-[10px]">Bilingual Mode</span>
+</div>
+<span class="material-symbols-outlined text-zinc-600 cursor-pointer p-2 hover:bg-green-50 rounded-full transition-colors">translate</span>
+<button class="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition-all scale-95 active:scale-90 flex flex-col items-center">
+<span class="text-sm">Login</span>
+<span class="text-[10px] font-normal leading-none">लॉगिन</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="px-6 py-12 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+<div class="order-2 md:order-1">
+<h1 class="text-4xl md:text-6xl font-extrabold text-primary headline leading-tight mb-4">
+                भारत का स्मार्ट <span class="text-secondary">कृषि साथी</span><br/>
+<span class="text-2xl md:text-3xl block mt-2 text-on-surface-variant font-semibold">India's Smart Agri Partner</span>
+</h1>
+<p class="text-lg text-on-surface-variant mb-10 leading-relaxed max-w-lg">
+                Sell crops faster, get fair mandi price, book transport instantly.<br/>
+                अपनी फसल जल्दी बेचें, सही मंडी भाव पाएं और तुरंत ट्रक बुक करें।
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-12">
+<button class="bg-primary hover:primary-container text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg flex flex-col items-center justify-center transition-all group">
+<span class="flex items-center">Get Started <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span></span>
+<span class="text-xs font-normal opacity-80 mt-1">शुरुआत करें</span>
+</button>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-xl font-bold text-lg shadow-md flex flex-col items-center justify-center transition-all">
+<span class="flex items-center">Talk to Saathi Didi 🎤</span>
+<span class="text-xs font-normal opacity-80 mt-1">सारथी दीदी से बात करें</span>
+</button>
+</div>
+<!-- Trust Badges -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">verified_user</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Secure Payments</span>
+</div>
+<span class="text-[10px] text-zinc-500 pl-8">सुरक्षित भुगतान</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Verified Buyers</span>
+</div>
+<span class="text-[10px] text-zinc-500 pl-8">सत्यापित खरीदार</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">location_on</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Live Tracking</span>
+</div>
+<span class="text-[10px] text-zinc-500 pl-8">लाइव ट्रैकिंग</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">record_voice_over</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">Voice Support</span>
+</div>
+<span class="text-[10px] text-zinc-500 pl-8">वॉयस सपोर्ट</span>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 relative">
+<div class="aspect-square rounded-xl overflow-hidden shadow-2xl relative z-10 border-4 border-white">
+<img alt="Indian farmer with smartphone" class="w-full h-full object-cover" data-alt="Modern Indian farmer in a field holding a smartphone, with a large truck loaded with agricultural produce in the blurred background, cinematic golden light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB43u22HqHhai6NMTMSb4EedzTHJi6ztugaxs1-iofkc_cydLOIT0MjqLZglKnSRzaUxiUVgN26cwxytjs7qAJ9FE-wMI9zn9loGmlO8IB5Pv7FXo0Z5rlEh_q6DPVCpMhTdqOl99G3ZU_Bmm9pEuPBYR3wXMzFaKT9Uf2HXRxB4QrvoJAYIEdicPS00r0KBO8VTVGO_LQSWQknuXQ0HZoqMNa9FBltSnFSMkOjG_zUnL6HGXqdTT4lO816wSgLhfKwQln1zmPTENs"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-xl z-20 flex items-center gap-4">
+<div class="bg-green-100 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary text-3xl">trending_up</span>
+</div>
+<div>
+<p class="text-zinc-500 text-xs font-medium uppercase">Mandi Price Increase / मंडी भाव वृद्धि</p>
+<p class="text-primary text-xl font-black">+24.5% Today / आज</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Live Metrics Section -->
+<section class="bg-surface-container-low py-20 px-6">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="text-center p-8 bg-surface rounded-xl shadow-sm border-b-4 border-primary">
+<p class="text-5xl font-black text-primary headline mb-2">50,000+</p>
+<p class="text-on-surface-variant font-bold uppercase tracking-widest text-sm">Verified Farmers</p>
+<p class="text-zinc-500 text-xs mt-1">सत्यापित किसान</p>
+</div>
+<div class="text-center p-8 bg-surface rounded-xl shadow-sm border-b-4 border-secondary">
+<p class="text-5xl font-black text-secondary headline mb-2">12.5k</p>
+<p class="text-on-surface-variant font-bold uppercase tracking-widest text-sm">Monthly Trips</p>
+<p class="text-zinc-500 text-xs mt-1">मासिक ट्रिप्स</p>
+</div>
+<div class="text-center p-8 bg-surface rounded-xl shadow-sm border-b-4 border-tertiary">
+<p class="text-5xl font-black text-tertiary headline mb-2">₹150Cr</p>
+<p class="text-on-surface-variant font-bold uppercase tracking-widest text-sm">Farmer Revenue</p>
+<p class="text-zinc-500 text-xs mt-1">किसानों की आय</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid Features -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold headline mb-2">Smart Agriculture Ecosystem</h2>
+<p class="text-xl text-primary font-bold">स्मार्ट कृषि पारिस्थितिकी तंत्र</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:min-h-[600px]">
+<!-- Mandi Prices -->
+<div class="md:col-span-2 md:row-span-1 bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group border border-outline-variant/10">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">trending_up</span>
+<h3 class="text-2xl font-bold headline mb-2">Live Mandi Prices <span class="text-lg font-normal text-zinc-400">/ लाइव मंडी भाव</span></h3>
+<p class="text-on-surface-variant">Real-time rates from 500+ APMC mandis across India.<br/>भारत भर की 500+ APMC मंडियों से वास्तविक समय के भाव।</p>
+</div>
+<div class="absolute right-0 bottom-0 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[120px]">analytics</span>
+</div>
+</div>
+<!-- Weather -->
+<div class="md:col-span-1 bg-tertiary-container p-8 rounded-xl text-white shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-4xl mb-4">cloud</span>
+<h3 class="text-xl font-bold headline mb-1">Weather Alerts</h3>
+<p class="text-blue-100 text-xs mb-3">Hyper-local rain alerts.</p>
+<h3 class="text-lg font-bold headline mb-1">मौसम अलर्ट</h3>
+<p class="text-blue-100 text-xs">स्थानीय बारिश की चेतावनी।</p>
+</div>
+<!-- Logistics -->
+<div class="md:col-span-1 bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-outline-variant/15">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">local_shipping</span>
+<h3 class="text-xl font-bold headline mb-1">Route Sync</h3>
+<p class="text-zinc-500 text-xs mb-3">AI-optimized routes.</p>
+<h3 class="text-lg font-bold headline mb-1">रूट सिंक</h3>
+<p class="text-zinc-500 text-xs">AI द्वारा अनुकूलित रास्ते।</p>
+</div>
+<!-- Direct Buyers -->
+<div class="md:col-span-1 bg-secondary-container p-8 rounded-xl text-on-secondary-container shadow-sm hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-4xl mb-4">handshake</span>
+<h3 class="text-xl font-bold headline mb-1">Direct Buyers</h3>
+<p class="text-on-secondary-container/80 text-xs mb-3">Verified retailers &amp; exporters.</p>
+<h3 class="text-lg font-bold headline mb-1">सीधे खरीदार</h3>
+<p class="text-on-secondary-container/80 text-xs">सत्यापित खुदरा विक्रेता।</p>
+</div>
+<!-- AI Assistant -->
+<div class="md:col-span-3 bg-primary p-8 rounded-xl text-white flex items-center justify-between shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="max-w-md relative z-10">
+<h3 class="text-3xl font-black headline mb-2">Saarthi AI Assistant</h3>
+<h4 class="text-xl font-bold text-primary-fixed mb-4">सारथी AI सहायक से मिलें</h4>
+<p class="text-primary-fixed leading-relaxed mb-6">Talk in your local language. Ask about crop diseases, market trends, or book a truck with just your voice.<br/>अपनी स्थानीय भाषा में बात करें। फसल रोगों, बाजार रुझानों के बारे में पूछें, या सिर्फ अपनी आवाज से ट्रक बुक करें।</p>
+<button class="bg-white text-primary px-8 py-4 rounded-full font-bold flex flex-col items-center gap-0 shadow-xl active:scale-95 transition-transform">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined">mic</span> Try Voice Search</span>
+<span class="text-[10px] font-normal">वॉयस सर्च आज़माएं</span>
+</button>
+</div>
+<div class="hidden md:block absolute right-0 bottom-0 h-full w-1/3">
+<img alt="AI Farmer Assistance" class="h-full w-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK6CiGl6fK6hlJ5h1J6XjhbLQcwydtb5K1tnAGOhZbXPp7Vg2FHV8kHkaHZpAuT0yn6tGd_M7i-zs14RYJNU0pxZFlb-tfLkhvyWvs9sAC4keH04pszbMYBp4B2tv7rd7PTD07Bz-ID_kXQPAs96fRU8KjwzL-rh1685tlXeR1fV4GNumnzJCbSLrSuPQQ2dp6lZfK70YCJZsWAPEDN6A433mT3cb9dMxLirAkOIkszSqm5L8jy-qj_GhKCeF18-x2fNdfYubdg80"/>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works Section -->
+<section class="bg-surface-container py-24 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-xl">
+<h2 class="text-4xl font-extrabold headline mb-2">Simplified Logistics Flow</h2>
+<p class="text-xl font-bold text-primary mb-4">सरलीकृत रसद प्रवाह</p>
+<p class="text-on-surface-variant">From farm to world in three easy steps. No paperwork, no middlemen.<br/>खेत से दुनिया तक तीन आसान चरणों में। कोई कागजी कार्रवाई नहीं, कोई बिचौलिया नहीं।</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group">
+<div class="bg-surface p-10 rounded-xl shadow-sm group-hover:-translate-y-2 transition-transform h-full flex flex-col">
+<div class="text-6xl font-black text-primary-fixed-dim/30 headline mb-6">01</div>
+<h4 class="text-2xl font-bold headline mb-2">List Produce</h4>
+<p class="text-lg font-medium text-primary mb-4">फसल की सूची बनाएं</p>
+<p class="text-on-surface-variant text-sm">Upload photos and specify variety. Get matched with verified buyers instantly.<br/>फोटो अपलोड करें। तुरंत सत्यापित खरीदारों से जुड़ें।</p>
+</div>
+</div>
+<div class="group">
+<div class="bg-surface p-10 rounded-xl shadow-sm group-hover:-translate-y-2 transition-transform h-full flex flex-col">
+<div class="text-6xl font-black text-primary-fixed-dim/30 headline mb-6">02</div>
+<h4 class="text-2xl font-bold headline mb-2">Book Transport</h4>
+<p class="text-lg font-medium text-primary mb-4">वाहन बुक करें</p>
+<p class="text-on-surface-variant text-sm">Choose from mini-trucks to haulers. Transparent pricing and live tracking.<br/>मिनी-ट्रक से बड़े ट्रक तक चुनें। पारदर्शी दरें और लाइव ट्रैकिंग।</p>
+</div>
+</div>
+<div class="group">
+<div class="bg-surface p-10 rounded-xl shadow-sm group-hover:-translate-y-2 transition-transform h-full flex flex-col">
+<div class="text-6xl font-black text-primary-fixed-dim/30 headline mb-6">03</div>
+<h4 class="text-2xl font-bold headline mb-4">Receive Payment</h4>
+<p class="text-lg font-medium text-primary mb-4">भुगतान प्राप्त करें</p>
+<p class="text-on-surface-variant text-sm">Secure escrow payments. Money credited immediately after delivery confirmation.<br/>सुरक्षित भुगतान। डिलीवरी की पुष्टि के बाद तुरंत पैसा खाते में।</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Persona Cards -->
+<section class="py-24 px-6 max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-extrabold headline mb-2">Solutions for Everyone</h2>
+<p class="text-xl font-bold text-primary">सभी के लिए समाधान</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Farmer -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm group border border-outline-variant/10">
+<div class="h-48 overflow-hidden">
+<img alt="Farmer" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBueYD6LAZGa_bwDGL80DIsQ97gtMDb4lB-peky1UEKUngT-e8aVNJ8_JUYSYDGdcNFyj0APf_vGkAwgE6XHsJfV_gNtDLAvGHTEKrsIvew57yMtg4AOrd169Wo39laghMmP_FMW_-nlSvs96hD2TUvr_OTXT9qBOFuJr8fqDDx0Dsj4eLkAiWM3RXqabYfk8QhYRFy2dX_WHePzb7k5Aj8gyEUUpFMtUcAZ7qxKOWWPfQi4LD2VOIoYfZsiEpbstgO1oTVjSz5DlA"/>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold headline mb-1">Farmers</h4>
+<p class="text-sm font-semibold text-primary mb-2">किसान</p>
+<p class="text-on-surface-variant text-sm mb-4">Get direct market access and maximize harvest profits.</p>
+<a class="text-primary font-bold text-sm flex items-center gap-1" href="#">Learn More / अधिक जानें <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+</div>
+</div>
+<!-- Buyer -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm group border border-outline-variant/10">
+<div class="h-48 overflow-hidden">
+<img alt="Retailer" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjTGfBEggGSwBnPTw2BeGrVMOzWzvtkDnOOAmkm-ehMZcrz07xccO6MK8691oFY7FAM8_2IjPLc6aaQwvJKV-law5Bv2YBe-TwlJ_rOFrDb4x_MAkOFwHFv-5VLwIxjMlesT78chuPy93Yygdvv_cSw39ACOhXckZ7WMBRg5sjeB1G3rW56SKt0RVBGgtOlg_V-Kow0wYYoBnWd-biSthE8GbGgOC1MpRn5TrKuRHkxUSQlr_vDZ7b3eipRyaHtBP9jRniO-nuEOk"/>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold headline mb-1">Buyers</h4>
+<p class="text-sm font-semibold text-primary mb-2">खरीदार</p>
+<p class="text-on-surface-variant text-sm mb-4">Source high-quality produce with full traceability.</p>
+<a class="text-primary font-bold text-sm flex items-center gap-1" href="#">Learn More / अधिक जानें <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+</div>
+</div>
+<!-- Logistics -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm group border border-outline-variant/10">
+<div class="h-48 overflow-hidden">
+<img alt="Truck Driver" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATiE9HLcywtACYpygITm4dguekzh4u-rZL8QTCpm1dDyqlBhJMtGRmIs_BeH468Xd5KZ8KtCA1cCVr1CUct364jpZW_YnbEsKkMugRBzMilNh54FOXdmLbUCpCdVmGhlht00hu9of5J5DN8M0ZDEz8cht9WBOcTwMcxp-jyP0aYPK5eelUB75epI1amy18s57vrCiNpK26pnUxN96h0keio3QaHjVQH5h8Sco12v3ZjNgkwDZdxd4s2H5MbT9tHLWtGdzYuzvjBdM"/>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold headline mb-1">Logistics</h4>
+<p class="text-sm font-semibold text-primary mb-2">लॉजिस्टिक्स</p>
+<p class="text-on-surface-variant text-sm mb-4">Reduce idle time and get consistent load requests.</p>
+<a class="text-primary font-bold text-sm flex items-center gap-1" href="#">Learn More / अधिक जानें <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+</div>
+</div>
+<!-- Cold Storage -->
+<div class="bg-white rounded-xl overflow-hidden shadow-sm group border border-outline-variant/10">
+<div class="h-48 overflow-hidden">
+<img alt="Cold Storage" class="w-full h-full object-cover group-hover:scale-110 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwEM_FKu-CYjcD1vcK_nQayetOwcbuoVbjJ4NNmLYxkkZX1QOvZokiYgIjDXU2cUGGzQ2txTQtMlArnHH104wbkyIRZLWkpzsJ2_t2DyJw5RVp6g-VfpBDXUoQpICr7WEMQPtQHuzXwqIP_gNXWbfloaXHUfklJMgGXUacyR_BfPQk10yxdjAejlsYbyh6W0XgmCuatWv44zSpfZKZjHuSzdLmRPvkqDMNqklIC51Pi1uH2NBkKKE3uIbSfl-xr8taajsEs7v1BH8"/>
+</div>
+<div class="p-6">
+<h4 class="text-xl font-bold headline mb-1">Cold Storage</h4>
+<p class="text-sm font-semibold text-primary mb-2">कोल्ड स्टोरेज</p>
+<p class="text-on-surface-variant text-sm mb-4">Monetize your space and connect with farmers.</p>
+<a class="text-primary font-bold text-sm flex items-center gap-1" href="#">Learn More / अधिक जानें <span class="material-symbols-outlined text-sm">chevron_right</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="bg-primary-container text-white py-24 px-6">
+<div class="max-w-4xl mx-auto text-center">
+<span class="material-symbols-outlined text-6xl text-primary-fixed mb-8">format_quote</span>
+<h3 class="text-3xl md:text-4xl font-bold headline italic mb-10 leading-snug">"पहले मुझे मंडी के भाव के लिए घंटों इंतज़ार करना पड़ता था। अब सारथी की वजह से मैं अपने घर बैठे सबसे अच्छा दाम चुन पाता हूँ और ट्रक भी तुरंत मिल जाता है।"</h3>
+<div class="flex items-center justify-center gap-4">
+<div class="w-16 h-16 rounded-full border-2 border-primary-fixed overflow-hidden">
+<img alt="Testimonial User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkDuGjscBkZFXzhaQzpaJXaCAQb28UBMBGxAFIjOP7FQrP1mHUx7Ofni0hVVSiqMk1odt_3xKK-4G5zuR6fTppWgpChmUQ0sJjBalLzfLB1vE7U-GLzMgAtEMV7eT_qgWOOsH09d5nplsBhTCMaD5uhF3MFDha-8T7ODiwH2XWxQvQV9SSjRVy5fBVBNSNxCJPvUPNMauTK0fR5T7Ya2gOyt_9UFMeh4MHgS-IJNwcpEOJnwZ0ssCKD04d6lm57lFYM1-e-ioNkVI"/>
+</div>
+<div class="text-left">
+<p class="font-bold text-xl">Rajesh Kumar</p>
+<p class="text-primary-fixed text-sm">Farmer, Nashik, Maharashtra</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-900 text-zinc-300 py-16 px-6">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div>
+<div class="text-3xl font-black text-green-500 headline mb-6">Saarthi</div>
+<p class="text-zinc-500 leading-relaxed">Revolutionizing Indian agriculture through technology, transparency, and trust.<br/>तकनीक, पारदर्शिता और भरोसे के साथ भारतीय कृषि में क्रांति।</p>
+</div>
+<div>
+<h5 class="text-white font-bold headline mb-6">Product / उत्पाद</h5>
+<ul class="space-y-4">
+<li><a class="hover:text-primary transition-colors flex justify-between" href="#"><span>Marketplace</span> <span class="text-[10px] opacity-50">मार्केटप्लेस</span></a></li>
+<li><a class="hover:text-primary transition-colors flex justify-between" href="#"><span>Mandi Intelligence</span> <span class="text-[10px] opacity-50">मंडी जानकारी</span></a></li>
+<li><a class="hover:text-primary transition-colors flex justify-between" href="#"><span>Logistics Network</span> <span class="text-[10px] opacity-50">लॉजिस्टिक्स</span></a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold headline mb-6">Support / सहायता</h5>
+<ul class="space-y-4">
+<li><a class="hover:text-primary transition-colors flex justify-between" href="#"><span>Help Center</span> <span class="text-[10px] opacity-50">सहायता केंद्र</span></a></li>
+<li><a class="hover:text-primary transition-colors flex justify-between" href="#"><span>Terms of Service</span> <span class="text-[10px] opacity-50">नियम और शर्तें</span></a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold headline mb-6">App / ऐप</h5>
+<p class="text-zinc-500 text-xs mb-6">Available in 12 regional languages.<br/>12 क्षेत्रीय भाषाओं में उपलब्ध।</p>
+<div class="space-y-3">
+<button class="w-full bg-zinc-800 hover:bg-zinc-700 py-2 rounded-lg flex items-center justify-center gap-3 transition-colors border border-zinc-700">
+<span class="material-symbols-outlined">play_store_installed</span>
+<div class="text-left">
+<p class="text-[10px] uppercase">Google Play</p>
+<p class="font-bold leading-none text-xs">डाउनलोड करें</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto border-t border-zinc-800 mt-16 pt-8 text-center text-xs text-zinc-600">
+        © 2024 Saarthi Technologies. Crafted with ❤️ for Indian Farmers.
+    </div>
+</footer>
+<!-- Mobile Bottom Navigation -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl shadow-[0_-8px_30px_rgba(0,0,0,0.1)] rounded-t-[2rem]">
+<div class="flex flex-col items-center justify-center text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[9px] font-bold uppercase">Home/होम</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[9px] font-bold uppercase">Bookings</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-[9px] font-bold uppercase">Mandi</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[9px] font-bold uppercase">Profile</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saarthi - Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#005312",
+                        "on-error-container": "#93000a",
+                        "surface": "#f7fbf0",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004a75",
+                        "primary-fixed": "#a3f69c",
+                        "tertiary": "#005a8c",
+                        "on-background": "#181d17",
+                        "surface-tint": "#1b6d24",
+                        "surface-container-high": "#e5eadf",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#eef2e8",
+                        "surface-container": "#ebefe5",
+                        "background": "#f7fbf0",
+                        "tertiary-fixed": "#cee5ff",
+                        "on-primary-fixed": "#002204",
+                        "outline-variant": "#bfcaba",
+                        "on-primary-container": "#cbffc2",
+                        "on-secondary-container": "#653900",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f1f5eb",
+                        "secondary": "#8b5000",
+                        "on-surface": "#181d17",
+                        "surface-variant": "#e0e4da",
+                        "primary-fixed-dim": "#88d982",
+                        "on-tertiary-fixed": "#001d32",
+                        "inverse-surface": "#2d322b",
+                        "inverse-primary": "#88d982",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#2c1600",
+                        "secondary-fixed": "#ffdcbe",
+                        "secondary-fixed-dim": "#ffb870",
+                        "on-secondary-fixed-variant": "#693c00",
+                        "tertiary-fixed-dim": "#96ccff",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7fbf0",
+                        "on-secondary": "#ffffff",
+                        "outline": "#707a6c",
+                        "tertiary-container": "#0073b2",
+                        "surface-container-highest": "#e0e4da",
+                        "on-error": "#ffffff",
+                        "primary": "#0d631b",
+                        "secondary-container": "#ff9800",
+                        "on-surface-variant": "#40493d",
+                        "surface-dim": "#d7dbd2",
+                        "on-tertiary-container": "#e9f2ff",
+                        "primary-container": "#2e7d32"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .saarthi-didi-pulse {
+            animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(13, 99, 27, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(13, 99, 27, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(13, 99, 27, 0); }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col relative">
+<!-- Saarthi Didi Floating Assistant -->
+<div class="fixed bottom-32 right-6 z-[60] flex flex-col items-end gap-3 group">
+<div class="bg-white p-4 rounded-2xl shadow-xl border border-primary-container max-w-[200px] transform translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<p class="text-sm font-bold text-primary mb-1">Saarthi Didi</p>
+<p class="text-xs text-on-surface-variant leading-tight">Namaste! Need help with registration? Tap me!<br/><span class="font-semibold">नमस्ते! क्या आपको सहायता चाहिए?</span></p>
+</div>
+<button class="w-16 h-16 bg-primary rounded-full shadow-2xl flex items-center justify-center text-white saarthi-didi-pulse hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">support_agent</span>
+</button>
+</div>
+<header class="flex justify-between items-center px-6 py-6 w-full fixed top-0 z-50">
+<div class="text-2xl font-extrabold text-primary tracking-tight">Saarthi</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-sm">language</span>
+<span class="text-xs font-bold uppercase tracking-wider">English / हिंदी</span>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-6 pt-24 pb-12 max-w-2xl mx-auto w-full">
+<!-- Step 1: Mobile & OTP (Bilingual Active View) -->
+<section class="w-full space-y-12" id="onboarding-step">
+<!-- Progress Indicator -->
+<div class="flex gap-2 w-full justify-center mb-8">
+<div class="h-2 w-12 rounded-full bg-primary"></div>
+<div class="h-2 w-12 rounded-full bg-surface-container-highest"></div>
+<div class="h-2 w-12 rounded-full bg-surface-container-highest"></div>
+<div class="h-2 w-12 rounded-full bg-surface-container-highest"></div>
+</div>
+<!-- Content Header -->
+<div class="text-center space-y-4">
+<div class="space-y-1">
+<h1 class="text-3xl md:text-5xl font-extrabold text-on-surface leading-tight">Your <span class="text-primary italic">Digital Krishi</span> Journey.</h1>
+<h2 class="text-2xl md:text-4xl font-extrabold text-primary leading-tight">आपकी डिजिटल कृषि यात्रा</h2>
+</div>
+<div class="space-y-1">
+<p class="text-base text-on-surface-variant max-w-md mx-auto">Verify your mobile number to get started with Saarthi.</p>
+<p class="text-base text-on-surface-variant font-medium max-w-md mx-auto">सारथी के साथ शुरू करने के लिए अपना मोबाइल नंबर सत्यापित करें।</p>
+</div>
+</div>
+<!-- Input Form Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm space-y-8 w-full">
+<div class="space-y-4">
+<label class="block text-sm font-bold text-primary uppercase tracking-widest ml-1">
+                        Mobile Number / मोबाइल नंबर
+                    </label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-lg font-bold text-on-surface-variant">+91</span>
+<input class="w-full pl-16 pr-4 py-5 bg-surface-container-highest border-none rounded-xl text-xl font-bold focus:ring-4 focus:ring-primary-fixed outline-none transition-all" placeholder="98765 43210" type="tel"/>
+</div>
+</div>
+<div class="space-y-6">
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-white text-lg font-bold rounded-xl shadow-lg shadow-primary/20 active:scale-95 transition-transform flex flex-col items-center justify-center leading-tight">
+<span>Get Verification Code</span>
+<span class="text-sm font-medium opacity-90">सत्यापन कोड प्राप्त करें</span>
+</button>
+<div class="text-center text-xs text-on-surface-variant px-4 space-y-1">
+<p>By continuing, you agree to Saarthi's <span class="text-primary font-bold">Terms</span> and <span class="text-primary font-bold">Privacy Policy</span>.</p>
+<p>जारी रखकर, आप सारथी की <span class="text-primary font-bold">सेवा शर्तों</span> और <span class="text-primary font-bold">गोपनीयता नीति</span> से सहमत हैं।</p>
+</div>
+</div>
+</div>
+<!-- Image Bleed Accent -->
+<div class="relative h-64 w-full rounded-xl overflow-hidden mt-12">
+<img alt="Wide cinematic shot of a modern Indian farmer holding a smartphone standing in a lush green wheat field at sunrise" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQSYyunwBo74BDxrTR3bXspPEiKPWorWkNPMz7hNrzb1el2ZT-aq71KWWY8ZPThh4Cjk0U2xWMjqRcGGTBIyrsrBA_HJ2yk3PcxEvLKHPLcSecsUW9YjWe8vtLoo-j3Uld154rAVzjTHNXVHNKi4_hC5dnMZfO3M2v1DzHp1PgA0q1DOCQ6trbSALb3vdrW8nGpXqxqy82i-cCw-8j3vJjblBuTtgx4NeC30qJ64OHPBqqJgLejVm_PZv_LE35tkGuK5HOZR2Isjw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="text-xs font-bold uppercase tracking-widest opacity-80">Farmer Community / किसान समुदाय</p>
+<p class="text-2xl font-bold italic">Empowering 10L+ Farmers / १० लाख+ किसानों का सशक्तिकरण</p>
+</div>
+</div>
+</section>
+<!-- Role Selection Preview (Hidden) -->
+<section class="hidden w-full space-y-8 mt-24">
+<div class="text-center space-y-2">
+<h2 class="text-3xl font-extrabold">Choose Your Role / अपनी भूमिका चुनें</h2>
+<p class="text-on-surface-variant">Tell us how you'll use Saarthi today. / हमें बताएं कि आप आज सारथी का उपयोग कैसे करेंगे।</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Farmer Card -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4 border-2 border-primary active:scale-95 transition-all">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white">
+<span class="material-symbols-outlined">agriculture</span>
+</div>
+<div class="space-y-1">
+<h3 class="text-xl font-bold leading-none">Farmer / किसान</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Sell crops, check mandi rates, get advice.</p>
+</div>
+</div>
+<!-- Buyer Card -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4 hover:bg-surface-container-high transition-all">
+<div class="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div class="space-y-1">
+<h3 class="text-xl font-bold leading-none">Buyer / खरीदार</h3>
+<p class="text-xs text-on-surface-variant leading-relaxed">Source directly from farms across India.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Language Selector Floating Sheet (Bilingual Centric) -->
+<div class="fixed bottom-0 left-0 w-full glass-nav rounded-t-xl px-6 pt-8 pb-10 space-y-6 shadow-2xl border-t border-surface-container-high">
+<div class="flex justify-between items-center border-b border-surface-container-high pb-4">
+<div class="space-y-0.5">
+<h3 class="text-lg font-bold leading-none">Select Language</h3>
+<h3 class="text-lg font-bold text-primary leading-none">भाषा चुनें</h3>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">translate</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex flex-col items-center justify-center px-4 py-5 rounded-xl bg-primary text-white shadow-md transition-all active:scale-95">
+<span class="font-bold text-xl">English</span>
+<span class="text-xs opacity-80">अंग्रेजी</span>
+</button>
+<button class="flex flex-col items-center justify-center px-4 py-5 rounded-xl bg-surface-container-high font-bold transition-all active:scale-95">
+<span class="text-xl">हिंदी</span>
+<span class="text-xs text-on-surface-variant">Hindi</span>
+</button>
+<button class="flex items-center justify-center px-4 py-4 rounded-xl bg-surface-container-high font-bold text-lg hover:bg-surface-container-highest transition-colors">
+                ಕನ್ನಡ
+            </button>
+<button class="flex items-center justify-center px-4 py-4 rounded-xl bg-surface-container-high font-bold text-lg hover:bg-surface-container-highest transition-colors">
+                తెలుగు
+            </button>
+</div>
+</div>
+<!-- Hidden Map Context -->
+<div class="hidden" data-location="New Delhi, India"></div>
+</body></html>

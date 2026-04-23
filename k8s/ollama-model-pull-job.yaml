@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ollama-pull-llama3-2-1b
+  namespace: drdroid-llm
+spec:
+  backoffLimit: 3
+  template:
+    metadata:
+      labels:
+        app: ollama-model-pull
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: pull
+          image: ollama/ollama:latest
+          env:
+            - name: OLLAMA_HOST
+              value: "ollama:11434"
+          command: ["sh", "-lc"]
+          args:
+            - |
+              echo "Pulling model llama3.2:1b..."
+              ollama pull llama3.2:1b
+              echo "Done."
+
