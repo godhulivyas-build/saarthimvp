@@ -232,7 +232,7 @@ export interface V2AuthSession {
   version: 1;
   phone: string;
   name: string;
-  preferredLang: 'hi' | 'en' | 'kn' | 'te';
+  preferredLang: 'hi' | 'en' | 'kn' | 'te' | 'ta';
   persona: SarthiUserRole | null;
   addressLabel: string;
   lat: number | null;

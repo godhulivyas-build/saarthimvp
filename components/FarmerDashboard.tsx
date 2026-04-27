@@ -407,6 +407,108 @@ export const FarmerDashboard: React.FC = () => {
 
   // -------- Views --------
 
+  const FERTILIZER_TIPS: Record<string, Array<{ icon: string; name: string; nameHi: string; dose: string; timing: string; timingHi: string; when: 'all' | 'wet' | 'dry' }>> = {
+    Wheat: [
+      { icon: '🌱', name: 'DAP (18-46-0)', nameHi: 'डीएपी (18-46-0)', dose: '50 kg/acre', timing: 'At sowing', timingHi: 'बुवाई के समय', when: 'all' },
+      { icon: '💧', name: 'Urea', nameHi: 'यूरिया', dose: '25 kg/acre', timing: 'After 21 days', timingHi: '21 दिन बाद', when: 'dry' },
+      { icon: '🌾', name: 'Potash (MOP)', nameHi: 'पोटाश', dose: '20 kg/acre', timing: 'At sowing', timingHi: 'बुवाई के समय', when: 'all' },
+      { icon: '🚫', name: 'Delay urea — soil too wet', nameHi: 'यूरिया रोकें — मिट्टी गीली है', dose: '-', timing: 'Wait for soil to dry first', timingHi: 'पहले मिट्टी सूखने दें', when: 'wet' },
+    ],
+    Soybean: [
+      { icon: '🦠', name: 'Rhizobium Inoculant', nameHi: 'राइज़ोबियम', dose: '250g per 10kg seed', timing: 'Before sowing', timingHi: 'बुवाई से पहले', when: 'all' },
+      { icon: '🌱', name: 'SSP (0-16-0)', nameHi: 'एसएसपी', dose: '50 kg/acre', timing: 'At sowing', timingHi: 'बुवाई के समय', when: 'all' },
+      { icon: '⚠️', name: 'Avoid excess nitrogen — wet soil risk', nameHi: 'अधिक नाइट्रोजन न डालें — गीली मिट्टी', dose: '-', timing: 'High moisture: skip urea', timingHi: 'अधिक नमी: यूरिया न डालें', when: 'wet' },
+    ],
+    Onion: [
+      { icon: '🌱', name: 'NPK 10-26-26', nameHi: 'एनपीके 10-26-26', dose: '50 kg/acre', timing: 'At transplanting', timingHi: 'रोपाई के समय', when: 'all' },
+      { icon: '💧', name: 'Urea top-dressing', nameHi: 'यूरिया टॉप ड्रेसिंग', dose: '20 kg/acre', timing: 'After 30 days (dry only)', timingHi: '30 दिन बाद (सूखे में)', when: 'dry' },
+      { icon: '🧅', name: 'Sulphur (Gypsum)', nameHi: 'सल्फर (जिप्सम)', dose: '10 kg/acre', timing: 'Before transplanting', timingHi: 'रोपाई से पहले', when: 'all' },
+    ],
+    Garlic: [
+      { icon: '🧄', name: 'NPK 10-26-26', nameHi: 'एनपीके 10-26-26', dose: '40 kg/acre', timing: 'At planting', timingHi: 'रोपण के समय', when: 'all' },
+      { icon: '💊', name: 'Sulphur 90%', nameHi: 'सल्फर 90%', dose: '8 kg/acre', timing: 'At planting', timingHi: 'रोपण के समय', when: 'all' },
+    ],
+  };
+
+  const FertilizerSection = () => {
+    const myCropNames = [...new Set(produceItems.map(p => p.crop))].slice(0, 3);
+    const crops = myCropNames.length > 0 ? myCropNames : ['Wheat'];
+    const isMoist = soilMoisture !== null && soilMoisture > 20;
+
+    return (
+      <section className="bg-gradient-to-br from-emerald-50 to-stone-50 rounded-2xl border border-emerald-200 shadow-sm p-5">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="text-2xl">🌿</span>
+          <h2 className="font-extrabold text-stone-800 text-lg">
+            {tUI('Fertilizer Solutions', 'उर्वरक समाधान')}
+          </h2>
+        </div>
+        <p className="text-stone-500 text-sm mb-4">
+          {tUI(
+            `Advice for your ${moistureBand ? (isHi ? moistureBand.labelHi : moistureBand.label) : 'current'} soil conditions`,
+            `आपकी ${moistureBand ? moistureBand.labelHi : 'वर्तमान'} मिट्टी के लिए सुझाव`
+          )}
+        </p>
+
+        {isMoist && (
+          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3 mb-4 flex items-start gap-3">
+            <span className="text-xl shrink-0">⚠️</span>
+            <div>
+              <p className="font-bold text-yellow-800 text-sm">{tUI('High Moisture Advisory', 'अधिक नमी चेतावनी')}</p>
+              <p className="text-yellow-700 text-xs mt-0.5">
+                {tUI(
+                  'Avoid nitrogen-heavy fertilizers now. Wait for soil to dry before applying urea.',
+                  'अभी नाइट्रोजन वाले खाद न डालें। यूरिया से पहले मिट्टी सूखने दें।'
+                )}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {crops.map(cropName => {
+          const tips = FERTILIZER_TIPS[cropName] ?? [
+            { icon: '🌱', name: 'NPK 10-26-26', nameHi: 'एनपीके 10-26-26', dose: '50 kg/acre', timing: 'At sowing', timingHi: 'बुवाई के समय', when: 'all' as const },
+            { icon: '💧', name: 'Urea', nameHi: 'यूरिया', dose: '25 kg/acre', timing: 'After 30 days', timingHi: '30 दिन बाद', when: 'dry' as const },
+          ];
+          const filtered = tips.filter(t => t.when === 'all' || (isMoist && t.when === 'wet') || (!isMoist && t.when === 'dry'));
+          return (
+            <div key={cropName} className="mb-5">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="material-symbols-outlined text-emerald-600 text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>grass</span>
+                <span className="font-bold text-stone-800">{cropName}</span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {filtered.map((tip, i) => (
+                  <div key={i} className="bg-white rounded-xl border border-emerald-100 p-4 flex items-start gap-3 shadow-sm">
+                    <span className="text-2xl shrink-0">{tip.icon}</span>
+                    <div>
+                      <p className="font-bold text-stone-800 text-sm">{isHi ? tip.nameHi : tip.name}</p>
+                      {tip.dose !== '-' && <p className="text-xs text-stone-500 font-medium">{tip.dose}</p>}
+                      <p className="text-xs text-emerald-700 font-semibold mt-1">
+                        📅 {isHi ? tip.timingHi : tip.timing}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+
+        <div className="bg-emerald-700 rounded-xl p-4 flex items-center justify-between mt-2">
+          <div>
+            <p className="font-bold text-white">{tUI('Need Fertilizer / Seeds?', 'उर्वरक या बीज चाहिए?')}</p>
+            <p className="text-emerald-200 text-xs mt-0.5">{tUI('Order via Sarthi marketplace', 'सार्थी मार्केट से मंगाएं')}</p>
+          </div>
+          <button className="bg-white text-emerald-700 font-black py-3 px-5 rounded-xl text-sm flex items-center gap-2 hover:bg-emerald-50 transition-colors active:scale-95">
+            <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
+            {tUI('Buy Now', 'खरीदें')}
+          </button>
+        </div>
+      </section>
+    );
+  };
+
   const HomeView = () => (
     <div className="space-y-6">
       {/* Profile hero */}
@@ -564,6 +666,9 @@ export const FarmerDashboard: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* Fertilizer Solutions */}
+      <FertilizerSection />
 
       {/* Active trips */}
       {activeTrips.length > 0 && (
@@ -1199,9 +1304,9 @@ export const FarmerDashboard: React.FC = () => {
                 <option value="ton">{tUI('Ton', 'टन')}</option>
               </select>
             </div>
-            <div className="col-span-2">
+            <div>
               <label className="text-xs font-bold text-stone-500 block mb-1 uppercase tracking-wider">
-                {tUI('Price per Unit (₹)', 'प्रति इकाई दाम (₹)')}
+                {tUI('Your Price (₹)', 'आपका दाम (₹)')}
               </label>
               <input
                 value={newPrice}
@@ -1210,6 +1315,21 @@ export const FarmerDashboard: React.FC = () => {
                 placeholder="₹ 0"
                 className="w-full border-2 border-stone-200 rounded-xl py-2.5 px-4 focus:border-amber-500 focus:outline-none font-medium text-stone-800"
               />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-stone-500 block mb-1 uppercase tracking-wider">
+                🔒 {tUI('Minimum Price (₹)', 'न्यूनतम दाम (₹)')}
+              </label>
+              <input
+                value={newMinPrice}
+                onChange={e => setNewMinPrice(e.target.value)}
+                type="number"
+                placeholder="₹ 0"
+                className="w-full border-2 border-stone-200 rounded-xl py-2.5 px-4 focus:border-amber-500 focus:outline-none font-medium text-stone-800"
+              />
+              <p className="text-[11px] text-stone-400 mt-1">
+                {tUI('Buyers see this as your floor — you will not sell below this.', 'खरीदार इसे देखेंगे — इससे कम दाम पर नहीं बेचेंगे।')}
+              </p>
             </div>
           </div>
           <div className="flex gap-3">
@@ -1295,7 +1415,7 @@ export const FarmerDashboard: React.FC = () => {
                     )}
                   </div>
                 </div>
-                <div className="grid grid-cols-3 gap-3 mb-4">
+                <div className="grid grid-cols-3 gap-3 mb-3">
                   <div className="bg-stone-50 p-2.5 rounded-xl text-center">
                     <p className="text-base font-black text-amber-700">₹{item.pricePerUnit.toLocaleString()}</p>
                     <p className="text-[10px] text-stone-500 uppercase">/{item.unit}</p>
@@ -1311,6 +1431,17 @@ export const FarmerDashboard: React.FC = () => {
                     <p className="text-[10px] text-stone-500 uppercase">{tUI('Total', 'कुल')}</p>
                   </div>
                 </div>
+                {minPricesMap[item.id] && (
+                  <div className="flex items-center gap-2 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 mb-3">
+                    <span className="material-symbols-outlined text-amber-600 text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>lock</span>
+                    <span className="text-xs font-bold text-amber-800">
+                      {tUI('Min Price', 'न्यूनतम दाम')}: ₹{minPricesMap[item.id].toLocaleString()}/{item.unit}
+                    </span>
+                    <span className="text-[10px] text-stone-400 ml-auto">
+                      {tUI('Visible to all buyers', 'सभी खरीदारों को दिखता है')}
+                    </span>
+                  </div>
+                )}
                 <button
                   onClick={() => {
                     setCropInput(item.crop);

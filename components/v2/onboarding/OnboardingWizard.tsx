@@ -13,11 +13,17 @@ export const OnboardingWizard: React.FC = () => {
   
   // 1 = Welcome/Role, 2 = Phone/OTP, 3 = Farm Details
   const [step, setStep] = useState(1);
-  const [language, setLanguage] = useState(globalLang || 'en');
+  const [language, setLanguage] = useState<string>(globalLang || 'en');
   const [role, setRole] = useState<SarthiUserRole>('farmer');
   
   const isHi = language !== 'en';
   const tUI = (en: string, hi: string) => isHi ? hi : en;
+  const pageT = (en: string, hi: string, kn: string, te: string) => {
+    if (language === 'kn') return kn;
+    if (language === 'te') return te;
+    if (language !== 'en') return hi;
+    return en;
+  };
   
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -55,8 +61,8 @@ export const OnboardingWizard: React.FC = () => {
         </div>
         <main className="w-full max-w-5xl mt-16 pb-24">
           <div className="text-center mb-8">
-            <h1 className="text-[40px] leading-[48px] font-bold tracking-tight mb-2">Welcome to Sarthi</h1>
-            <p className="text-[18px] leading-[28px] max-w-2xl mx-auto" style={{ color: '#494551' }}>Connecting fields, markets, and destinations. Please choose your preferred language to begin.</p>
+            <h1 className="text-[40px] leading-[48px] font-bold tracking-tight mb-2">{pageT('Welcome to Sarthi', 'Sarthi में आपका स्वागत है', 'Sarthi ಗೆ ಸ್ವಾಗತ', 'Sarthi కి స్వాగతం')}</h1>
+            <p className="text-[18px] leading-[28px] max-w-2xl mx-auto" style={{ color: '#494551' }}>{pageT('Please choose your preferred language to begin.', 'शुरू करने के लिए अपनी पसंदीदा भाषा चुनें।', 'ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ.', 'ప్రారంభించడానికి మీ భాషను ఎంచుకోండి.')}</p>
           </div>
           <section className="mb-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -76,13 +82,13 @@ export const OnboardingWizard: React.FC = () => {
                 <p className="text-[12px] leading-[16px] font-medium mt-2" style={{ color: '#7a7582' }}>हिंदी भाषा अनुभव</p>
                 <div className={`absolute bottom-0 left-0 w-full h-1 transform transition-transform ${language === 'hi' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} style={{ backgroundColor: '#765b00' }}></div>
               </button>
-              <button onClick={() => { setLanguage('mr'); setLang('mr'); updateSession({ preferredLang: 'mr' }); }} className="group relative overflow-hidden bg-white border p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center" style={{ borderColor: language === 'mr' ? '#63597c' : '#cbc4d2' }}>
+              <button onClick={() => { setLanguage('mr'); setLang('hi'); updateSession({ preferredLang: 'hi' }); }} className="group relative overflow-hidden bg-white border p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center" style={{ borderColor: language === 'mr' ? '#63597c' : '#cbc4d2' }}>
                 <div className="w-20 h-20 mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#e1d4fd', color: '#1f1635' }}>
                   <span className="text-4xl font-bold">म</span>
                 </div>
                 <h2 className="text-[20px] leading-[24px] font-semibold">Marathi</h2>
                 <p className="text-[12px] leading-[16px] font-medium mt-2" style={{ color: '#7a7582' }}>मराठी भाषेतील सेवा</p>
-                <div className={`absolute bottom-0 left-0 w-full h-1 transform transition-transform ${language === 'mr' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} style={{ backgroundColor: '#63597c' }}></div>
+                <div className={`absolute bottom-0 left-0 w-full h-1 transform transition-transform ${language === 'mr' ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} style={{ backgroundColor: '#63597c' }} />
               </button>
               <button onClick={() => { setLanguage('kn'); setLang('kn'); updateSession({ preferredLang: 'kn' }); }} className="group relative overflow-hidden bg-white border p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center" style={{ borderColor: language === 'kn' ? '#6750a4' : '#cbc4d2' }}>
                 <div className="w-20 h-20 mb-6 rounded-full flex items-center justify-center" style={{ backgroundColor: '#cfbcff', color: '#22005d' }}>
@@ -104,8 +110,8 @@ export const OnboardingWizard: React.FC = () => {
           </section>
           <section className="mt-8 border-t pt-8" style={{ borderColor: '#cbc4d2' }}>
             <div className="text-center mb-4">
-              <h3 className="text-[24px] leading-[32px] font-semibold">Who are you?</h3>
-              <p className="text-[16px] leading-[24px]" style={{ color: '#494551' }}>Select your role to customize your experience.</p>
+              <h3 className="text-[24px] leading-[32px] font-semibold">{pageT('Who are you?', 'आप कौन हैं?', 'ನೀವು ಯಾರು?', 'మీరు ఎవరు?')}</h3>
+              <p className="text-[16px] leading-[24px]" style={{ color: '#494551' }}>{pageT('Select your role to customize your experience.', 'अपनी भूमिका चुनें।', 'ನಿಮ್ಮ ಪಾತ್ರ ಆಯ್ಕೆ ಮಾಡಿ.', 'మీ పాత్రను ఎంచుకోండి.')}</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div onClick={() => handleRoleContinue('farmer')} className="group cursor-pointer bg-white rounded-xl shadow-sm border border-transparent hover:border-[#4f378a] p-6 transition-all text-left">
@@ -115,9 +121,9 @@ export const OnboardingWizard: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="material-symbols-outlined" style={{ color: '#4f378a', fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>agriculture</span>
-                  <h4 className="text-[20px] leading-[24px] font-semibold">Farmer</h4>
+                  <h4 className="text-[20px] leading-[24px] font-semibold">{pageT('Farmer', 'किसान', 'ರೈತ', 'రైతు')}</h4>
                 </div>
-                <p className="text-[12px] leading-[16px] font-medium" style={{ color: '#494551' }}>List your crops, check soil health, and find buyers directly.</p>
+                <p className="text-[12px] leading-[16px] font-medium" style={{ color: '#494551' }}>{pageT('List your crops, check soil health, and find buyers directly.', 'फसल लिस्ट करें, मिट्टी जांचें, सीधे खरीदार खोजें।', 'ಬೆಳೆ ಪಟ್ಟಿ ಮಾಡಿ, ಖರೀದಿದಾರರನ್ನು ಹುಡುಕಿ.', 'పంటలు నమోదు చేయండి, నేరుగా కొనుగోలుదారులను కనుగొనండి.')}</p>
               </div>
               <div onClick={() => handleRoleContinue('buyer')} className="group cursor-pointer bg-white rounded-xl shadow-sm border border-transparent hover:border-[#63597c] p-6 transition-all text-left">
                 <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4">
@@ -126,9 +132,9 @@ export const OnboardingWizard: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="material-symbols-outlined" style={{ color: '#63597c', fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>storefront</span>
-                  <h4 className="text-[20px] leading-[24px] font-semibold">Buyer</h4>
+                  <h4 className="text-[20px] leading-[24px] font-semibold">{pageT('Buyer', 'खरीदार', 'ಖರೀದಿದಾರ', 'కొనుగోలుదారు')}</h4>
                 </div>
-                <p className="text-[12px] leading-[16px] font-medium" style={{ color: '#494551' }}>Purchase high-quality farm produce and manage inventory easily.</p>
+                <p className="text-[12px] leading-[16px] font-medium" style={{ color: '#494551' }}>{pageT('Purchase high-quality farm produce and manage inventory easily.', 'उच्च गुणवत्ता वाली फसल खरीदें।', 'ಉತ್ತಮ ಕೃಷಿ ಉತ್ಪನ್ನ ಖರೀದಿಸಿ.', 'నాణ్యమైన వ్యవసాయ ఉత్పత్తులు కొనండి.')}</p>
               </div>
               <div onClick={() => handleRoleContinue('logistics_partner')} className="group cursor-pointer bg-white rounded-xl shadow-sm border border-transparent hover:border-[#765b00] p-6 transition-all text-left">
                 <div className="relative w-full h-40 rounded-lg overflow-hidden mb-4">
@@ -137,9 +143,9 @@ export const OnboardingWizard: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="material-symbols-outlined" style={{ color: '#765b00', fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24" }}>local_shipping</span>
-                  <h4 className="text-[20px] leading-[24px] font-semibold">Transporter</h4>
+                  <h4 className="text-[20px] leading-[24px] font-semibold">{pageT('Transporter', 'ट्रांसपोर्टर', 'ಟ್ರಾನ್ಸ್‌ಪೋರ್ಟರ್', 'రవాణాదారు')}</h4>
                 </div>
-                <p className="text-[12px] leading-[16px] font-medium" style={{ color: '#494551' }}>Find delivery gigs, track routes, and manage your fleet.</p>
+                <p className="text-[12px] leading-[16px] font-medium" style={{ color: '#494551' }}>{pageT('Find delivery gigs, track routes, and manage your fleet.', 'डिलीवरी काम खोजें, रूट ट्रैक करें।', 'ಡೆಲಿವರಿ ಕೆಲಸ ಹುಡುಕಿ, ರೂಟ್ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.', 'డెలివరీ పనులు కనుగొనండి, రూట్‌లు ట్రాక్ చేయండి.')}</p>
               </div>
             </div>
           </section>
