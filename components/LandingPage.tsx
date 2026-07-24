@@ -71,7 +71,10 @@ export const LandingPage: React.FC = () => {
                   <span className="material-symbols-outlined">rocket_launch</span>
                   {t('landing.v2.ctaGo')}
                 </button>
-                <button className="min-h-[64px] px-8 border-2 border-emerald-700 text-emerald-700 dark:border-emerald-500 dark:text-emerald-500 rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-95 transition-all">
+                <button
+                  onClick={() => navigate('/discover')}
+                  className="min-h-[64px] px-8 border-2 border-emerald-700 text-emerald-700 dark:border-emerald-500 dark:text-emerald-500 rounded-xl font-bold text-lg flex items-center justify-center gap-3 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 active:scale-95 transition-all"
+                >
                   <span className="material-symbols-outlined">record_voice_over</span>
                   {t('landing.v2.ctaDidi')}
                 </button>
@@ -106,38 +109,24 @@ export const LandingPage: React.FC = () => {
               <div className="w-24 h-1 bg-emerald-500 mx-auto rounded-full"></div>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-emerald-50 dark:border-emerald-900/50 hover:shadow-md transition-shadow text-center flex flex-col items-center">
-                <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/50 rounded-2xl flex items-center justify-center text-emerald-600 mb-6">
-                  <span className="material-symbols-outlined text-3xl">touch_app</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: 'mic', title: t('landing.adv.booking'), desc: t('landing.adv.bookingDesc') },
+                { icon: 'price_check', title: t('landing.adv.price'), desc: t('landing.adv.priceDesc') },
+                { icon: 'storefront', title: t('landing.adv.local'), desc: t('landing.adv.localDesc') },
+                { icon: 'schedule', title: t('landing.adv.updates'), desc: t('landing.adv.updatesDesc') },
+              ].map((card) => (
+                <div
+                  key={card.icon}
+                  className="bg-white dark:bg-slate-800 p-7 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors text-center flex flex-col items-center"
+                >
+                  <div className="w-14 h-14 bg-emerald-50 dark:bg-emerald-900/40 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-5">
+                    <span className="material-symbols-outlined text-3xl">{card.icon}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{card.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{card.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold text-emerald-950 dark:text-white mb-3">{t('landing.adv.booking')}</h3>
-                <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">{t('landing.adv.bookingDesc')}</p>
-              </div>
-
-              <div className="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-emerald-50 dark:border-emerald-900/50 hover:shadow-md transition-shadow text-center flex flex-col items-center">
-                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
-                  <span className="material-symbols-outlined text-3xl">price_check</span>
-                </div>
-                <h3 className="text-xl font-bold text-emerald-950 dark:text-white mb-3">{t('landing.adv.price')}</h3>
-                <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">{t('landing.adv.priceDesc')}</p>
-              </div>
-
-              <div className="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-emerald-50 dark:border-emerald-900/50 hover:shadow-md transition-shadow text-center flex flex-col items-center">
-                <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/50 rounded-2xl flex items-center justify-center text-orange-600 mb-6">
-                  <span className="material-symbols-outlined text-3xl">hub</span>
-                </div>
-                <h3 className="text-xl font-bold text-emerald-950 dark:text-white mb-3">{t('landing.adv.local')}</h3>
-                <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">{t('landing.adv.localDesc')}</p>
-              </div>
-
-              <div className="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-emerald-50 dark:border-emerald-900/50 hover:shadow-md transition-shadow text-center flex flex-col items-center">
-                <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-2xl flex items-center justify-center text-purple-600 mb-6">
-                  <span className="material-symbols-outlined text-3xl">notifications_active</span>
-                </div>
-                <h3 className="text-xl font-bold text-emerald-950 dark:text-white mb-3">{t('landing.adv.updates')}</h3>
-                <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">{t('landing.adv.updatesDesc')}</p>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -181,13 +170,9 @@ export const LandingPage: React.FC = () => {
             <span className="text-slate-400">·</span>
             <a href="#" className="hover:underline">{lang === 'hi' ? 'गोपनीयता नीति' : 'Privacy Policy'}</a>
             <span className="text-slate-400">·</span>
-            <a href="#" className="hover:underline">{lang === 'hi' ? 'रिटर्न और रिफंड नीति' : 'Returns & Refund Policy'}</a>
-            <span className="text-slate-400">·</span>
             <a href="#" className="hover:underline">{lang === 'hi' ? 'सेवा की शर्तें' : 'Terms of Service'}</a>
             <span className="text-slate-400">·</span>
             <a href="#" className="hover:underline">{lang === 'hi' ? 'संपर्क जानकारी' : 'Contact Information'}</a>
-            <span className="text-slate-400">·</span>
-            <a href="#" className="hover:underline">{lang === 'hi' ? 'शिपिंग नीति' : 'Shipping Policy'}</a>
           </div>
         </div>
       </footer>

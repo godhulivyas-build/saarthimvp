@@ -24,9 +24,9 @@ const FarmerPhoneSection: React.FC = () => {
                   {isHi ? "रामकुमार, मध्य प्रदेश" : "Ramkumar, Madhya Pradesh"}
                 </p>
                 <p className="text-sm opacity-90 leading-relaxed">
-                  {isHi 
-                    ? '"बिना किसी बिचौलिए के, मैंने अपनी फसल सही दाम पर बेची और उसी दिन ट्रक भी बुक कर लिया।"'
-                    : '"Without any middlemen, I sold my crop at the right price and booked a truck the very same day."'}
+                  {isHi
+                    ? '"सारथी ने बताया आस-पास कौन खरीद रहा है और आज का भाव क्या है — मैंने बिना अंदाज़े के बेहतर दाम पर बेचा।"'
+                    : '"Sarthi showed me who was buying nearby and today\'s rate — I sold at a better price without guessing."'}
                 </p>
               </div>
             </div>
@@ -46,7 +46,7 @@ const FarmerPhoneSection: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[11px] text-emerald-600/80 dark:text-emerald-400/80 font-bold uppercase tracking-wider">
-                  {isHi ? "किसान, खरीदार और लॉजिस्टिक्स" : "Farmer, Buyer & Logistics"}
+                  {isHi ? "खोज · भाव · AI सलाह" : "Discovery · Prices · AI advice"}
                 </p>
               </button>
             </div>
@@ -55,12 +55,12 @@ const FarmerPhoneSection: React.FC = () => {
 
         <div className="w-full lg:w-1/2 order-1 lg:order-2 flex flex-col gap-6 text-center lg:text-left">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-emerald-950 dark:text-emerald-50 tracking-tight leading-tight">
-            {isHi ? "खेत से बाज़ार तक, सब एक जगह" : "From Farm to Market, All in One Place"}
+            {isHi ? "खेत से बाज़ार तक, सब एक जगह" : "The right buyer, at the right price"}
           </h2>
           <p className="text-lg text-emerald-800/80 dark:text-emerald-200/80 leading-relaxed">
             {isHi 
-              ? "बिना किसी बिचौलिये के अपनी फसल सही दाम पर बेचें और भरोसेमंद ट्रांसपोर्ट बुक करें।" 
-              : "Sell your crops directly at the right price without middlemen, and book reliable transport instantly."}
+              ? "देखें आपके पास कौन खरीद रहा है, आज के भाव की तुलना करें और तय करें कहाँ बेचना सबसे अच्छा है — सब आपकी भाषा में।"
+              : "See who's buying near you, compare today's prices, and decide the best place to sell — all in your language."}
           </p>
 
           <div className="flex flex-col gap-4 mt-4">
@@ -75,12 +75,12 @@ const FarmerPhoneSection: React.FC = () => {
              </div>
 
              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 dark:bg-blue-900/40 p-3 rounded-xl shrink-0 text-blue-600">
-                  <span className="material-symbols-outlined">local_shipping</span>
+                <div className="bg-emerald-100 dark:bg-emerald-900/40 p-3 rounded-xl shrink-0 text-emerald-600">
+                  <span className="material-symbols-outlined">storefront</span>
                 </div>
                 <div className="text-left">
-                  <h3 className="font-bold text-emerald-950 dark:text-emerald-50">{isHi ? "तुरंत लॉजिस्टिक्स" : "Instant Logistics"}</h3>
-                  <p className="text-sm text-emerald-700 dark:text-emerald-300/80">{isHi ? "अपनी ज़रूरत के हिसाब से छोटे या बड़े ट्रक बुक करें।" : "Book mini-trucks or large haulers as per your need."}</p>
+                  <h3 className="font-bold text-emerald-950 dark:text-emerald-50">{isHi ? "आस-पास के खरीदार" : "Nearby buyers"}</h3>
+                  <p className="text-sm text-emerald-700 dark:text-emerald-300/80">{isHi ? "अपने पास के व्यापारी, मंडी और होटल एक नज़र में देखें।" : "See traders, mandis and restaurants close to you at a glance."}</p>
                 </div>
              </div>
           </div>

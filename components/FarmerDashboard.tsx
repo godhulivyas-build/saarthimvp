@@ -1237,6 +1237,70 @@ export const FarmerDashboard: React.FC = () => {
               </div>
             )}
           </div>
+        </section>
+
+        {/* Secondary Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* Ask Sarthi — the core discovery feature */}
+          <button
+            onClick={() => navigate('/discover')}
+            className="bg-emerald-700 hover:bg-emerald-800 rounded-3xl p-6 shadow-sm hover:shadow-md transition-all text-left flex flex-col group text-white"
+          >
+            <div className="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-white text-[36px]" style={{fontVariationSettings: "'FILL' 1"}}>mic</span>
+            </div>
+            <h3 className="text-xl font-bold mb-2">{tUI('Ask Sarthi', 'सारथी से पूछें')}</h3>
+            <p className="text-emerald-100 text-sm font-medium mb-6 flex-1">
+              {tUI('Say what you have. Find nearby buyers and today\'s price.', 'बताएं आपके पास क्या है। आस-पास के खरीदार और आज का भाव पाएं।')}
+            </p>
+            <div className="flex items-center text-white font-bold gap-2">
+              {tUI('Try it now', 'अभी आज़माएं')} <span className="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </button>
+
+          {/* Marketplace */}
+          <button className="bg-white dark:bg-slate-900 border border-emerald-100 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all text-left flex flex-col group">
+            <div className="bg-emerald-100 dark:bg-emerald-900/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-emerald-700 dark:text-emerald-400 text-[36px]" style={{fontVariationSettings: "'FILL' 1"}}>storefront</span>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{tUI('Marketplace', 'मार्केटप्लेस')}</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-6 flex-1">
+              {tUI('Buy fertilizers, seeds, and equipment at best prices.', 'उर्वरक, बीज और उपकरण सर्वोत्तम मूल्य पर खरीदें।')}
+            </p>
+            <div className="flex items-center text-emerald-600 font-bold gap-2">
+              {tUI('Browse Shop', 'दुकान देखें')} <span className="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </button>
+
+          {/* Expert Advisors */}
+          <button className="bg-white dark:bg-slate-900 border border-emerald-100 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all text-left flex flex-col group">
+            <div className="bg-blue-100 dark:bg-blue-900/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-blue-700 dark:text-blue-400 text-[36px]" style={{fontVariationSettings: "'FILL' 1"}}>psychology</span>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{tUI('Expert Advisors', 'कृषि सलाहकार')}</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-6 flex-1">
+              {tUI('Crop guidance, soil info, and disease support.', 'फसल मार्गदर्शन, मिट्टी की जानकारी और रोग सहायता।')}
+            </p>
+            <div className="flex items-center text-blue-600 font-bold gap-2">
+              {tUI('Ask Expert', 'विशेषज्ञ से पूछें')} <span className="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </button>
+
+          {/* Weather */}
+          <button className="bg-white dark:bg-slate-900 border border-emerald-100 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-md hover:border-emerald-300 transition-all text-left flex flex-col group">
+            <div className="bg-amber-100 dark:bg-amber-900/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span className="material-symbols-outlined text-amber-700 dark:text-amber-400 text-[36px]" style={{fontVariationSettings: "'FILL' 1"}}>cloud</span>
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{tUI('Local Weather', 'स्थानीय मौसम')}</h3>
+            <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-6 flex-1">
+              {tUI('28°C Sunny. Light rain expected at 4:00 PM.', '28°C धूप। शाम 4:00 बजे हल्की बारिश की उम्मीद है।')}
+            </p>
+            <div className="flex items-center text-amber-600 font-bold gap-2">
+              {tUI('Full Forecast', 'पूरा पूर्वानुमान')} <span className="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </button>
+
         </div>
       </section>
     );
