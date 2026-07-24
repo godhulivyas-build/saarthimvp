@@ -14,6 +14,7 @@ const emptySession = (): V2AuthSession => ({
   lng: null,
   otpVerified: false,
   onboardingComplete: false,
+  authMode: null,
 });
 
 function loadSession(): V2AuthSession {
@@ -41,7 +42,7 @@ type V2SessionContextValue = {
   setSession: React.Dispatch<React.SetStateAction<V2AuthSession>>;
   updateSession: (patch: Partial<V2AuthSession>) => void;
   clearSession: () => void;
-  completeDemo: (persona: SarthiUserRole) => void;
+  completeOnboarding: (input: { persona: SarthiUserRole; name: string; phone: string; authMode: 'real' | 'dev-fallback' }) => void;
 };
 
 const V2SessionContext = createContext<V2SessionContextValue | null>(null);
@@ -77,19 +78,16 @@ export const V2SessionProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     }
   }, []);
 
-  const completeDemo = useCallback(
-    (persona: SarthiUserRole) => {
+  const completeOnboarding = useCallback(
+    ({ persona, name, phone, authMode }: { persona: SarthiUserRole; name: string; phone: string; authMode: 'real' | 'dev-fallback' }) => {
       persist({
         ...emptySession(),
-        phone: '9999999999',
-        name: 'Demo User',
-        preferredLang: 'hi',
+        phone,
+        name,
         persona,
-        addressLabel: 'Indore',
-        lat: 22.7196,
-        lng: 75.8577,
         otpVerified: true,
         onboardingComplete: true,
+        authMode,
       });
     },
     [persist]
@@ -107,9 +105,9 @@ export const V2SessionProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       },
       updateSession,
       clearSession,
-      completeDemo,
+      completeOnboarding,
     }),
-    [session, updateSession, clearSession, completeDemo]
+    [session, updateSession, clearSession, completeOnboarding]
   );
 
   return <V2SessionContext.Provider value={value}>{children}</V2SessionContext.Provider>;

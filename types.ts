@@ -239,6 +239,8 @@ export interface V2AuthSession {
   lng: number | null;
   otpVerified: boolean;
   onboardingComplete: boolean;
+  /** How otpVerified was established — 'real' via Supabase phone auth, 'dev-fallback' only when no auth backend is configured. */
+  authMode: 'real' | 'dev-fallback' | null;
 }
 
 export interface ColdStorageSlot {

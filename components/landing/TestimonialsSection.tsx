@@ -65,13 +65,13 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 bg-[#1B4332] dark:bg-slate-950 relative overflow-hidden">
+    <section className="py-12 bg-[#1B4332] dark:bg-slate-950 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-8 max-w-3xl mx-auto">
           <span className="text-amber-400 font-bold tracking-wider uppercase text-sm mb-4 block">
             {tUI('Farmer Voices', 'किसानों की आवाज़')}
           </span>
@@ -87,7 +87,7 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Desktop Grid Layout (Hidden on Mobile) */}
-        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {testimonials.map((t, idx) => (
             <div key={t.id} className={`bg-emerald-900/40 backdrop-blur-sm border border-emerald-700/50 p-8 rounded-3xl hover:bg-emerald-800/50 transition-all duration-300 flex flex-col group ${idx === 4 ? 'lg:col-start-2' : ''}`}>
               <div className="mb-6 opacity-30 group-hover:opacity-100 group-hover:text-amber-400 transition-all">
@@ -110,7 +110,7 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Mobile Carousel Layout (Hidden on Desktop) */}
-        <div className="lg:hidden relative mb-16">
+        <div className="lg:hidden relative mb-8">
           <div className="overflow-hidden relative rounded-3xl">
             <div 
               className="flex transition-transform duration-500 ease-in-out"

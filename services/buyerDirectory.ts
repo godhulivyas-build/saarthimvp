@@ -113,6 +113,19 @@ export async function listBuyersForCrop(cropKey: string, district?: string): Pro
   return filterByCropAndDistrict(localBuyers, cropKey, district);
 }
 
+/** Every registered buyer, unfiltered — used where we need to scan across all crops/districts at once. */
+export async function listAllBuyers(): Promise<Buyer[]> {
+  if (isSupabaseConfigured && supabase) {
+    const { data, error } = await supabase.from('buyers').select('*').limit(200);
+    if (error) {
+      console.error('Supabase listAllBuyers error:', error.message);
+      return [];
+    }
+    return (data ?? []).map(rowToBuyer);
+  }
+  return localBuyers;
+}
+
 export async function registerBuyer(input: RegisterBuyerInput): Promise<Buyer> {
   if (isSupabaseConfigured && supabase) {
     const { data, error } = await supabase

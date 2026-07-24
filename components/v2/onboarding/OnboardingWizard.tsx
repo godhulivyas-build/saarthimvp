@@ -4,18 +4,20 @@ import { useAppState } from '../../../state/AppState';
 import { useV2Session } from '../../../state/v2Session';
 import type { SarthiUserRole } from '../../../types';
 import { useI18n } from '../../../i18n/I18nContext';
+import { sendOtp, verifyOtp, type OtpMode } from '../../../services/authService';
+import { AppHeader } from '../../shared/AppHeader';
 
 export const OnboardingWizard: React.FC = () => {
   const navigate = useNavigate();
   const { setUserRole, setLang } = useAppState();
-  const { completeDemo, updateSession } = useV2Session();
+  const { completeOnboarding, updateSession } = useV2Session();
   const { lang: globalLang } = useI18n();
-  
+
   // 1 = Welcome/Role, 2 = Phone/OTP, 3 = Farm Details
   const [step, setStep] = useState(1);
   const [language, setLanguage] = useState<string>(globalLang || 'en');
   const [role, setRole] = useState<SarthiUserRole>('farmer');
-  
+
   const isHi = language !== 'en';
   const tUI = (en: string, hi: string) => isHi ? hi : en;
   const pageT = (en: string, hi: string, kn: string, te: string) => {
@@ -24,21 +26,50 @@ export const OnboardingWizard: React.FC = () => {
     if (language !== 'en') return hi;
     return en;
   };
-  
+
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [otp, setOtp] = useState('');
   const [otpSent, setOtpSent] = useState(false);
-  
+  const [otpMode, setOtpMode] = useState<OtpMode | null>(null);
+  const [sendingOtp, setSendingOtp] = useState(false);
+  const [verifying, setVerifying] = useState(false);
+  const [authError, setAuthError] = useState('');
+
   const handleRoleContinue = (selectedRole: SarthiUserRole) => {
     setRole(selectedRole);
     setUserRole(selectedRole);
     setStep(2);
   };
 
-  const handleVerify = (e: React.FormEvent) => {
+  const handleSendOtp = async () => {
+    if (!name || phone.length !== 10) {
+      alert(tUI('Please enter your name and a valid 10-digit mobile number.', 'कृपया अपना नाम और एक वैध 10 अंकों का मोबाइल नंबर दर्ज करें।'));
+      return;
+    }
+    setAuthError('');
+    setSendingOtp(true);
+    const result = await sendOtp(phone);
+    setSendingOtp(false);
+    if (!result.ok) {
+      setAuthError(result.error ?? tUI('Could not send OTP. Please try again.', 'OTP नहीं भेजा जा सका। दोबारा कोशिश करें।'));
+      return;
+    }
+    setOtpMode(result.mode);
+    setOtpSent(true);
+  };
+
+  const handleVerify = async (e: React.FormEvent) => {
     e.preventDefault();
-    completeDemo(role);
+    setAuthError('');
+    setVerifying(true);
+    const result = await verifyOtp(phone, otp, otpMode ?? 'dev-fallback');
+    setVerifying(false);
+    if (!result.ok) {
+      setAuthError(result.error ?? tUI('Incorrect code. Please try again.', 'गलत कोड। दोबारा कोशिश करें।'));
+      return;
+    }
+    completeOnboarding({ persona: role, name, phone, authMode: result.mode });
     updateSession({ name, phone });
     navigate('/app');
   };
@@ -49,17 +80,9 @@ export const OnboardingWizard: React.FC = () => {
 
   if (step === 1) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-6 font-['Lexend']" style={{ backgroundColor: '#fdf7ff', color: '#1d1b20' }}>
-        <div className="fixed top-0 left-0 w-full px-5 h-16 flex justify-between items-center bg-[#1B4332] dark:bg-slate-950 shadow-md border-b border-emerald-800 dark:border-slate-800 z-50">
-          <div className="text-2xl font-bold text-white tracking-tight">Sarthi</div>
-          <div className="flex items-center gap-4">
-            <span className="material-symbols-outlined text-white" style={{fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"}}>notifications</span>
-            <div className="w-8 h-8 rounded-full bg-emerald-700 flex items-center justify-center overflow-hidden border border-emerald-500">
-              <img alt="User Profile" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmjnQeXcW1COZlYsK3qJMcE00NJzBRX71Ud1od1A6HyIdUlyT-QBFISUAupwhe4fmgMfqeTJ86im56A7yDWEdjUkYghGmQH4bFqupEY1b0x7tUFJGsmHD0XerBH8FZgMUtvSttD_nQIbaLP9EoUsdu63aRLiq0pOytMgVVvwixwkp314Xef9ykIm8wEGL9fr93hGGdi3c6ORCWe_cav8YXnYRHF-hMLdXOaZPx_5kTZ-mqyzzRJ3rA9xLClRBr6u5fbWhsbskEWy4"/>
-            </div>
-          </div>
-        </div>
-        <main className="w-full max-w-5xl mt-16 pb-24">
+      <div className="min-h-screen flex flex-col items-center font-['Lexend']" style={{ backgroundColor: '#fdf7ff', color: '#1d1b20' }}>
+        <div className="w-full"><AppHeader /></div>
+        <main className="w-full max-w-5xl mt-8 pb-24 px-6">
           <div className="text-center mb-8">
             <h1 className="text-[40px] leading-[48px] font-bold tracking-tight mb-2">{pageT('Welcome to Sarthi', 'Sarthi में आपका स्वागत है', 'Sarthi ಗೆ ಸ್ವಾಗತ', 'Sarthi కి స్వాగతం')}</h1>
             <p className="text-[18px] leading-[28px] max-w-2xl mx-auto" style={{ color: '#494551' }}>{pageT('Please choose your preferred language to begin.', 'शुरू करने के लिए अपनी पसंदीदा भाषा चुनें।', 'ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಭಾಷೆ ಆಯ್ಕೆ ಮಾಡಿ.', 'ప్రారంభించడానికి మీ భాషను ఎంచుకోండి.')}</p>
@@ -156,11 +179,9 @@ export const OnboardingWizard: React.FC = () => {
 
   if (step === 2) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-6 font-['Lexend']" style={{ backgroundColor: '#fdf7ff', color: '#1d1b20' }}>
-        <div className="fixed top-0 left-0 w-full px-5 h-16 flex justify-between items-center bg-[#1B4332] shadow-md border-b border-emerald-800 z-50">
-          <div className="text-2xl font-bold text-white tracking-tight">Sarthi</div>
-        </div>
-        <main className="w-full max-w-md mt-16">
+      <div className="min-h-screen flex flex-col items-center font-['Lexend']" style={{ backgroundColor: '#fdf7ff', color: '#1d1b20' }}>
+        <div className="w-full"><AppHeader /></div>
+        <main className="w-full max-w-md mt-10 px-6">
           <div className="bg-white rounded-3xl p-8 shadow-[0_4px_20px_rgba(1,45,29,0.08)] border border-[#cbc4d2]">
             <h2 className="text-2xl font-extrabold mb-6 text-center text-emerald-950">{tUI('Verify Your Details', 'अपना विवरण सत्यापित करें')}</h2>
             <form onSubmit={handleVerify} className="space-y-6">
@@ -180,22 +201,38 @@ export const OnboardingWizard: React.FC = () => {
                 </div>
               </div>
               
+              {authError && (
+                <p className="text-sm font-bold text-red-600 bg-red-50 border border-red-200 rounded-xl px-4 py-3">{authError}</p>
+              )}
+
               {!otpSent ? (
-                <button type="button" onClick={() => {
-                  if (name && phone.length === 10) setOtpSent(true);
-                  else alert(tUI('Please enter your name and a valid 10-digit mobile number.', 'कृपया अपना नाम और एक वैध 10 अंकों का मोबाइल नंबर दर्ज करें।'));
-                }} className="w-full bg-[#1B4332] text-white font-bold rounded-xl py-4 hover:bg-emerald-900 active:scale-95 transition-all shadow-md mt-2 flex justify-center items-center gap-2">
-                  {tUI('Send OTP', 'OTP भेजें')} <span className="material-symbols-outlined text-sm">send</span>
+                <button
+                  type="button"
+                  onClick={handleSendOtp}
+                  disabled={sendingOtp}
+                  className="w-full bg-[#1B4332] text-white font-bold rounded-xl py-4 hover:bg-emerald-900 active:scale-95 transition-all shadow-md mt-2 flex justify-center items-center gap-2 disabled:opacity-60"
+                >
+                  {sendingOtp ? tUI('Sending…', 'भेजा जा रहा है…') : tUI('Send OTP', 'OTP भेजें')}
+                  <span className="material-symbols-outlined text-sm">send</span>
                 </button>
               ) : (
                 <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  {otpMode === 'dev-fallback' && (
+                    <p className="text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2 text-center">
+                      {tUI(
+                        '🧪 Sandbox mode — no SMS backend configured yet. Any 4-digit code works.',
+                        '🧪 सैंडबॉक्स मोड — अभी SMS बैकएंड कॉन्फ़िगर नहीं है। कोई भी 4-अंकों का कोड काम करेगा।'
+                      )}
+                    </p>
+                  )}
                   <div>
                     <label className="block text-sm font-bold mb-2 text-gray-700">{tUI('Enter OTP', 'OTP दर्ज करें')}</label>
                     <input required type="text" value={otp} onChange={e => setOtp(e.target.value)} className="w-full border-2 border-[#cbc4d2] rounded-xl px-4 py-3 focus:border-[#1B4332] focus:ring-0 focus:outline-none transition-all text-center tracking-[1em] font-bold text-xl" placeholder="••••" maxLength={4} />
                     <p className="text-xs text-gray-500 text-center mt-3 font-medium">{tUI(`OTP sent to +91 ${phone}`, `+91 ${phone} पर OTP भेजा गया`)}</p>
                   </div>
-                  <button type="submit" className="w-full bg-[#1B4332] text-white font-bold rounded-xl py-4 hover:bg-emerald-900 active:scale-95 transition-all shadow-md flex justify-center items-center gap-2">
-                    {tUI('Verify & Continue', 'सत्यापित करें और आगे बढ़ें')} <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  <button type="submit" disabled={verifying} className="w-full bg-[#1B4332] text-white font-bold rounded-xl py-4 hover:bg-emerald-900 active:scale-95 transition-all shadow-md flex justify-center items-center gap-2 disabled:opacity-60">
+                    {verifying ? tUI('Verifying…', 'सत्यापित हो रहा है…') : tUI('Verify & Continue', 'सत्यापित करें और आगे बढ़ें')}
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
                   </button>
                 </div>
               )}
@@ -225,21 +262,7 @@ export const OnboardingWizard: React.FC = () => {
             background-color: #85d7ad;
         }
       `}</style>
-      {/* TopAppBar */}
-      <header className="sticky top-0 z-50 flex justify-between items-center px-6 h-16 w-full bg-white dark:bg-slate-900 border-b-2 border-emerald-100 dark:border-emerald-900 shadow-sm">
-        <div className="flex items-center gap-4">
-          <span className="text-2xl font-black text-emerald-900 dark:text-emerald-50">Sarthi</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors text-base">
-            <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"}}>translate</span>
-            <span className="hidden sm:inline">Language</span>
-          </button>
-          <button className="p-2 rounded-full text-emerald-900 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors active:scale-95 transition-transform">
-            <span className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24"}}>account_circle</span>
-          </button>
-        </div>
-      </header>
+      <AppHeader />
       <div className="flex">
         {/* SideNavBar */}
         <aside className="fixed left-0 top-0 h-full overflow-y-auto w-64 border-r-2 border-emerald-100 dark:border-emerald-900 hidden md:flex flex-col bg-emerald-50 dark:bg-slate-950 z-40 pt-20">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mic, Search, Loader2, MapPin, Phone, Navigation2, Handshake, BadgeCheck, FlaskConical, Store, Star } from 'lucide-react';
+import { Mic, Search, Loader2, MapPin, Phone, Navigation2, Handshake, BadgeCheck, FlaskConical, Store, Star, Truck } from 'lucide-react';
 import { useI18n } from '../../i18n/I18nContext';
 import { useVoiceAssistant } from '../../voice/VoiceAssistantProvider';
 import { Card } from '../v2/ui/Card';
@@ -15,6 +15,8 @@ import {
   ComparisonResult,
 } from '../../services/discoveryAgentService';
 import { findNearbyRestaurants, DiscoveredPlace } from '../../services/osmDiscovery';
+import { listTransportersForDistrict } from '../../services/transporterDirectory';
+import { computeSaarthiPrice, SaarthiPriceResult } from '../../services/saarthiPriceService';
 import { BuyerOnboardingForm } from './BuyerOnboardingForm';
 
 /** Farmer-facing: "I have produce, find nearby buyers." */
@@ -30,6 +32,7 @@ export const SellFlow: React.FC = () => {
   const [districtName, setDistrictName] = useState('Dewas');
   const [loading, setLoading] = useState(false);
   const [comparison, setComparison] = useState<ComparisonResult | null>(null);
+  const [saarthiPrice, setSaarthiPrice] = useState<SaarthiPriceResult | null>(null);
   const [explanation, setExplanation] = useState('');
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
@@ -46,14 +49,27 @@ export const SellFlow: React.FC = () => {
     setExplanation('');
     try {
       const district = MP_DISTRICTS.find((d) => d.name === districtName) ?? MP_DISTRICTS[0];
-      const [govt, buyers, places] = await Promise.all([
+      const [govt, buyers, places, transporters] = await Promise.all([
         getMandiPriceForCrop(activeCropKey, 'Madhya Pradesh'),
         listBuyersForCrop(activeCropKey, districtName),
         findNearbyRestaurants({ lat: district.lat, lng: district.lng }),
+        listTransportersForDistrict(),
       ]);
       const comp = buildComparison(govt, buyers, activeCropKey, { lat: district.lat, lng: district.lng });
       setComparison(comp);
       setNearbyPlaces(places);
+
+      setSaarthiPrice(
+        comp.bestOffer
+          ? computeSaarthiPrice(
+              comp.bestOffer,
+              { lat: district.lat, lng: district.lng },
+              transporters,
+              typeof qty === 'number' && qty > 0 ? qty : null,
+              comp.govtPrice?.modalPrice ?? null
+            )
+          : null
+      );
 
       const instantText = buildExplanationText(comp, cropLabel(activeCropKey), lang);
       setExplanation(instantText);
@@ -207,6 +223,56 @@ export const SellFlow: React.FC = () => {
               </p>
             )}
           </Card>
+
+          {comparison.bestOffer && (
+            <Card className="space-y-2 border-l-4 border-l-amber-500">
+              <div className="flex items-center justify-between">
+                <h2 className="font-bold text-sm uppercase tracking-wide text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+                  <Truck className="w-4 h-4" />
+                  {tt('Saarthi Price (after real transport cost)', 'सारथी भाव (असली ट्रांसपोर्ट लागत के बाद)')}
+                </h2>
+              </div>
+              {saarthiPrice?.netPricePerQuintal != null ? (
+                <>
+                  <p className="text-2xl font-black text-amber-800 dark:text-amber-300">
+                    ₹{saarthiPrice.netPricePerQuintal} <span className="text-sm font-medium text-gray-500">/quintal</span>
+                  </p>
+                  <p className="text-xs text-gray-500">
+                    {tt(
+                      `₹${comparison.bestOffer.offerPricePerQuintal} from ${comparison.bestOffer.buyer.businessName} − ₹${saarthiPrice.transportCostPerQuintal} transport via ${saarthiPrice.transportMatch?.transporter.driverName}`,
+                      `₹${comparison.bestOffer.offerPricePerQuintal} (${comparison.bestOffer.buyer.businessName}) − ₹${saarthiPrice.transportCostPerQuintal} ट्रांसपोर्ट (${saarthiPrice.transportMatch?.transporter.driverName})`
+                    )}
+                  </p>
+                  {saarthiPrice.vsGovtPercent !== null && (
+                    <p className={`text-sm font-bold ${saarthiPrice.vsGovtPercent >= 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-500'}`}>
+                      {saarthiPrice.vsGovtPercent >= 0 ? '+' : ''}
+                      {saarthiPrice.vsGovtPercent}% {tt('vs mandi, even after transport', 'मंडी से, ट्रांसपोर्ट के बाद भी')}
+                    </p>
+                  )}
+                  {typeof quantityQuintal === 'number' && quantityQuintal > 0 && (
+                    <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
+                      {tt(
+                        `For your ${quantityQuintal} quintal, that's about ₹${Math.round(saarthiPrice.netPricePerQuintal * quantityQuintal)} net.`,
+                        `आपके ${quantityQuintal} क्विंटल के लिए, यह लगभग ₹${Math.round(saarthiPrice.netPricePerQuintal * quantityQuintal)} शुद्ध है।`
+                      )}
+                    </p>
+                  )}
+                  {saarthiPrice.transportMatch?.transporter.contactPhone && (
+                    <a
+                      href={`tel:${saarthiPrice.transportMatch.transporter.contactPhone}`}
+                      className="inline-flex mt-1 min-h-[40px] px-4 rounded-xl bg-[var(--sarthi-surface-low)] font-bold text-sm items-center justify-center gap-1.5 border border-[var(--sarthi-outline-soft)]"
+                    >
+                      <Phone className="w-4 h-4" /> {tt('Call this driver', 'इस ड्राइवर को कॉल करें')}
+                    </a>
+                  )}
+                </>
+              ) : (
+                <p className="text-sm text-gray-500">
+                  {saarthiPrice?.note ?? tt('Not enough data to calculate yet.', 'अभी गणना के लिए पर्याप्त डेटा नहीं है।')}
+                </p>
+              )}
+            </Card>
+          )}
 
           <div className="space-y-2">
             <h2 className="font-bold text-sm uppercase tracking-wide text-emerald-700 dark:text-emerald-400 px-1">
