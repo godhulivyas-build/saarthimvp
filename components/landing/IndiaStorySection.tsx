@@ -183,18 +183,18 @@ export const IndiaStorySection: React.FC<{ onCtaClick?: () => void }> = ({ onCta
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div>
-              <p className="saarthi-headline text-2xl sm:text-4xl font-black text-[var(--saarthi-on-background)]">
+              <p className="sarthi-headline text-2xl sm:text-4xl font-black text-[var(--sarthi-on-background)]">
                 सारथी सेतु पूरे भारत को जोड़ता है
               </p>
-              <p className="mt-2 text-base sm:text-lg font-bold text-[var(--saarthi-on-surface-variant)] max-w-3xl">
+              <p className="mt-2 text-base sm:text-lg font-bold text-[var(--sarthi-on-surface-variant)] max-w-3xl">
                 किसान और खरीदार के बीच सीधा, भरोसेमंद और लाभदायक संबंध
               </p>
             </div>
             <div ref={logoRef} className="flex items-center gap-3 rounded-3xl border border-white/55 bg-white/75 backdrop-blur-xl px-4 py-3 shadow-sm">
-              <img src="/images/saarthi_setu_logo.png" alt="सारथी सेतु" className="w-11 h-11 rounded-2xl bg-white ring-1 ring-[var(--saarthi-outline-soft)] p-1" />
+              <img src="/images/sarthi_setu_logo.png" alt="सारथी सेतु" className="w-11 h-11 rounded-2xl bg-white ring-1 ring-[var(--sarthi-outline-soft)] p-1" />
               <div>
-                <p className="text-sm font-black text-[var(--saarthi-primary)]">सारथी सेतु</p>
-                <p className="text-[11px] font-extrabold text-[var(--saarthi-on-surface-variant)]">क्षैतिज स्लाइड स्टोरी</p>
+                <p className="text-sm font-black text-[var(--sarthi-primary)]">सारथी सेतु</p>
+                <p className="text-[11px] font-extrabold text-[var(--sarthi-on-surface-variant)]">क्षैतिज स्लाइड स्टोरी</p>
               </div>
             </div>
           </div>
@@ -282,15 +282,15 @@ export const IndiaStorySection: React.FC<{ onCtaClick?: () => void }> = ({ onCta
                 {/* Clean highlight card (single, not stacked) */}
                 <div className="mt-4 rounded-3xl border border-white/60 bg-white/75 backdrop-blur px-4 py-3 shadow-sm flex items-center justify-between gap-3 flex-wrap">
                   <div className="flex items-center gap-3">
-                    <span className="w-10 h-10 rounded-2xl grid place-items-center bg-[rgba(34,197,94,0.12)] border border-white/60 text-lg font-black text-[var(--saarthi-primary)]">
+                    <span className="w-10 h-10 rounded-2xl grid place-items-center bg-[rgba(34,197,94,0.12)] border border-white/60 text-lg font-black text-[var(--sarthi-primary)]">
                       {SLIDES[slide].icon}
                     </span>
                     <div>
-                      <p className="text-sm font-black text-[var(--saarthi-on-background)]">{SLIDES[slide].title}</p>
-                      <p className="mt-0.5 text-xs sm:text-sm font-bold text-[var(--saarthi-on-surface-variant)]">{SLIDES[slide].meta}</p>
+                      <p className="text-sm font-black text-[var(--sarthi-on-background)]">{SLIDES[slide].title}</p>
+                      <p className="mt-0.5 text-xs sm:text-sm font-bold text-[var(--sarthi-on-surface-variant)]">{SLIDES[slide].meta}</p>
                     </div>
                   </div>
-                  <div className="text-sm sm:text-base font-black text-[var(--saarthi-primary)]">{SLIDES[slide].big}</div>
+                  <div className="text-sm sm:text-base font-black text-[var(--sarthi-primary)]">{SLIDES[slide].big}</div>
                 </div>
               </div>
             </div>
@@ -304,10 +304,10 @@ export const IndiaStorySection: React.FC<{ onCtaClick?: () => void }> = ({ onCta
                   <div key={s.k} className="w-full shrink-0 p-5 sm:p-6">
                     <div className="grid md:grid-cols-[0.6fr_1fr] gap-5 items-center">
                       <div className="rounded-3xl border border-white/60 bg-white/80 backdrop-blur px-5 py-5 shadow-sm">
-                        <p className="text-[11px] font-extrabold text-[var(--saarthi-on-surface-variant)]">स्टेप {s.k + 1}</p>
-                        <p className="mt-2 text-xl sm:text-2xl font-black text-[var(--saarthi-on-background)]">{s.title}</p>
-                        <p className="mt-3 text-lg sm:text-xl font-black text-[var(--saarthi-primary)]">{s.big}</p>
-                        <p className="mt-2 text-sm font-bold text-[var(--saarthi-on-surface-variant)]">{s.meta}</p>
+                        <p className="text-[11px] font-extrabold text-[var(--sarthi-on-surface-variant)]">स्टेप {s.k + 1}</p>
+                        <p className="mt-2 text-xl sm:text-2xl font-black text-[var(--sarthi-on-background)]">{s.title}</p>
+                        <p className="mt-3 text-lg sm:text-xl font-black text-[var(--sarthi-primary)]">{s.big}</p>
+                        <p className="mt-2 text-sm font-bold text-[var(--sarthi-on-surface-variant)]">{s.meta}</p>
                       </div>
 
                       <div className="rounded-3xl border border-white/60 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.14),transparent_55%),radial-gradient(circle_at_80%_24%,rgba(251,191,36,0.18),transparent_55%)] px-6 py-6">
@@ -316,44 +316,44 @@ export const IndiaStorySection: React.FC<{ onCtaClick?: () => void }> = ({ onCta
                             <div className="flex items-center gap-4">
                               <div className="w-14 h-14 rounded-3xl grid place-items-center bg-white border border-white/70">📱</div>
                               <div>
-                                <p className="text-sm font-black text-[var(--saarthi-on-background)]">दिल्ली खरीदार</p>
-                                <p className="mt-1 text-lg font-black text-[var(--saarthi-primary)]">ऑर्डर डाल दिया</p>
+                                <p className="text-sm font-black text-[var(--sarthi-on-background)]">दिल्ली खरीदार</p>
+                                <p className="mt-1 text-lg font-black text-[var(--sarthi-primary)]">ऑर्डर डाल दिया</p>
                               </div>
                             </div>
                           ) : s.k === 1 ? (
                             <div className="flex items-center gap-4">
                               <div className="w-14 h-14 rounded-3xl grid place-items-center bg-white border border-white/70">🧑‍🌾</div>
                               <div>
-                                <p className="text-sm font-black text-[var(--saarthi-on-background)]">MP किसान</p>
-                                <p className="mt-1 text-lg font-black text-[var(--saarthi-primary)]">“स्वीकार करें” टैप</p>
+                                <p className="text-sm font-black text-[var(--sarthi-on-background)]">MP किसान</p>
+                                <p className="mt-1 text-lg font-black text-[var(--sarthi-primary)]">“स्वीकार करें” टैप</p>
                               </div>
                             </div>
                           ) : s.k === 2 ? (
                             <div className="flex items-center gap-4">
                               <div className="w-14 h-14 rounded-3xl grid place-items-center bg-white border border-white/70">🚛</div>
                               <div>
-                                <p className="text-sm font-black text-[var(--saarthi-on-background)]">ट्रांसपोर्ट बुक</p>
-                                <p className="mt-1 text-lg font-black text-[var(--saarthi-primary)]">ट्रक रवाना</p>
+                                <p className="text-sm font-black text-[var(--sarthi-on-background)]">ट्रांसपोर्ट बुक</p>
+                                <p className="mt-1 text-lg font-black text-[var(--sarthi-primary)]">ट्रक रवाना</p>
                               </div>
                             </div>
                           ) : (
                             <div className="flex items-center gap-4">
                               <div className="w-14 h-14 rounded-3xl grid place-items-center bg-white border border-white/70">✅</div>
                               <div>
-                                <p className="text-sm font-black text-[var(--saarthi-on-background)]">डिलीवरी पूर्ण</p>
-                                <p className="mt-1 text-lg font-black text-[var(--saarthi-primary)]">भुगतान मिल गया</p>
+                                <p className="text-sm font-black text-[var(--sarthi-on-background)]">डिलीवरी पूर्ण</p>
+                                <p className="mt-1 text-lg font-black text-[var(--sarthi-primary)]">भुगतान मिल गया</p>
                               </div>
                             </div>
                           )}
 
                           <div className="mt-5 flex items-center justify-between gap-3 flex-wrap">
-                            <div className="text-sm font-extrabold text-[var(--saarthi-on-surface-variant)]">
+                            <div className="text-sm font-extrabold text-[var(--sarthi-on-surface-variant)]">
                               स्लाइड {s.k + 1} / {SLIDES.length}
                             </div>
                             <button
                               type="button"
                               onClick={onCtaClick}
-                              className="min-h-[46px] px-5 rounded-2xl bg-[var(--saarthi-primary)] text-white font-black shadow-sm hover:opacity-95 active:scale-[0.98] transition-all"
+                              className="min-h-[46px] px-5 rounded-2xl bg-[var(--sarthi-primary)] text-white font-black shadow-sm hover:opacity-95 active:scale-[0.98] transition-all"
                             >
                               अभी जुड़ें
                             </button>
@@ -367,14 +367,14 @@ export const IndiaStorySection: React.FC<{ onCtaClick?: () => void }> = ({ onCta
             </div>
 
             <div className="mt-3 flex items-center justify-between gap-3 flex-wrap">
-              <p className="text-xs font-bold text-[var(--saarthi-on-surface-variant)]">
+              <p className="text-xs font-bold text-[var(--sarthi-on-surface-variant)]">
                 नीचे की स्लाइड्स क्षैतिज हैं — स्क्रोल करते रहें।
               </p>
               <div className="flex items-center gap-1.5">
                 {SLIDES.map((s) => (
                   <span
                     key={s.k}
-                    className={`h-2.5 w-2.5 rounded-full border ${slide === s.k ? 'bg-[var(--saarthi-primary)] border-[var(--saarthi-primary)]' : 'bg-white/70 border-white/70'}`}
+                    className={`h-2.5 w-2.5 rounded-full border ${slide === s.k ? 'bg-[var(--sarthi-primary)] border-[var(--sarthi-primary)]' : 'bg-white/70 border-white/70'}`}
                     aria-hidden
                   />
                 ))}

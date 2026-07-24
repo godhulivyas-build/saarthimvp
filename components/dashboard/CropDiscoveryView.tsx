@@ -71,19 +71,19 @@ export const CropDiscoveryView: React.FC<CropDiscoveryViewProps> = ({ preference
 
   return (
     <div className="p-4 space-y-4 pb-28">
-      <h2 className="text-xl font-extrabold saarthi-headline text-[var(--saarthi-on-background)] flex items-center gap-2">
-        <Search className="text-[var(--saarthi-primary)]" aria-hidden />
+      <h2 className="text-xl font-extrabold sarthi-headline text-[var(--sarthi-on-background)] flex items-center gap-2">
+        <Search className="text-[var(--sarthi-primary)]" aria-hidden />
         {t('action.browseProduce')}
       </h2>
 
       <Card className="space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label className="text-sm font-bold text-[var(--saarthi-on-surface-variant)] mb-1 block">{t('buyer.filterCrop')}</label>
+            <label className="text-sm font-bold text-[var(--sarthi-on-surface-variant)] mb-1 block">{t('buyer.filterCrop')}</label>
             <select
               value={cropFilter}
               onChange={(e) => setCropFilter(e.target.value)}
-              className="saarthi-input cursor-pointer"
+              className="sarthi-input cursor-pointer"
             >
               <option value="">{t('buyer.filterCrop')}…</option>
               {CROP_OPTIONS.map((c) => (
@@ -94,11 +94,11 @@ export const CropDiscoveryView: React.FC<CropDiscoveryViewProps> = ({ preference
             </select>
           </div>
           <div>
-            <label className="text-sm font-bold text-[var(--saarthi-on-surface-variant)] mb-1 block">{t('buyer.filterLocation')}</label>
+            <label className="text-sm font-bold text-[var(--sarthi-on-surface-variant)] mb-1 block">{t('buyer.filterLocation')}</label>
             <select
               value={locationFilter}
               onChange={(e) => setLocationFilter(e.target.value)}
-              className="saarthi-input cursor-pointer"
+              className="sarthi-input cursor-pointer"
             >
               <option value="">{t('buyer.filterLocation')}…</option>
               {uniqueLocations.map((loc) => (
@@ -118,40 +118,40 @@ export const CropDiscoveryView: React.FC<CropDiscoveryViewProps> = ({ preference
       ) : (
         <div className="space-y-3">
           {filtered.length === 0 ? (
-            <Card tonal className="text-center text-[var(--saarthi-on-surface-variant)] py-10">{t('produce.empty')}</Card>
+            <Card tonal className="text-center text-[var(--sarthi-on-surface-variant)] py-10">{t('produce.empty')}</Card>
           ) : (
             filtered.map((item) => (
               <Card key={item.id} className="space-y-3">
                 <div className="flex justify-between gap-2">
                   <div>
-                    <h3 className="text-lg font-extrabold saarthi-headline text-[var(--saarthi-on-background)]">{item.crop}</h3>
-                    <p className="text-sm text-[var(--saarthi-on-surface-variant)] flex items-center gap-1 mt-1">
+                    <h3 className="text-lg font-extrabold sarthi-headline text-[var(--sarthi-on-background)]">{item.crop}</h3>
+                    <p className="text-sm text-[var(--sarthi-on-surface-variant)] flex items-center gap-1 mt-1">
                       <MapPin size={14} /> {item.farmerLocation}
                     </p>
                     <p className="text-xs text-gray-500 mt-0.5">{item.farmerName}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-xl font-black flex items-center justify-end gap-0.5 text-[var(--saarthi-primary)]">
+                    <p className="text-xl font-black flex items-center justify-end gap-0.5 text-[var(--sarthi-primary)]">
                       <IndianRupee className="w-5 h-5 opacity-70" />
                       {item.pricePerUnit}
                     </p>
                     <p className="text-[10px] text-gray-500">/{item.unit}</p>
                   </div>
                 </div>
-                <p className="text-sm text-[var(--saarthi-on-surface)]">
+                <p className="text-sm text-[var(--sarthi-on-surface)]">
                   {item.quantity} {item.unit}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <button
                     type="button"
                     onClick={() => setChatFor(item)}
-                    className="flex-1 min-h-[48px] rounded-xl bg-[var(--saarthi-surface-low)] font-bold text-sm flex items-center justify-center gap-1.5 border border-[var(--saarthi-outline-soft)] hover:bg-white transition-colors"
+                    className="flex-1 min-h-[48px] rounded-xl bg-[var(--sarthi-surface-low)] font-bold text-sm flex items-center justify-center gap-1.5 border border-[var(--sarthi-outline-soft)] hover:bg-white transition-colors"
                   >
                     <MessageCircle className="w-4 h-4" /> {tV2('v2.buyer.chat')}
                   </button>
                   <a
                     href={`tel:+${CONTACT.phoneE164}`}
-                    className="flex-1 min-h-[48px] rounded-xl bg-[var(--saarthi-surface-low)] font-bold text-sm flex items-center justify-center gap-1.5 border border-[var(--saarthi-outline-soft)] text-[var(--saarthi-on-background)] hover:bg-white transition-colors"
+                    className="flex-1 min-h-[48px] rounded-xl bg-[var(--sarthi-surface-low)] font-bold text-sm flex items-center justify-center gap-1.5 border border-[var(--sarthi-outline-soft)] text-[var(--sarthi-on-background)] hover:bg-white transition-colors"
                   >
                     <Phone className="w-4 h-4" /> {tV2('v2.buyer.call')}
                   </a>
@@ -188,7 +188,7 @@ export const CropDiscoveryView: React.FC<CropDiscoveryViewProps> = ({ preference
             <p className="font-bold text-lg text-green-700">{t('buyer.paymentSuccess')}</p>
             <p className="text-xs text-gray-500">{paymentReceipt.orderId}</p>
             <p className="text-sm font-semibold">{t('buyer.splitTitle')}</p>
-            <ul className="text-sm space-y-1 rounded-2xl p-3 bg-[var(--saarthi-surface-low)]">
+            <ul className="text-sm space-y-1 rounded-2xl p-3 bg-[var(--sarthi-surface-low)]">
               <li className="flex justify-between">
                 <span>{t('buyer.splitFarmer')}</span>
                 <span className="font-bold">₹{paymentReceipt.split.farmer}</span>
@@ -201,7 +201,7 @@ export const CropDiscoveryView: React.FC<CropDiscoveryViewProps> = ({ preference
                 <span>{t('buyer.splitPlatform')}</span>
                 <span className="font-bold">₹{paymentReceipt.split.platform}</span>
               </li>
-              <li className="flex justify-between pt-2 border-t border-[var(--saarthi-outline-soft)] font-extrabold">
+              <li className="flex justify-between pt-2 border-t border-[var(--sarthi-outline-soft)] font-extrabold">
                 <span>{t('buyer.splitTotal')}</span>
                 <span>₹{paymentReceipt.split.total}</span>
               </li>
@@ -228,8 +228,8 @@ export const CropDiscoveryView: React.FC<CropDiscoveryViewProps> = ({ preference
       {orderFor && !showCheckout && (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 p-4">
           <Card className="w-full max-w-md space-y-4">
-            <p className="font-extrabold text-lg saarthi-headline text-[var(--saarthi-primary)]">{orderFor.crop}</p>
-            <label className="block text-sm font-bold text-[var(--saarthi-on-surface-variant)]">{t('produce.qty')}</label>
+            <p className="font-extrabold text-lg sarthi-headline text-[var(--sarthi-primary)]">{orderFor.crop}</p>
+            <label className="block text-sm font-bold text-[var(--sarthi-on-surface-variant)]">{t('produce.qty')}</label>
             <div className="flex flex-wrap gap-2">
               {QTY_PRESETS.filter((q) => q <= orderFor.quantity).map((q) => (
                 <button
@@ -237,7 +237,7 @@ export const CropDiscoveryView: React.FC<CropDiscoveryViewProps> = ({ preference
                   type="button"
                   onClick={() => setQty(q)}
                   className={`min-h-[44px] min-w-[56px] rounded-xl border-2 font-bold text-base transition-colors ${
-                    qty === q ? 'bg-[var(--saarthi-primary)] text-white border-[var(--saarthi-primary)]' : 'bg-white text-gray-700 border-[var(--saarthi-outline-soft)]'
+                    qty === q ? 'bg-[var(--sarthi-primary)] text-white border-[var(--sarthi-primary)]' : 'bg-white text-gray-700 border-[var(--sarthi-outline-soft)]'
                   }`}
                 >
                   {q}

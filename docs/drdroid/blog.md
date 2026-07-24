@@ -70,7 +70,7 @@ The goal is to be able to say:\n
 
 ### 5) UI chatbot demo
 
-Saarthi is a wrapper UI. The platform demo lives under:
+Sarthi is a wrapper UI. The platform demo lives under:
 - `/platform` (Product)
 - `/platform/assistant` (Chatbot + scenarios)\n
 - `/platform/kubernetes` (deployment overview)

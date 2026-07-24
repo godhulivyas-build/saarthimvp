@@ -6,8 +6,111 @@
     <title>Sarthi Setu — सारथी सेतु</title>
     <meta name="description" content="Farm se Market tak. Mandi prices, buyers and transport in one simple app for MP farmers." />
     <meta name="theme-color" content="#16a34a" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta property="og:title" content="Sarthi Setu — सारथी सेतु" />
+    <meta property="og:description" content="Farm se Market tak. Mandi prices, buyers and transport in one simple app for MP farmers." />
+    <meta property="og:type" content="website" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414844",
+                        "surface-container-highest": "#e1e3e2",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#86af99",
+                        "surface-dim": "#d9dad9",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#19724f",
+                        "primary-fixed": "#c1ecd4",
+                        "secondary-fixed": "#a0f4c8",
+                        "surface-container-low": "#f3f4f3",
+                        "on-surface": "#191c1c",
+                        "on-tertiary-container": "#c79d90",
+                        "tertiary-fixed-dim": "#e9bdae",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "inverse-primary": "#a5d0b9",
+                        "inverse-surface": "#2e3131",
+                        "surface-bright": "#f9f9f8",
+                        "outline-variant": "#c1c8c2",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f0",
+                        "tertiary-container": "#52352b",
+                        "surface": "#f9f9f8",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#3a2017",
+                        "surface-variant": "#e1e3e2",
+                        "secondary": "#0e6c4a",
+                        "surface-container-high": "#e7e8e7",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "background": "#f9f9f8",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeed",
+                        "primary-container": "#1b4332",
+                        "primary": "#012d1d",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-primary-fixed": "#002114",
+                        "surface-tint": "#3f6653",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-secondary-fixed": "#002113",
+                        "on-background": "#191c1c",
+                        "outline": "#717973",
+                        "on-tertiary-fixed": "#2d150d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "stack-sm": "12px",
+                        "container-margin": "20px",
+                        "stack-md": "24px",
+                        "stack-lg": "40px"
+                    },
+                    "fontFamily": {
+                        "title-sm": ["Lexend", "sans-serif"],
+                        "display-lg": ["Lexend", "sans-serif"],
+                        "label-sm": ["Lexend", "sans-serif"],
+                        "headline-md": ["Lexend", "sans-serif"],
+                        "body-md": ["Lexend", "sans-serif"],
+                        "label-xl": ["Lexend", "sans-serif"],
+                        "body-lg": ["Lexend", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "title-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-xl": ["20px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}]
+                    },
+                    "animation": {
+                        "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                        "dash": "dash 5s linear infinite",
+                    },
+                    "keyframes": {
+                        "dash": {
+                            "to": { "stroke-dashoffset": "-100" }
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -40,7 +143,7 @@
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-gray-50 text-gray-900 saarthi-v2">
+  <body class="bg-gray-50 text-gray-900 sarthi-v2">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>

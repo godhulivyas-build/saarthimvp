@@ -5,7 +5,7 @@ This runbook is the step-by-step “do exactly this” path to get a recordable 
 1) **Ollama** running inside Kubernetes (with persistence)\n
 2) **Prometheus + Grafana** monitoring cluster health\n
 3) **AI Gateway** mediating the UI ↔ LLM calls\n
-4) **Saarthi UI** as the wrapper for the platform demo\n
+4) **Sarthi UI** as the wrapper for the platform demo\n
 
 ### 0) Prereqs
 

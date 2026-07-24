@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import type { SaarthiUserRole, V2AuthSession } from '../types';
+import type { SarthiUserRole, V2AuthSession } from '../types';
 
-const STORAGE_KEY = 'saarthi.v2.session';
+const STORAGE_KEY = 'sarthi.v2.session';
 
 const emptySession = (): V2AuthSession => ({
   version: 1,
@@ -41,7 +41,7 @@ type V2SessionContextValue = {
   setSession: React.Dispatch<React.SetStateAction<V2AuthSession>>;
   updateSession: (patch: Partial<V2AuthSession>) => void;
   clearSession: () => void;
-  completeDemo: (persona: SaarthiUserRole) => void;
+  completeDemo: (persona: SarthiUserRole) => void;
 };
 
 const V2SessionContext = createContext<V2SessionContextValue | null>(null);
@@ -78,7 +78,7 @@ export const V2SessionProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   }, []);
 
   const completeDemo = useCallback(
-    (persona: SaarthiUserRole) => {
+    (persona: SarthiUserRole) => {
       persist({
         ...emptySession(),
         phone: '9999999999',

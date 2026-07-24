@@ -14,7 +14,7 @@ export const SupportView: React.FC<SupportViewProps> = ({ embedded }) => {
   const defaultMsg =
     lang === 'hi'
       ? 'नमस्ते! मैं सारथी सहायक हूँ। मंडी भाव, कहाँ बेचें, या ढुलाई — पूछें।'
-      : 'Hi! I am Saarthi. Ask about mandi prices, where to sell, or logistics.';
+      : 'Hi! I am Sarthi. Ask about mandi prices, where to sell, or logistics.';
   const [messages, setMessages] = useState<ChatMessage[]>([{ id: '1', role: 'model', text: defaultMsg }]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);

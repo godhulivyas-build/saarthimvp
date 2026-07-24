@@ -17,7 +17,7 @@ export const StepIndicator: React.FC<Props> = ({ total, current, className = '' 
           key={n}
           role="listitem"
           className={`h-2 rounded-full transition-all duration-300 ${
-            active ? 'w-8 bg-[var(--saarthi-primary)]' : done ? 'w-2 bg-[var(--saarthi-primary-container)]' : 'w-2 bg-[var(--saarthi-surface-highest)]'
+            active ? 'w-8 bg-[var(--sarthi-primary)]' : done ? 'w-2 bg-[var(--sarthi-primary-container)]' : 'w-2 bg-[var(--sarthi-surface-highest)]'
           }`}
           aria-current={active ? 'step' : undefined}
         />

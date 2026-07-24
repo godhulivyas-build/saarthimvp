@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sarthi - Language Selection &amp; Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#414844",
+                    "surface-container-highest": "#e1e3e2",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#86af99",
+                    "surface-dim": "#d9dad9",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#19724f",
+                    "primary-fixed": "#c1ecd4",
+                    "secondary-fixed": "#a0f4c8",
+                    "surface-container-low": "#f3f4f3",
+                    "on-tertiary-container": "#c79d90",
+                    "tertiary-fixed-dim": "#e9bdae",
+                    "on-surface": "#191c1c",
+                    "on-tertiary-fixed-variant": "#5e3f35",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "inverse-primary": "#a5d0b9",
+                    "inverse-surface": "#2e3131",
+                    "surface-bright": "#f9f9f8",
+                    "outline-variant": "#c1c8c2",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f0",
+                    "tertiary-container": "#52352b",
+                    "surface": "#f9f9f8",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#3a2017",
+                    "surface-variant": "#e1e3e2",
+                    "secondary": "#0e6c4a",
+                    "surface-container-high": "#e7e8e7",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "background": "#f9f9f8",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeed",
+                    "primary-container": "#1b4332",
+                    "primary": "#012d1d",
+                    "on-secondary-fixed-variant": "#005236",
+                    "secondary-container": "#a0f4c8",
+                    "on-primary-fixed": "#002114",
+                    "surface-tint": "#3f6653",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-secondary-fixed": "#002113",
+                    "on-background": "#191c1c",
+                    "outline": "#717973",
+                    "on-tertiary-fixed": "#2d150d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "unit": "8px",
+                    "stack-sm": "12px",
+                    "container-margin": "20px",
+                    "stack-md": "24px",
+                    "stack-lg": "40px"
+            },
+            "fontFamily": {
+                    "title-sm": ["Lexend"],
+                    "display-lg": ["Lexend"],
+                    "label-sm": ["Lexend"],
+                    "headline-md": ["Lexend"],
+                    "body-md": ["Lexend"],
+                    "label-xl": ["Lexend"],
+                    "body-lg": ["Lexend"]
+            },
+            "fontSize": {
+                    "title-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-xl": ["20px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-6 h-16 w-full bg-white dark:bg-slate-900 shadow-sm border-b-2 border-emerald-100 dark:border-emerald-900">
+<div class="flex items-center gap-unit">
+<span class="text-2xl font-black text-emerald-900 dark:text-emerald-50 font-lexend">Sarthi</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors active:scale-95 transition-transform font-lexend text-base">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+<span>Language</span>
+</button>
+<button class="text-slate-600 hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="min-h-[calc(100vh-64px)] flex flex-col md:flex-row">
+<!-- Left Column: Language Selection -->
+<section class="flex-1 p-container-margin md:p-stack-lg bg-surface-container-low flex flex-col justify-center">
+<div class="max-w-xl mx-auto w-full">
+<h1 class="font-display-lg text-display-lg text-primary mb-stack-md">Choose Your Language</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">Please select your preferred language to continue your farming journey.</p>
+<div class="grid grid-cols-1 gap-stack-sm">
+<!-- English Card -->
+<button class="flex items-center gap-6 p-6 bg-white border-2 border-primary-fixed-dim rounded-xl shadow-sm hover:translate-x-1 transition-transform active:scale-95 text-left group">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="language">language</span>
+</div>
+<div class="flex-1">
+<h2 class="font-title-sm text-title-sm text-primary">English</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Default App Experience</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-focus:opacity-100" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- Hindi Card -->
+<button class="flex items-center gap-6 p-6 bg-white border-2 border-outline-variant rounded-xl shadow-sm hover:translate-x-1 transition-transform active:scale-95 text-left group">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-3xl font-bold text-secondary">
+                            अ
+                        </div>
+<div class="flex-1">
+<h2 class="font-title-sm text-title-sm text-primary">Hindi (नमस्ते)</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">हिन्दी में जारी रखें</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-focus:opacity-100" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- Marathi Card -->
+<button class="flex items-center gap-6 p-6 bg-white border-2 border-outline-variant rounded-xl shadow-sm hover:translate-x-1 transition-transform active:scale-95 text-left group">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center text-3xl font-bold text-tertiary">
+                            म
+                        </div>
+<div class="flex-1">
+<h2 class="font-title-sm text-title-sm text-primary">Marathi (नमस्कार)</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">मराठीत सुरू ठेवा</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-focus:opacity-100" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<!-- Kannada Card -->
+<button class="flex items-center gap-6 p-6 bg-white border-2 border-outline-variant rounded-xl shadow-sm hover:translate-x-1 transition-transform active:scale-95 text-left group">
+<div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center text-3xl font-bold text-secondary">
+                            ಕ
+                        </div>
+<div class="flex-1">
+<h2 class="font-title-sm text-title-sm text-primary">Kannada (ನಮಸ್ಕಾರ)</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">ಕನ್ನಡದಲ್ಲಿ ಮುಂದುವರಿಸಿ</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-focus:opacity-100" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button><!-- Telugu Card -->
+<button class="flex items-center gap-6 p-6 bg-white border-2 border-outline-variant rounded-xl shadow-sm hover:translate-x-1 transition-transform active:scale-95 text-left group">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed flex items-center justify-center text-3xl font-bold text-tertiary">
+                            తె
+                        </div>
+<div class="flex-1">
+<h2 class="font-title-sm text-title-sm text-primary">Telugu (నమస్కారం)</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">తెలుగులో కొనసాగించండి</p>
+</div>
+<span class="material-symbols-outlined text-primary opacity-0 group-focus:opacity-100" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button></div>
+</div>
+</section>
+<!-- Right Column: Login Form -->
+<section class="flex-1 p-container-margin md:p-stack-lg bg-white flex flex-col justify-center">
+<div class="max-w-md mx-auto w-full">
+<!-- Branding Context -->
+<div class="mb-stack-lg text-center md:text-left">
+<img alt="Modern Farming" class="w-full h-48 object-cover rounded-xl mb-stack-md shadow-sm" data-alt="Close-up of healthy green plant sprouts emerging from rich dark soil with soft sunlight bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBxFuOdVU5RR87ui6zrjKyNIBg2q84kSZZpsA-jfuTeBpVOxPhtZOnjRV1XAgIWy3JvmSVU5u_nAD21ZWgguvQ7F_LcotlVK2pdteIZyCNdyE-_t8RwATgmSIAhjlqr2U-lSGta1VQ_-E70k9KkJAZBcismEzwMeRU_HsOMUJoW9HQbBstfzSw5ZndhHi2ne1tzd-h9UwnIOrROoZWzzV3tbdk5-efH3MFs-jkqvYwnoJ5PxsbBd_LlxkhGv0uPuJcyemPO0ps0wE"/>
+<h2 class="font-headline-md text-headline-md text-primary">Login with Mobile Number</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Enter your details to access your dashboard.</p>
+</div>
+<form class="space-y-stack-md">
+<!-- Mobile Field -->
+<div class="space-y-unit">
+<label class="block font-label-xl text-label-xl text-primary" for="mobile">Mobile Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-label-xl text-on-surface-variant">+91</span>
+<input class="w-full h-16 pl-16 pr-4 bg-surface-container rounded-lg border-2 border-transparent focus:border-on-secondary-container focus:ring-0 text-title-sm font-title-sm text-primary placeholder:text-outline" id="mobile" placeholder="9876543210" type="tel"/>
+</div>
+</div>
+<!-- Get OTP Button -->
+<button class="w-full h-16 bg-primary text-white rounded-lg font-label-xl text-label-xl flex items-center justify-center gap-2 hover:bg-opacity-90 active:scale-[0.98] transition-all shadow-md" type="button">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+                        Get OTP
+                    </button>
+<!-- OTP Input (Mocking the state after "Get OTP" click) -->
+<div class="mt-stack-lg pt-stack-lg border-t-2 border-surface-container-highest space-y-stack-md">
+<div class="flex justify-between items-center">
+<label class="font-label-xl text-label-xl text-primary">Enter 4-digit OTP</label>
+<button class="text-secondary font-label-sm text-label-sm hover:underline" type="button">Resend OTP</button>
+</div>
+<div class="flex gap-4 justify-center">
+<input class="w-16 h-16 text-center text-title-sm font-title-sm bg-surface-container-high rounded-lg border-2 border-transparent focus:border-on-secondary-container focus:ring-0" maxlength="1" type="text"/>
+<input class="w-16 h-16 text-center text-title-sm font-title-sm bg-surface-container-high rounded-lg border-2 border-transparent focus:border-on-secondary-container focus:ring-0" maxlength="1" type="text"/>
+<input class="w-16 h-16 text-center text-title-sm font-title-sm bg-surface-container-high rounded-lg border-2 border-transparent focus:border-on-secondary-container focus:ring-0" maxlength="1" type="text"/>
+<input class="w-16 h-16 text-center text-title-sm font-title-sm bg-surface-container-high rounded-lg border-2 border-transparent focus:border-on-secondary-container focus:ring-0" maxlength="1" type="text"/>
+</div>
+<button class="w-full h-16 bg-secondary text-white rounded-lg font-label-xl text-label-xl flex items-center justify-center gap-2 hover:bg-opacity-90 active:scale-[0.98] transition-all shadow-md" type="submit">
+                            Verify &amp; Continue
+                        </button>
+</div>
+</form>
+<div class="mt-stack-lg text-center">
+<p class="text-label-sm font-label-sm text-on-surface-variant">
+                        By continuing, you agree to Sarthi's 
+                        <a class="text-secondary font-bold" href="#">Terms of Service</a> &amp; 
+                        <a class="text-secondary font-bold" href="#">Privacy Policy</a>
+</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Meta (Decorative) -->
+<div class="hidden md:block fixed bottom-6 left-6 z-10">
+<div class="flex items-center gap-2 bg-white/80 backdrop-blur-sm p-3 rounded-full border border-emerald-100 shadow-sm">
+<span class="w-3 h-3 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary">Secured by Government Standards</span>
+</div>
+</div>
+</body></html>

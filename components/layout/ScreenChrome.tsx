@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18n } from '../../i18n/I18nContext';
-import { SaarthiLogo } from '../SaarthiLogo';
+import { SarthiLogo } from '../SarthiLogo';
 
 type ScreenChromeProps = {
   children: React.ReactNode;
@@ -34,7 +34,7 @@ export const ScreenChrome: React.FC<ScreenChromeProps> = ({ children, onBack, ti
             </button>
           ) : (
             <div className="flex items-center gap-1.5 pl-1">
-              <SaarthiLogo size={28} className="rounded" />
+              <SarthiLogo size={28} className="rounded" />
               <span className="font-extrabold text-green-800 text-sm leading-none">
                 Sarthi Setu<br />
                 <span className="text-[10px] font-bold text-gray-500">सारथी सेतु</span>

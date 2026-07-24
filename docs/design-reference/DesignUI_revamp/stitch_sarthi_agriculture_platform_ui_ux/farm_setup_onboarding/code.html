@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sarthi - Farm Setup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#414844",
+                    "surface-container-highest": "#e1e3e2",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#a5d0b9",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#86af99",
+                    "surface-dim": "#d9dad9",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#19724f",
+                    "primary-fixed": "#c1ecd4",
+                    "secondary-fixed": "#a0f4c8",
+                    "surface-container-low": "#f3f4f3",
+                    "on-surface": "#191c1c",
+                    "on-tertiary-fixed-variant": "#5e3f35",
+                    "on-primary-fixed-variant": "#274e3d",
+                    "inverse-primary": "#a5d0b9",
+                    "inverse-surface": "#2e3131",
+                    "surface-bright": "#f9f9f8",
+                    "outline-variant": "#c1c8c2",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f0",
+                    "tertiary-container": "#52352b",
+                    "surface": "#f9f9f8",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#3a2017",
+                    "surface-variant": "#e1e3e2",
+                    "secondary": "#0e6c4a",
+                    "surface-container-high": "#e7e8e7",
+                    "secondary-fixed-dim": "#85d7ad",
+                    "background": "#f9f9f8",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeed",
+                    "primary-container": "#1b4332",
+                    "primary": "#012d1d",
+                    "on-secondary-fixed-variant": "#005236",
+                    "secondary-fixed": "#a0f4c8",
+                    "on-primary-fixed": "#002114",
+                    "surface-tint": "#3f6653",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-secondary-fixed": "#002113",
+                    "on-background": "#191c1c",
+                    "outline": "#717973",
+                    "on-tertiary-fixed": "#2d150d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "unit": "8px",
+                    "stack-sm": "12px",
+                    "container-margin": "20px",
+                    "stack-md": "24px",
+                    "stack-lg": "40px"
+            },
+            "fontFamily": {
+                    "title-sm": ["Lexend"],
+                    "display-lg": ["Lexend"],
+                    "label-sm": ["Lexend"],
+                    "headline-md": ["Lexend"],
+                    "body-md": ["Lexend"],
+                    "label-xl": ["Lexend"],
+                    "body-lg": ["Lexend"]
+            },
+            "fontSize": {
+                    "title-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-xl": ["20px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-connector {
+            position: relative;
+        }
+        .step-connector::after {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 32px;
+            width: calc(100% - 32px);
+            height: 4px;
+            background-color: #c1c8c2;
+            z-index: 0;
+        }
+        .step-connector.completed::after {
+            background-color: #85d7ad;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-6 h-16 w-full bg-white dark:bg-slate-900 border-b-2 border-emerald-100 dark:border-emerald-900 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black text-emerald-900 dark:text-emerald-50 font-lexend">Sarthi</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg text-slate-600 hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors font-lexend text-base">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+<span class="hidden sm:inline">Language</span>
+</button>
+<button class="p-2 rounded-full text-emerald-900 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full overflow-y-auto h-screen w-64 border-r-2 border-emerald-100 dark:border-emerald-900 hidden md:flex flex-col bg-emerald-50 dark:bg-slate-950 z-40 pt-20">
+<div class="px-6 mb-8">
+<h2 class="text-xl font-bold text-emerald-900 font-lexend">Sarthi Dashboard</h2>
+<p class="text-sm text-emerald-800 dark:text-emerald-200 font-lexend">Modern Farming Guide</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900 rounded-lg hover:translate-x-1 transition-transform font-lexend font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900 rounded-lg hover:translate-x-1 transition-transform font-lexend font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>Marketplace</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900 rounded-lg hover:translate-x-1 transition-transform font-lexend font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="psychiatry">psychiatry</span>
+<span>Expert Advice</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 bg-emerald-700 text-white rounded-lg hover:translate-x-1 transition-transform font-lexend font-medium shadow-md" href="#">
+<span class="material-symbols-outlined" data-icon="psychology_alt">psychology_alt</span>
+<span>My Crops</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 my-1 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900 rounded-lg hover:translate-x-1 transition-transform font-lexend font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="cloud">cloud</span>
+<span>Weather</span>
+</a>
+</nav>
+<div class="p-4 mt-auto space-y-2">
+<button class="w-full py-4 bg-primary-container text-white rounded-xl font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Get Help
+                </button>
+<div class="pt-4 border-t border-emerald-200 dark:border-emerald-800">
+<a class="flex items-center gap-3 px-4 py-2 text-emerald-800 dark:text-emerald-200 hover:bg-emerald-100 dark:hover:bg-emerald-900 rounded-lg transition-colors font-lexend font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 rounded-lg transition-colors font-lexend font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 min-h-screen pb-24 md:pb-8">
+<div class="max-w-4xl mx-auto px-container-margin py-stack-lg">
+<!-- Stepper Progress -->
+<div class="flex items-center justify-between mb-12 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-2 z-10 flex-1 step-connector completed">
+<div class="w-10 h-10 rounded-full bg-secondary text-white flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Personal Info</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-2 z-10 flex-1 step-connector">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center ring-4 ring-secondary-container shadow-lg">
+<span class="font-bold">2</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface font-bold">Farm Details</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-2 z-10 flex-1 step-connector">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+<span class="font-bold">3</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Crop Selection</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-2 z-10 flex-1">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center">
+<span class="font-bold">4</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Done</span>
+</div>
+</div>
+<!-- Form Section -->
+<div class="bg-white rounded-3xl p-6 md:p-10 shadow-[0_4px_20px_rgba(1,45,29,0.08)] border border-emerald-50">
+<div class="mb-8">
+<h1 class="text-headline-md font-headline-md text-primary mb-2">Tell us about your farm</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">This helps us provide tailored weather alerts and market prices for your region.</p>
+</div>
+<form class="space-y-10">
+<!-- Farm Name -->
+<div class="space-y-3">
+<label class="block font-label-xl text-label-xl text-on-surface">Farm Name</label>
+<input class="w-full h-16 px-6 text-body-lg font-body-lg rounded-2xl border-2 border-outline-variant focus:border-secondary focus:ring-0 transition-all bg-surface-container-lowest" placeholder="e.g. Green Valley Estate" type="text" value="Saraswati Farm"/>
+</div>
+<!-- Map Picker Mock -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<label class="block font-label-xl text-label-xl text-on-surface">Farm Location</label>
+<span class="text-secondary font-bold flex items-center gap-1 cursor-pointer">
+<span class="material-symbols-outlined text-sm" data-icon="my_location">my_location</span>
+                                    Use current location
+                                </span>
+</div>
+<div class="relative w-full h-64 rounded-3xl overflow-hidden border-2 border-outline-variant shadow-inner group">
+<img class="w-full h-full object-cover" data-alt="stylized satellite map view of rural farmland with green crop patches and dirt roads" data-location="Satara, Maharashtra" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRT5PVF9UwpELeQujEDwFxLk2zH8xEtt1pJwCDMYpnNbHLyAAyn3uRuHMQVFnoNYcMI_rR3SEvKANFdszLbiKlYTi5eiJUh_EtR1cJvOnlrcFe4mtvTzB5BVXgM0J6NFa5-_VOrAXz0-4_1oOHyJQKmnTXDtNuhXSTunxSBsvncLGkzUQfcvsxEZ7YRGoGaXhGGl4sYHzrRiz3X83m4bdsSS4DNtgiqSPpLASwzZhv1x9dXkV29FLrP6eeNDz8fHtuBI2B110n2C0"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-error text-5xl" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-3 rounded-xl shadow-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="map">map</span>
+<span class="text-body-md font-medium">Satara District, Maharashtra, India</span>
+</div>
+</div>
+</div>
+<!-- Land Size -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-3">
+<label class="block font-label-xl text-label-xl text-on-surface">Land Size</label>
+<div class="relative">
+<input class="w-full h-16 px-6 pr-24 text-body-lg font-body-lg rounded-2xl border-2 border-outline-variant focus:border-secondary focus:ring-0 transition-all bg-surface-container-lowest" placeholder="0.00" type="number"/>
+<div class="absolute right-3 top-3 bottom-3 flex items-center px-4 bg-emerald-100 rounded-xl text-secondary font-bold">
+                                        Acres
+                                    </div>
+</div>
+</div>
+<div class="space-y-3">
+<label class="block font-label-xl text-label-xl text-on-surface">Soil Type (Optional)</label>
+<select class="w-full h-16 px-6 text-body-lg font-body-lg rounded-2xl border-2 border-outline-variant focus:border-secondary focus:ring-0 transition-all bg-surface-container-lowest appearance-none">
+<option>Select Soil Type</option>
+<option selected="">Black Soil (Regur)</option>
+<option>Alluvial Soil</option>
+<option>Red Soil</option>
+<option>Laterite Soil</option>
+</select>
+</div>
+</div>
+<!-- Irrigation Type - Visual Cards -->
+<div class="space-y-4">
+<label class="block font-label-xl text-label-xl text-on-surface">Irrigation Type</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="cursor-pointer group">
+<input checked="" class="hidden peer" id="drip" name="irrigation" type="radio"/>
+<label class="flex flex-col items-center justify-center p-4 h-40 bg-white border-2 border-outline-variant rounded-3xl peer-checked:border-secondary peer-checked:bg-secondary-container transition-all group-hover:border-secondary/50" for="drip">
+<span class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant group-peer-checked:text-secondary" data-icon="opacity">opacity</span>
+<span class="font-bold text-center">Drip</span>
+</label>
+</div>
+<div class="cursor-pointer group">
+<input class="hidden peer" id="sprinkler" name="irrigation" type="radio"/>
+<label class="flex flex-col items-center justify-center p-4 h-40 bg-white border-2 border-outline-variant rounded-3xl peer-checked:border-secondary peer-checked:bg-secondary-container transition-all group-hover:border-secondary/50" for="sprinkler">
+<span class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant" data-icon="shower">shower</span>
+<span class="font-bold text-center">Sprinkler</span>
+</label>
+</div>
+<div class="cursor-pointer group">
+<input class="hidden peer" id="canal" name="irrigation" type="radio"/>
+<label class="flex flex-col items-center justify-center p-4 h-40 bg-white border-2 border-outline-variant rounded-3xl peer-checked:border-secondary peer-checked:bg-secondary-container transition-all group-hover:border-secondary/50" for="canal">
+<span class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant" data-icon="waterway">water</span>
+<span class="font-bold text-center">Canal</span>
+</label>
+</div>
+<div class="cursor-pointer group">
+<input class="hidden peer" id="rainfed" name="irrigation" type="radio"/>
+<label class="flex flex-col items-center justify-center p-4 h-40 bg-white border-2 border-outline-variant rounded-3xl peer-checked:border-secondary peer-checked:bg-secondary-container transition-all group-hover:border-secondary/50" for="rainfed">
+<span class="material-symbols-outlined text-4xl mb-2 text-on-surface-variant" data-icon="cloudy_snowing">cloudy_snowing</span>
+<span class="font-bold text-center">Rainfed</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Form Navigation Buttons -->
+<div class="flex flex-col-reverse md:flex-row gap-4 pt-10 border-t border-emerald-100">
+<button class="flex-1 h-16 flex items-center justify-center gap-3 border-2 border-secondary text-secondary font-bold text-label-xl rounded-2xl hover:bg-emerald-50 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                                Back
+                            </button>
+<button class="flex-[2] h-16 flex items-center justify-center gap-3 bg-secondary text-white font-bold text-label-xl rounded-2xl shadow-lg shadow-secondary/20 hover:bg-primary active:scale-95 transition-all" type="button">
+                                Save &amp; Continue
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 md:hidden bg-white dark:bg-slate-900 border-t-4 border-emerald-600 shadow-[0_-4px_10px_rgba(27,67,50,0.1)] h-20">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 font-lexend text-[12px] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 font-lexend text-[12px] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 font-lexend text-[12px] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span>Expert</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-emerald-100 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-50 rounded-xl px-4 py-1 font-lexend text-[12px] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="agriculture" data-weight="fill" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+<span>Crops</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 font-lexend text-[12px] font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span>More</span>
+</a>
+</nav>
+</body></html>

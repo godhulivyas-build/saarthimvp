@@ -126,7 +126,7 @@ export const LogisticsJobsView: React.FC<LogisticsJobsViewProps> = ({
               <div className="grid grid-cols-2 gap-2">
                 <a
                   href={buildWhatsAppLink(
-                    `Saarthi logistics (pilot)\nJob: ${job.id}\nRoute: ${job.pickupLocation} → ${job.dropLocation}\nCrop: ${job.crop}\nLoad: ${job.quantity} ${job.unit}\nStatus: ${job.status}\n\nPlease share any ops notes / gate pass info.`,
+                    `Sarthi logistics (pilot)\nJob: ${job.id}\nRoute: ${job.pickupLocation} → ${job.dropLocation}\nCrop: ${job.crop}\nLoad: ${job.quantity} ${job.unit}\nStatus: ${job.status}\n\nPlease share any ops notes / gate pass info.`,
                     CONTACT.phoneE164
                   )}
                   target="_blank"

@@ -1,118 +1,118 @@
 /* Sarthi Setu V2 — design tokens (Pragati Sangam / Stitch reference) */
 :root {
   /* Warm earthy palette – HSL for easy theming */
-  --saarthi-bg: hsl(110, 30%, 95%); /* light background */
-  --saarthi-surface: hsl(110, 25%, 97%);
-  --saarthi-surface-low: hsl(110, 18%, 93%);
-  --saarthi-surface-high: hsl(110, 15%, 90%);
-  --saarthi-surface-highest: hsl(110, 12%, 87%);
-  --saarthi-on-surface: hsl(120, 30%, 12%);
-  --saarthi-on-surface-variant: hsl(120, 15%, 30%);
-  --saarthi-primary: hsl(140, 50%, 33%);
-  --saarthi-primary-container: hsl(140, 45%, 45%);
-  --saarthi-on-primary: #ffffff;
-  --saarthi-secondary: hsl(30, 70%, 27%);
-  --saarthi-secondary-container: hsl(30, 80%, 50%);
-  --saarthi-on-secondary: #ffffff;
-  --saarthi-tertiary: hsl(210, 70%, 27%);
-  --saarthi-tertiary-rgb: 0, 90, 140;
-  --saarthi-outline: hsl(120, 10%, 45%);
-  --saarthi-radius-lg: 1.5rem;
-  --saarthi-radius-xl: 2rem;
-  --saarthi-shadow-float: 0 12px 32px -4px rgba(47, 49, 46, 0.08);
-  --saarthi-on-background: hsl(120, 20%, 10%);
-  --saarthi-outline-soft: rgba(112, 122, 108, 0.15);
-  --saarthi-focus-ring: rgba(13, 99, 27, 0.12);
-  --saarthi-glass: rgba(255, 255, 255, 0.72);
+  --sarthi-bg: hsl(110, 30%, 95%); /* light background */
+  --sarthi-surface: hsl(110, 25%, 97%);
+  --sarthi-surface-low: hsl(110, 18%, 93%);
+  --sarthi-surface-high: hsl(110, 15%, 90%);
+  --sarthi-surface-highest: hsl(110, 12%, 87%);
+  --sarthi-on-surface: hsl(120, 30%, 12%);
+  --sarthi-on-surface-variant: hsl(120, 15%, 30%);
+  --sarthi-primary: hsl(140, 50%, 33%);
+  --sarthi-primary-container: hsl(140, 45%, 45%);
+  --sarthi-on-primary: #ffffff;
+  --sarthi-secondary: hsl(30, 70%, 27%);
+  --sarthi-secondary-container: hsl(30, 80%, 50%);
+  --sarthi-on-secondary: #ffffff;
+  --sarthi-tertiary: hsl(210, 70%, 27%);
+  --sarthi-tertiary-rgb: 0, 90, 140;
+  --sarthi-outline: hsl(120, 10%, 45%);
+  --sarthi-radius-lg: 1.5rem;
+  --sarthi-radius-xl: 2rem;
+  --sarthi-shadow-float: 0 12px 32px -4px rgba(47, 49, 46, 0.08);
+  --sarthi-on-background: hsl(120, 20%, 10%);
+  --sarthi-outline-soft: rgba(112, 122, 108, 0.15);
+  --sarthi-focus-ring: rgba(13, 99, 27, 0.12);
+  --sarthi-glass: rgba(255, 255, 255, 0.72);
 }
 
 /* Dark mode overrides */
 [data-theme="dark"] {
-  --saarthi-bg: hsl(120, 5%, 10%);
-  --saarthi-surface: hsl(120, 5%, 12%);
-  --saarthi-surface-low: hsl(120, 4%, 15%);
-  --saarthi-surface-high: hsl(120, 4%, 18%);
-  --saarthi-surface-highest: hsl(120, 4%, 20%);
-  --saarthi-on-surface: hsl(110, 30%, 90%);
-  --saarthi-on-surface-variant: hsl(110, 15%, 70%);
-  --saarthi-primary: hsl(140, 55%, 55%);
-  --saarthi-primary-container: hsl(140, 45%, 65%);
-  --saarthi-on-primary: #111111;
-  --saarthi-secondary: hsl(30, 80%, 60%);
-  --saarthi-secondary-container: hsl(30, 70%, 70%);
-  --saarthi-on-secondary: #111111;
-  --saarthi-tertiary: hsl(210, 70%, 55%);
-  --saarthi-outline: hsl(110, 10%, 55%);
-  --saarthi-outline-soft: rgba(255, 255, 255, 0.15);
-  --saarthi-focus-ring: rgba(100, 200, 150, 0.12);
-  --saarthi-glass: rgba(0, 0, 0, 0.48);
+  --sarthi-bg: hsl(120, 5%, 10%);
+  --sarthi-surface: hsl(120, 5%, 12%);
+  --sarthi-surface-low: hsl(120, 4%, 15%);
+  --sarthi-surface-high: hsl(120, 4%, 18%);
+  --sarthi-surface-highest: hsl(120, 4%, 20%);
+  --sarthi-on-surface: hsl(110, 30%, 90%);
+  --sarthi-on-surface-variant: hsl(110, 15%, 70%);
+  --sarthi-primary: hsl(140, 55%, 55%);
+  --sarthi-primary-container: hsl(140, 45%, 65%);
+  --sarthi-on-primary: #111111;
+  --sarthi-secondary: hsl(30, 80%, 60%);
+  --sarthi-secondary-container: hsl(30, 70%, 70%);
+  --sarthi-on-secondary: #111111;
+  --sarthi-tertiary: hsl(210, 70%, 55%);
+  --sarthi-outline: hsl(110, 10%, 55%);
+  --sarthi-outline-soft: rgba(255, 255, 255, 0.15);
+  --sarthi-focus-ring: rgba(100, 200, 150, 0.12);
+  --sarthi-glass: rgba(0, 0, 0, 0.48);
 }
 
-body.saarthi-v2 {
-  background-color: var(--saarthi-bg);
-  color: var(--saarthi-on-surface);
+body.sarthi-v2 {
+  background-color: var(--sarthi-bg);
+  color: var(--sarthi-on-surface);
 }
 
-.saarthi-headline {
+.sarthi-headline {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 }
 
 /* DESIGN.md — tonal depth, no harsh lines */
-.saarthi-card {
+.sarthi-card {
   background: #ffffff;
-  border-radius: var(--saarthi-radius-xl);
-  box-shadow: var(--saarthi-shadow-float);
-  border: 1px solid var(--saarthi-outline-soft);
+  border-radius: var(--sarthi-radius-xl);
+  box-shadow: var(--sarthi-shadow-float);
+  border: 1px solid var(--sarthi-outline-soft);
 }
 
-.saarthi-card-tonal {
-  background: var(--saarthi-surface-low);
-  border-radius: var(--saarthi-radius-lg);
-  border: 1px solid var(--saarthi-outline-soft);
+.sarthi-card-tonal {
+  background: var(--sarthi-surface-low);
+  border-radius: var(--sarthi-radius-lg);
+  border: 1px solid var(--sarthi-outline-soft);
 }
 
-.saarthi-cta-primary {
+.sarthi-cta-primary {
   min-height: 56px;
-  border-radius: var(--saarthi-radius-xl);
-  background: linear-gradient(135deg, var(--saarthi-primary) 0%, var(--saarthi-primary-container) 100%);
-  color: var(--saarthi-on-primary);
+  border-radius: var(--sarthi-radius-xl);
+  background: linear-gradient(135deg, var(--sarthi-primary) 0%, var(--sarthi-primary-container) 100%);
+  color: var(--sarthi-on-primary);
   font-weight: 800;
-  box-shadow: var(--saarthi-shadow-float);
+  box-shadow: var(--sarthi-shadow-float);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.saarthi-cta-primary:hover {
+.sarthi-cta-primary:hover {
   transform: translateY(-1px);
 }
 
-.saarthi-cta-primary:active {
+.sarthi-cta-primary:active {
   transform: scale(0.98);
 }
 
-.saarthi-glass-panel {
-  background: var(--saarthi-glass);
+.sarthi-glass-panel {
+  background: var(--sarthi-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--saarthi-outline-soft);
-  border-radius: var(--saarthi-radius-xl);
-  box-shadow: var(--saarthi-shadow-float);
+  border: 1px solid var(--sarthi-outline-soft);
+  border-radius: var(--sarthi-radius-xl);
+  box-shadow: var(--sarthi-shadow-float);
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.saarthi-input {
+.sarthi-input {
   width: 100%;
   min-height: 52px;
   border-radius: 1.5rem;
   background: #ffffff;
-  border: 1px solid var(--saarthi-outline-soft);
+  border: 1px solid var(--sarthi-outline-soft);
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  color: var(--saarthi-on-background);
+  color: var(--sarthi-on-background);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.saarthi-input:focus {
+.sarthi-input:focus {
   outline: none;
-  border-color: var(--saarthi-primary);
-  box-shadow: 0 0 0 3px var(--saarthi-focus-ring);
+  border-color: var(--sarthi-primary);
+  box-shadow: 0 0 0 3px var(--sarthi-focus-ring);
 }

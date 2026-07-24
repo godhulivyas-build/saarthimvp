@@ -6,7 +6,7 @@
   "installCommand": "npm ci",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "git": {
-    "deploymentEnabled": false
+    "deploymentEnabled": true
   },
   "github": {
     "autoJobCancelation": false

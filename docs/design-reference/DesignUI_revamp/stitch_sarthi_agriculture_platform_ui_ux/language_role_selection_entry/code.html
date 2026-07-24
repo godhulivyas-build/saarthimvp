@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+            background-color: #fdf7ff;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#322f35",
+                        "secondary": "#63597c",
+                        "secondary-container": "#e1d4fd",
+                        "outline-variant": "#cbc4d2",
+                        "primary-container": "#6750a4",
+                        "primary": "#4f378a",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ece6ee",
+                        "primary-fixed": "#e9ddff",
+                        "surface-container": "#f2ecf4",
+                        "on-background": "#1d1b20",
+                        "on-secondary-fixed": "#1f1635",
+                        "outline": "#7a7582",
+                        "tertiary-container": "#c9a74d",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdf93",
+                        "on-secondary-fixed-variant": "#4b4263",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#22005d",
+                        "surface-tint": "#6750a4",
+                        "primary-fixed-dim": "#cfbcff",
+                        "background": "#fdf7ff",
+                        "on-tertiary-fixed-variant": "#594400",
+                        "inverse-on-surface": "#f5eff7",
+                        "surface-bright": "#fdf7ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#645a7d",
+                        "on-surface": "#1d1b20",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-primary-container": "#e0d2ff",
+                        "surface-dim": "#ded8e0",
+                        "tertiary": "#765b00",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#cfbcff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#503d00",
+                        "secondary-fixed-dim": "#cdc0e9",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fdf7ff",
+                        "surface-container-low": "#f8f2fa",
+                        "on-surface-variant": "#494551",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-variant": "#e6e0e9",
+                        "on-primary-fixed-variant": "#4f378a",
+                        "tertiary-fixed-dim": "#e7c365",
+                        "surface-container-highest": "#e6e0e9",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "component-gap-md": "16px",
+                        "touch-target-min": "48px",
+                        "component-gap-sm": "8px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "section-gap": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "body-md": ["Lexend"],
+                        "body-lg": ["Lexend"],
+                        "label-sm": ["Lexend"],
+                        "label-xl": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-xl": ["20px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center p-container-margin">
+<div class="fixed top-0 left-0 w-full px-5 h-16 flex justify-between items-center bg-[#1B4332] dark:bg-slate-950 shadow-md border-b border-emerald-800 dark:border-slate-800 z-50">
+<div class="text-2xl font-bold text-white tracking-tight font-lexend">Sarthi</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full bg-emerald-700 flex items-center justify-center overflow-hidden border border-emerald-500">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a smiling Indian farmer with a warm, friendly expression in outdoor natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmjnQeXcW1COZlYsK3qJMcE00NJzBRX71Ud1od1A6HyIdUlyT-QBFISUAupwhe4fmgMfqeTJ86im56A7yDWEdjUkYghGmQH4bFqupEY1b0x7tUFJGsmHD0XerBH8FZgMUtvSttD_nQIbaLP9EoUsdu63aRLiq0pOytMgVVvwixwkp314Xef9ykIm8wEGL9fr93hGGdi3c6ORCWe_cav8YXnYRHF-hMLdXOaZPx_5kTZ-mqyzzRJ3rA9xLClRBr6u5fbWhsbskEWy4"/>
+</div>
+</div>
+</div>
+<main class="w-full max-w-5xl mt-16 pb-24">
+<div class="text-center mb-section-gap">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Welcome to Sarthi</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Connecting fields, markets, and destinations. Please choose your preferred language to begin.</p>
+</div>
+<section class="mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-component-gap-md">
+<button class="group relative overflow-hidden bg-surface-container-lowest border border-outline-variant p-8 rounded-xl shadow-sm hover:shadow-lg hover:border-primary transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-20 h-20 mb-6 bg-primary-fixed rounded-full flex items-center justify-center text-on-primary-fixed">
+<span class="text-3xl font-bold">Aa</span>
+</div>
+<h2 class="font-label-xl text-label-xl text-on-surface">English</h2>
+<p class="font-label-sm text-label-sm text-outline mt-2">Standard English layout</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+</button>
+<button class="group relative overflow-hidden bg-surface-container-lowest border border-outline-variant p-8 rounded-xl shadow-sm hover:shadow-lg hover:border-primary transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-20 h-20 mb-6 bg-tertiary-fixed rounded-full flex items-center justify-center text-on-tertiary-fixed">
+<span class="text-4xl font-bold">अ</span>
+</div>
+<h2 class="font-label-xl text-label-xl text-on-surface">Hindi</h2>
+<p class="font-label-sm text-label-sm text-outline mt-2">हिंदी भाषा अनुभव</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-tertiary transform scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+</button>
+<button class="group relative overflow-hidden bg-surface-container-lowest border border-outline-variant p-8 rounded-xl shadow-sm hover:shadow-lg hover:border-primary transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-20 h-20 mb-6 bg-secondary-container rounded-full flex items-center justify-center text-on-secondary-fixed">
+<span class="text-4xl font-bold">म</span>
+</div>
+<h2 class="font-label-xl text-label-xl text-on-surface">Marathi</h2>
+<p class="font-label-sm text-label-sm text-outline mt-2">मराठी भाषेतील सेवा</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+</button>
+<button class="group relative overflow-hidden bg-surface-container-lowest border border-outline-variant p-8 rounded-xl shadow-sm hover:shadow-lg hover:border-primary transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-20 h-20 mb-6 bg-primary-fixed-dim rounded-full flex items-center justify-center text-on-primary-fixed">
+<span class="text-4xl font-bold">ಕ</span>
+</div>
+<h2 class="font-label-xl text-label-xl text-on-surface">Kannada</h2>
+<p class="font-label-sm text-label-sm text-outline mt-2">ಕನ್ನಡ ಭಾಷೆಯ ಅನುಭವ</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary-container transform scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+</button><button class="group relative overflow-hidden bg-surface-container-lowest border border-outline-variant p-8 rounded-xl shadow-sm hover:shadow-lg hover:border-primary transition-all duration-300 flex flex-col items-center text-center">
+<div class="w-20 h-20 mb-6 bg-tertiary-fixed-dim rounded-full flex items-center justify-center text-on-tertiary-fixed">
+<span class="text-4xl font-bold">తె</span>
+</div>
+<h2 class="font-label-xl text-label-xl text-on-surface">Telugu</h2>
+<p class="font-label-sm text-label-sm text-outline mt-2">తెలుగు భాషా అనుభవం</p>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-tertiary-container transform scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+</button></div>
+</section>
+<section class="mt-section-gap border-t border-outline-variant pt-section-gap">
+<div class="text-center mb-component-gap-md">
+<h3 class="font-headline-md text-headline-md text-on-surface">Who are you?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Select your role to customize your experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="group cursor-pointer bg-white rounded-xl shadow-sm border border-transparent hover:border-primary p-6 transition-all">
+<div class="relative w-full h-40 rounded-lg overflow-hidden mb-4">
+<img alt="Farmer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="wide shot of a golden wheat field at sunrise with a farmer silhouette looking over the horizon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDK0ygfI9uNUyOClp4lzztF_j6psJtSj3ce7C7y0lBy3ZEQcl4E2IPsHjhNBCY31IapPhJwfT_KLn09O8B2VvAHETVDOjDi96Nr7rCKJ8aV46PWJXy78GuO7JmJRMKjGGc8L8vUQ1yFiymoCLUM9Cy6VaexJsd_9jnm3ff3xUlyatbvBm0lb4lhuYEpmU-x5CGxDC3f6EDnzxpCP-pvc0JXzxzTgjE32r8tCp64lf_AiLcM53f_BJrTetOUIxnlgOzmpSusCsfymA"/>
+<div class="absolute inset-0 bg-emerald-900/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary" data-icon="agriculture">agriculture</span>
+<h4 class="font-label-xl text-label-xl">Farmer</h4>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">List your crops, check soil health, and find buyers directly.</p>
+</div>
+<div class="group cursor-pointer bg-white rounded-xl shadow-sm border border-transparent hover:border-secondary p-6 transition-all">
+<div class="relative w-full h-40 rounded-lg overflow-hidden mb-4">
+<img alt="Buyer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="vibrant local produce market stall with overflowing baskets of fresh colorful vegetables and fruits" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5hoc52uDdC-dg1hooqVYrjuuKzzYgpRA0I_G6QpXrOn1xnVKu9n6GkBQJdjrjCOI4ZQOj7zt639Lddo-T2mquz_-W8ttCbrv27HbXux-yNyYRLPuNh9LByG-Xje13k_1DcW7Bi2PKQt8YcpZGcn5XX7RxO41oV48spRbKnGGdD8bOCSnbG8vfrO23Cl7VcT68o7bVvTRW_WPoZd5Zr_CJM2mI4_xI9IX4P0IURYcHDa9TGyuQtA1zO-w-NSBvmxBX-PB6OG4u5Sk"/>
+<div class="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary" data-icon="storefront">storefront</span>
+<h4 class="font-label-xl text-label-xl">Buyer</h4>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Purchase high-quality farm produce and manage inventory easily.</p>
+</div>
+<div class="group cursor-pointer bg-white rounded-xl shadow-sm border border-transparent hover:border-tertiary p-6 transition-all">
+<div class="relative w-full h-40 rounded-lg overflow-hidden mb-4">
+<img alt="Transporter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="modern delivery truck driving down a clean highway through rural landscapes under a bright blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgcohGL_lnrqophEtNFuVQx7fHifGWDdtjf-T0gIItpx2tunv6TjMxpouMg7G6QI__nhzI7czB-nfGDq_okcYAysORsaoWz4xUrXICMH3iVd8bBblQJdDNDPulPYT_wGb7LO8NaJ1__9zCMXezk--eJPWSiE6PA0u8X9MPfBNYNSJofAJ2EOmlGrjBC7ajM5B9cvKLRa3sZ6WI7akLK_GaZdxUZApfUlCn-8KggrhVFWUkETIi-yUcV9NMJGAmy4TlqGSM9LBS9YI"/>
+<div class="absolute inset-0 bg-tertiary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="local_shipping">local_shipping</span>
+<h4 class="font-label-xl text-label-xl">Transporter</h4>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Find delivery gigs, track routes, and manage your fleet.</p>
+</div>
+</div>
+</section>
+</main>
+<footer class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-3 bg-white dark:bg-slate-900 pb-safe shadow-[0_-4px_10px_rgba(27,67,50,0.1)] rounded-t-2xl md:hidden">
+<div class="flex flex-col items-center justify-center bg-emerald-100 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-100 rounded-xl px-6 py-2 transition-transform active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-lexend text-xs font-medium">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-4 py-2 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-transform active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-lexend text-xs font-medium">Market</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-4 py-2 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-transform active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-lexend text-xs font-medium">Tasks</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-4 py-2 hover:bg-emerald-50 dark:hover:bg-slate-800 transition-transform active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-lexend text-xs font-medium">Profile</span>
+</div>
+</footer>
+<button class="fixed bottom-24 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40 md:flex hidden">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</body></html>

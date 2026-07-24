@@ -4,7 +4,7 @@ This folder contains the infra-first assets required by the **Developer Advocate
 
 - **Open-source LLM on Kubernetes**: Ollama deployed in-cluster with persistence and health checks.
 - **Monitoring**: Prometheus + Grafana dashboards for Kubernetes and the AI gateway.
-- **UI chatbot**: Saarthi is the wrapper UI; the center is infra + reliability + monitoring.
+- **UI chatbot**: Sarthi is the wrapper UI; the center is infra + reliability + monitoring.
 - **Reliability story**: SLOs, failure modes, graceful degradation, and what to monitor.
 
 ### Quick links

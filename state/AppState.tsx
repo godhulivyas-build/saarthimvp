@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useMemo, useReducer } from 'react';
-import { SaarthiDashboardView, SaarthiScreen, SaarthiUserRole, UserRole } from '../types';
+import { SarthiDashboardView, SarthiScreen, SarthiUserRole, UserRole } from '../types';
 import { translations, type Lang, type TranslationKey } from '../i18n/translations';
 import { tV2, type V2Key } from '../i18n/v2';
 
@@ -10,23 +10,24 @@ const normalizeLang = (lang: Lang): Lang => {
 };
 
 export type AppState = {
-  userRole: SaarthiUserRole | null;
+  userRole: SarthiUserRole | null;
   lang: Lang;
   langChosen: boolean;
-  currentScreen: SaarthiScreen;
-  currentDashboardView: SaarthiDashboardView | null;
+  currentScreen: SarthiScreen;
+  currentDashboardView: SarthiDashboardView | null;
 };
 
 export type AppAction =
-  | { type: 'SET_ROLE'; role: SaarthiUserRole | null }
+  | { type: 'SET_ROLE'; role: SarthiUserRole | null }
   | { type: 'SET_LANG'; lang: Lang }
   | { type: 'SET_LANG_CHOSEN'; chosen: boolean }
-  | { type: 'SET_SCREEN'; screen: SaarthiScreen }
-  | { type: 'SET_DASHBOARD_VIEW'; view: SaarthiDashboardView | null }
+  | { type: 'SET_SCREEN'; screen: SarthiScreen }
+  | { type: 'SET_DASHBOARD_VIEW'; view: SarthiDashboardView | null }
   | { type: 'LOGOUT' }
   | { type: 'SYNC_ROLE_ENUM_TO_STRING' };
 
-const LANG_CHOSEN_KEY = 'saarthi.v3.langChosen';
+const LANG_CHOSEN_KEY = 'sarthi.v3.langChosen';
+const LANG_KEY = 'sarthi.v3.lang';
 
 const readLangChosen = (): boolean => {
   try {
@@ -44,9 +45,27 @@ const writeLangChosen = (v: boolean) => {
   }
 };
 
+const readLang = (): Lang => {
+  try {
+    const val = localStorage.getItem(LANG_KEY);
+    if (val === 'hi' || val === 'en' || val === 'kn' || val === 'te' || val === 'ta') return val as Lang;
+    return 'hi';
+  } catch {
+    return 'hi';
+  }
+};
+
+const writeLang = (lang: Lang) => {
+  try {
+    localStorage.setItem(LANG_KEY, lang);
+  } catch {
+    // ignore
+  }
+};
+
 const initialState: AppState = {
   userRole: null,
-  lang: 'hi',
+  lang: readLang(),
   langChosen: readLangChosen(),
   currentScreen: 'landing',
   currentDashboardView: null,
@@ -59,7 +78,7 @@ const reducer = (state: AppState, action: AppAction): AppState => {
         ...state,
         userRole: action.role,
         currentDashboardView: action.role
-          ? ({ role: action.role, view: 'home' } as SaarthiDashboardView)
+          ? ({ role: action.role, view: 'home' } as SarthiDashboardView)
           : null,
       };
     case 'SET_LANG':
@@ -88,9 +107,9 @@ type AppStateContextValue = {
   tV2: (key: V2Key) => string;
   setLang: (lang: Lang) => void;
   markLangChosen: () => void;
-  setUserRole: (role: SaarthiUserRole | null) => void;
-  setCurrentScreen: (screen: SaarthiScreen) => void;
-  setCurrentDashboardView: (view: SaarthiDashboardView | null) => void;
+  setUserRole: (role: SarthiUserRole | null) => void;
+  setCurrentScreen: (screen: SarthiScreen) => void;
+  setCurrentDashboardView: (view: SarthiDashboardView | null) => void;
   logout: () => void;
   setUserRoleFromEnum: (role: UserRole) => void;
 };
@@ -113,6 +132,7 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const setLang = useCallback((lang: Lang) => {
     const normalized = normalizeLang(lang);
     dispatch({ type: 'SET_LANG', lang: normalized });
+    writeLang(normalized);
     dispatch({ type: 'SET_LANG_CHOSEN', chosen: true });
     writeLangChosen(true);
   }, []);
@@ -121,15 +141,15 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     dispatch({ type: 'SET_LANG_CHOSEN', chosen: true });
     writeLangChosen(true);
   }, []);
-  const setUserRole = useCallback((role: SaarthiUserRole | null) => dispatch({ type: 'SET_ROLE', role }), []);
-  const setCurrentScreen = useCallback((screen: SaarthiScreen) => dispatch({ type: 'SET_SCREEN', screen }), []);
+  const setUserRole = useCallback((role: SarthiUserRole | null) => dispatch({ type: 'SET_ROLE', role }), []);
+  const setCurrentScreen = useCallback((screen: SarthiScreen) => dispatch({ type: 'SET_SCREEN', screen }), []);
   const setCurrentDashboardView = useCallback(
-    (view: SaarthiDashboardView | null) => dispatch({ type: 'SET_DASHBOARD_VIEW', view }),
+    (view: SarthiDashboardView | null) => dispatch({ type: 'SET_DASHBOARD_VIEW', view }),
     []
   );
   const logout = useCallback(() => dispatch({ type: 'LOGOUT' }), []);
   const setUserRoleFromEnum = useCallback((role: UserRole) => {
-    let mapped: SaarthiUserRole = 'buyer';
+    let mapped: SarthiUserRole = 'buyer';
     if (role === UserRole.FARMER) mapped = 'farmer';
     else if (role === UserRole.BUYER) mapped = 'buyer';
     else if (role === UserRole.LOGISTICS_PARTNER || role === UserRole.TRANSPORTER) mapped = 'logistics_partner';
@@ -163,7 +183,7 @@ export const useAppState = (): AppStateContextValue => {
   return ctx;
 };
 
-export const saarthiRoleToUserRole = (role: SaarthiUserRole): UserRole => {
+export const sarthiRoleToUserRole = (role: SarthiUserRole): UserRole => {
   if (role === 'farmer') return UserRole.FARMER;
   if (role === 'buyer') return UserRole.BUYER;
   if (role === 'logistics_partner') return UserRole.LOGISTICS_PARTNER;

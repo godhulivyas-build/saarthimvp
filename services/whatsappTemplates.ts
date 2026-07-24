@@ -14,7 +14,7 @@ export function templateBookingConfirmation(input: {
 }): string {
   const m = typeof input.moisturePct === 'number' ? `\nMoisture: ${input.moisturePct}% (pilot)` : '';
   return [
-    'Saarthi booking (pilot)',
+    'Sarthi booking (pilot)',
     `Crop: ${input.crop}`,
     `Load: ${input.qty} ${input.unit}`,
     `Route: ${input.from} → ${input.to}`,
@@ -29,7 +29,7 @@ export function templateBookingConfirmation(input: {
 
 export function templateStatusUpdateRequest(input: { bookingId: string; note?: string }): string {
   return [
-    'Saarthi status update (pilot)',
+    'Sarthi status update (pilot)',
     `Booking: ${input.bookingId}`,
     input.note ? `Note: ${input.note}` : '',
     '',
@@ -41,7 +41,7 @@ export function templateStatusUpdateRequest(input: { bookingId: string; note?: s
 
 export function templateTestimonialRequest(input: { role: 'farmer' | 'logistics_partner'; what: string }): string {
   return [
-    'Saarthi feedback request (pilot)',
+    'Sarthi feedback request (pilot)',
     `Role: ${input.role}`,
     `What worked / did not: ${input.what}`,
     '',

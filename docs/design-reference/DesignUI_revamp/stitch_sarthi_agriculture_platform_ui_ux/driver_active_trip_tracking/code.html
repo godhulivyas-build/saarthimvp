@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dad9",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-surface": "#2e3131",
+                        "secondary": "#0e6c4a",
+                        "on-tertiary-fixed-variant": "#5e3f35",
+                        "secondary-fixed": "#a0f4c8",
+                        "outline": "#717973",
+                        "tertiary": "#3a2017",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-container": "#c79d90",
+                        "surface-container-highest": "#e1e3e2",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-low": "#f3f4f3",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#19724f",
+                        "tertiary-fixed-dim": "#e9bdae",
+                        "secondary-container": "#a0f4c8",
+                        "inverse-primary": "#a5d0b9",
+                        "inverse-on-surface": "#f0f1f0",
+                        "surface-container-high": "#e7e8e7",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "tertiary-container": "#52352b",
+                        "on-primary-container": "#86af99",
+                        "primary": "#012d1d",
+                        "surface-tint": "#3f6653",
+                        "surface": "#f9f9f8",
+                        "surface-variant": "#e1e3e2",
+                        "primary-container": "#1b4332",
+                        "surface-container": "#edeeed",
+                        "on-tertiary-fixed": "#2d150d",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-bright": "#f9f9f8",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-surface": "#191c1c",
+                        "on-background": "#191c1c",
+                        "background": "#f9f9f8",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c1c8c2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "gutter": "16px",
+                        "stack-sm": "12px",
+                        "container-margin": "20px",
+                        "unit": "8px",
+                        "stack-lg": "40px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Lexend"],
+                        "label-sm": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "title-sm": ["Lexend"],
+                        "label-xl": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "body-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                        "title-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-xl": ["20px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .map-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(249, 249, 248, 0) 60%, rgba(249, 249, 248, 1) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Top App Bar (Shared Component Strategy) -->
+<header class="bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 shadow-sm dark:shadow-none fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional truck driver with a friendly expression, outdoor natural lighting, rural Indian background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhvTHTW6_B_4tTCWAj5OnFhtFtgskJMmeEdHPF2OproNSjiC04prvMQVhlBh-JJMIJpgfi0xA38W5yWwFryOtSQuXuVGGFI0Q60AXc2SdAaj1YKS3U659cpQtVHhlGFSJxUyQHJwmTK1DPzhMrf615XWq6ey4JWSCuZEBG996KIc2QhBuwX5T1qScca4ruVnDq8mZN2-LUP-QSLGV24kO5GHxczX2oKJng-23lymByzHwRBOaCDBO2d86uFUALM3zgy1D2-519HmI"/>
+</div>
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50 tracking-tighter font-['Lexend'] uppercase">SARTHI</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 bg-emerald-100 dark:bg-emerald-900/40 px-3 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="text-emerald-900 dark:text-emerald-400 font-['Lexend'] text-base font-bold tracking-tight">ONLINE</span>
+</div>
+</div>
+</header>
+<main class="pt-16 pb-32">
+<!-- Live Map Interaction Area -->
+<section class="relative w-full h-[397px] bg-surface-container-low overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[20%] opacity-80" data-alt="Detailed digital map showing rural roads and agricultural fields in India with a clear blue navigation path highlighting a route" data-location="Maharashtra, India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0_joj3tzpEEo8gnkl5_a-knnRzOh3eR8KnbcfEHh5hOzuL154g6Cd3Wyy9KO1xcojolT7r5JcD_tCcaFs6c2z7gmfN-HEoKPM2nGvneM92gC6HtZtNjHhkerSxRUIptc_484K7So0nSmFyM0eviZqyL0lfE81OVL3STtWirvodDWMAMKwSkXLlqQWm0LsbSJYszQVXBCRuSSuS0nBKW_MxFHVkdrSDPT_JzhA1WfUFB3JGuh-WwVa52Ktl_H4ARJE_jYhgyH6r6c"/>
+<div class="absolute inset-0 map-gradient-overlay"></div>
+</div>
+<!-- Route Info Floating Card -->
+<div class="absolute top-4 left-4 right-4 z-10">
+<div class="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="bg-primary text-on-primary p-3 rounded-lg shadow-inner">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">navigation</span>
+</div>
+<div>
+<p class="font-label-sm text-on-surface-variant">Estimated Arrival</p>
+<h2 class="font-title-sm text-primary">12 mins • 4.2 km</h2>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-secondary font-bold bg-secondary-container px-2 py-0.5 rounded text-xs">LIVE SHARING ON</p>
+</div>
+</div>
+</div>
+<!-- Vehicle Marker (Simulated) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+<div class="relative">
+<div class="w-12 h-12 bg-primary rounded-full border-4 border-white shadow-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">local_shipping</span>
+</div>
+<div class="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white"></div>
+</div>
+</div>
+</section>
+<!-- Trip Details Content -->
+<section class="px-container-margin -mt-8 relative z-30 space-y-stack-md">
+<!-- Destination Card -->
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-zinc-100 flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="flex flex-col items-center gap-1">
+<span class="material-symbols-outlined text-primary">radio_button_checked</span>
+<div class="w-0.5 h-8 bg-outline-variant border-dashed border-l"></div>
+<span class="material-symbols-outlined text-secondary">location_on</span>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Pickup From</p>
+<h3 class="text-body-lg font-body-lg font-bold">Rajesh Deshmukh's Farm</h3>
+<p class="text-label-sm font-label-sm text-outline">Gat No. 124, Satara-Koregaon Rd.</p>
+</div>
+<div class="pt-2 border-t border-zinc-50">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Deliver To</p>
+<h3 class="text-body-lg font-body-lg font-bold">GreenBazaar Hub</h3>
+<p class="text-label-sm font-label-sm text-outline">Warehouse Block C, Vashi APMC</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Contact Grid -->
+<div class="grid grid-cols-2 gap-gutter">
+<!-- Farmer Contact -->
+<div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/30 flex flex-col gap-4 min-h-[160px] justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed">agriculture</span>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant">Farmer</p>
+<p class="text-body-md font-bold leading-tight">Rajesh D.</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-white h-12 rounded-xl border border-outline-variant flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">call</span>
+</button>
+<button class="flex-1 bg-white h-12 rounded-xl border border-outline-variant flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Buyer Contact -->
+<div class="bg-surface-container-low p-5 rounded-2xl border border-outline-variant/30 flex flex-col gap-4 min-h-[160px] justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed">storefront</span>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-wider font-bold text-on-surface-variant">Buyer</p>
+<p class="text-body-md font-bold leading-tight">GreenBazaar</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 bg-white h-12 rounded-xl border border-outline-variant flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">call</span>
+</button>
+<button class="flex-1 bg-white h-12 rounded-xl border border-outline-variant flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-secondary">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Trip Stats / Payload -->
+<div class="bg-primary text-on-primary p-6 rounded-2xl flex justify-between items-center shadow-lg">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl text-primary-fixed">inventory_2</span>
+<div>
+<p class="text-label-sm font-label-sm opacity-80 uppercase tracking-widest">Payload</p>
+<h4 class="text-title-sm font-title-sm">2.4 Tons Tomato</h4>
+</div>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm opacity-80">Payment</p>
+<h4 class="text-title-sm font-title-sm">₹4,200</h4>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Action (Primary CTA) -->
+<div class="fixed bottom-24 left-0 w-full px-container-margin z-40 pointer-events-none">
+<button class="pointer-events-auto w-full h-16 bg-secondary text-on-secondary rounded-2xl shadow-xl flex items-center justify-center gap-3 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-title-sm">Mark as Arrived at Pickup</span>
+</button>
+</div>
+<!-- Bottom Nav Bar (Shared Component Strategy) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 h-20 pb-safe bg-white dark:bg-zinc-900 border-t border-zinc-100 dark:border-zinc-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-2xl">
+<!-- Jobs Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-emerald-100 dark:bg-emerald-900/40 text-emerald-900 dark:text-emerald-100 rounded-xl px-6 py-2 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+<span class="font-['Lexend'] text-[12px] font-medium">Jobs</span>
+</a>
+<!-- Earnings Tab -->
+<a class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 px-6 py-2 hover:text-emerald-800 dark:hover:text-emerald-200 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-['Lexend'] text-[12px] font-medium">Earnings</span>
+</a>
+<!-- Profile Tab -->
+<a class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 px-6 py-2 hover:text-emerald-800 dark:hover:text-emerald-200 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Lexend'] text-[12px] font-medium">Profile</span>
+</a>
+</nav>
+</body></html>

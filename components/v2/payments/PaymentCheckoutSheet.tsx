@@ -45,21 +45,21 @@ export const PaymentCheckoutSheet: React.FC<Props> = ({ open, amountInr, cropLab
       <Card className="w-full max-w-md rounded-b-none sm:rounded-3xl p-5 sm:p-6 space-y-4 animate-in slide-in-from-bottom duration-200">
         <div className="flex justify-between items-start gap-2">
           <div>
-            <p className="text-xs font-bold uppercase tracking-wide text-[var(--saarthi-on-surface-variant)]">{tV2('v2.payment.title')}</p>
-            <p className="text-lg font-extrabold saarthi-headline text-[var(--saarthi-primary)] mt-1">{cropLabel}</p>
+            <p className="text-xs font-bold uppercase tracking-wide text-[var(--sarthi-on-surface-variant)]">{tV2('v2.payment.title')}</p>
+            <p className="text-lg font-extrabold sarthi-headline text-[var(--sarthi-primary)] mt-1">{cropLabel}</p>
           </div>
-          <button type="button" onClick={onClose} className="p-2 rounded-xl hover:bg-[var(--saarthi-surface-low)]" aria-label="Close">
+          <button type="button" onClick={onClose} className="p-2 rounded-xl hover:bg-[var(--sarthi-surface-low)]" aria-label="Close">
             <X className="w-5 h-5" />
           </button>
         </div>
-        <p className="text-3xl font-black text-[var(--saarthi-on-background)]">
+        <p className="text-3xl font-black text-[var(--sarthi-on-background)]">
           ₹{amountInr.toLocaleString('en-IN')}
         </p>
-        <div className="rounded-2xl bg-[var(--saarthi-surface-low)] p-4 space-y-2 text-sm">
-          <p className="font-bold text-[var(--saarthi-on-surface-variant)]">{tV2('v2.payment.upiId')}</p>
-          <p className="font-mono text-base break-all">farmer.pay@saarthi-demo</p>
+        <div className="rounded-2xl bg-[var(--sarthi-surface-low)] p-4 space-y-2 text-sm">
+          <p className="font-bold text-[var(--sarthi-on-surface-variant)]">{tV2('v2.payment.upiId')}</p>
+          <p className="font-mono text-base break-all">farmer.pay@sarthi-demo</p>
           <div className="mt-3 flex justify-center">
-            <div className="w-28 h-28 rounded-xl bg-white border border-dashed border-[var(--saarthi-outline-soft)] flex items-center justify-center text-[10px] text-center text-gray-500 px-1">
+            <div className="w-28 h-28 rounded-xl bg-white border border-dashed border-[var(--sarthi-outline-soft)] flex items-center justify-center text-[10px] text-center text-gray-500 px-1">
               {tV2('v2.payment.qrPlaceholder')}
             </div>
           </div>
@@ -75,7 +75,7 @@ export const PaymentCheckoutSheet: React.FC<Props> = ({ open, amountInr, cropLab
             <span>{tV2('v2.payment.processing')}</span>
           )}
         </V2Button>
-        <p className="text-[11px] text-center text-[var(--saarthi-on-surface-variant)] leading-snug">{tV2('v2.payment.mockNote')}</p>
+        <p className="text-[11px] text-center text-[var(--sarthi-on-surface-variant)] leading-snug">{tV2('v2.payment.mockNote')}</p>
       </Card>
     </div>
   );

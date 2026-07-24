@@ -55,6 +55,14 @@ function fallbackPrices(): MandiPrice[] {
     { crop: 'Mustard', cropHi: 'सरसों', mandi: 'Morena', minPrice: 4600, maxPrice: 5100, modalPrice: 4850, unit: '₹/क्विंटल', date },
     { crop: 'Rice', cropHi: 'चावल', mandi: 'Satna', minPrice: 2800, maxPrice: 3200, modalPrice: 3000, unit: '₹/क्विंटल', date },
     { crop: 'Lentil', cropHi: 'मसूर', mandi: 'Sagar', minPrice: 5000, maxPrice: 5500, modalPrice: 5250, unit: '₹/क्विंटल', date },
+    // Additional daily-arrival vegetables/fruits — Sarthi is not a twice-a-year grain tool.
+    { crop: 'Brinjal', cropHi: 'बैंगन', mandi: 'Dewas', minPrice: 900, maxPrice: 1500, modalPrice: 1200, unit: '₹/क्विंटल', date },
+    { crop: 'Cauliflower', cropHi: 'फूलगोभी', mandi: 'Bhopal', minPrice: 800, maxPrice: 1400, modalPrice: 1100, unit: '₹/क्विंटल', date },
+    { crop: 'Cabbage', cropHi: 'बंद गोभी', mandi: 'Indore', minPrice: 500, maxPrice: 900, modalPrice: 700, unit: '₹/क्विंटल', date },
+    { crop: 'Okra', cropHi: 'भिंडी', mandi: 'Khargone', minPrice: 1200, maxPrice: 2000, modalPrice: 1600, unit: '₹/क्विंटल', date },
+    { crop: 'Green Chilli', cropHi: 'हरी मिर्च', mandi: 'Khandwa', minPrice: 2500, maxPrice: 4000, modalPrice: 3200, unit: '₹/क्विंटल', date },
+    { crop: 'Banana', cropHi: 'केला', mandi: 'Dewas', minPrice: 1000, maxPrice: 1800, modalPrice: 1400, unit: '₹/क्विंटल', date },
+    { crop: 'Papaya', cropHi: 'पपीता', mandi: 'Ujjain', minPrice: 700, maxPrice: 1300, modalPrice: 1000, unit: '₹/क्विंटल', date },
   ];
 }
 
@@ -124,4 +132,49 @@ export async function getMandiPricesResult(state = 'Madhya Pradesh'): Promise<Ma
 
 export function getCropHi(crop: string): string {
   return CROP_HI[crop] ?? crop;
+}
+
+/**
+ * Fetch the official mandi rate for one specific commodity (e.g. "Tomato").
+ * Used by the discovery/comparison engine — this is the real, government-published
+ * baseline that Sarthi Network buyer offers get compared against.
+ */
+export async function getMandiPriceForCrop(
+  cropKey: string,
+  state = 'Madhya Pradesh'
+): Promise<{ price: MandiPrice | null; source: string; isSample: boolean }> {
+  if (!DATAGOV_KEY) {
+    const match = fallbackPrices().find((p) => p.crop === cropKey) ?? null;
+    return { price: match, source: 'Sample dataset (demo)', isSample: true };
+  }
+
+  try {
+    const url = `https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=${DATAGOV_KEY}&format=json&filters[state]=${encodeURIComponent(state)}&filters[commodity]=${encodeURIComponent(cropKey)}&limit=5`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`DataGov ${res.status}`);
+    const data = await res.json();
+    const records: any[] = data?.records ?? [];
+    if (records.length === 0) {
+      const match = fallbackPrices().find((p) => p.crop === cropKey) ?? null;
+      return { price: match, source: 'Sample dataset (demo)', isSample: true };
+    }
+    const r = records[0];
+    return {
+      price: {
+        crop: r.commodity ?? cropKey,
+        cropHi: CROP_HI[r.commodity] ?? '',
+        mandi: r.market ?? r.district ?? '',
+        minPrice: Number(r.min_price) || 0,
+        maxPrice: Number(r.max_price) || 0,
+        modalPrice: Number(r.modal_price) || 0,
+        unit: '₹/क्विंटल',
+        date: r.arrival_date ?? todayStr(),
+      },
+      source: 'data.gov.in (APMC mandi rates)',
+      isSample: false,
+    };
+  } catch {
+    const match = fallbackPrices().find((p) => p.crop === cropKey) ?? null;
+    return { price: match, source: 'Sample dataset (demo)', isSample: true };
+  }
 }

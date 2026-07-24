@@ -326,22 +326,22 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-14">
           <div className="flex items-start justify-between gap-4 flex-wrap">
             <div>
-              <p className="saarthi-headline text-2xl sm:text-4xl font-black text-[var(--saarthi-on-background)]">
+              <p className="sarthi-headline text-2xl sm:text-4xl font-black text-[var(--sarthi-on-background)]">
                 {copy.title}
               </p>
-              <p className="mt-2 text-base sm:text-lg font-bold text-[var(--saarthi-on-surface-variant)] max-w-3xl">
+              <p className="mt-2 text-base sm:text-lg font-bold text-[var(--sarthi-on-surface-variant)] max-w-3xl">
                 {copy.subtitle}
               </p>
             </div>
             <div className="flex items-center gap-3 rounded-3xl border border-white/55 bg-white/78 backdrop-blur-xl px-4 py-3 shadow-sm">
               <img
-                src="/images/saarthi_setu_logo.png"
+                src="/images/sarthi_setu_logo.png"
                 alt="सारथी सेतु"
-                className="w-11 h-11 rounded-2xl bg-white ring-1 ring-[var(--saarthi-outline-soft)] p-1"
+                className="w-11 h-11 rounded-2xl bg-white ring-1 ring-[var(--sarthi-outline-soft)] p-1"
               />
               <div>
-                <p className="text-sm font-black text-[var(--saarthi-primary)]">सारथी सेतु</p>
-                <p className="text-[11px] font-extrabold text-[var(--saarthi-on-surface-variant)]">लाइव प्रोडक्ट डेमो</p>
+                <p className="text-sm font-black text-[var(--sarthi-primary)]">सारथी सेतु</p>
+                <p className="text-[11px] font-extrabold text-[var(--sarthi-on-surface-variant)]">लाइव प्रोडक्ट डेमो</p>
               </div>
             </div>
           </div>
@@ -385,12 +385,12 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                         <div className="flex items-center gap-3">
                           <div className="w-12 h-12 rounded-2xl border border-white/70 bg-white grid place-items-center text-xl">👨‍💼</div>
                           <div className="min-w-0">
-                            <p className="text-sm font-black text-[var(--saarthi-on-background)]">महाराष्ट्र खरीदार</p>
-                            <p className="mt-1 text-lg font-black text-[var(--saarthi-primary)]">500 किलो गेहूं चाहिए</p>
+                            <p className="text-sm font-black text-[var(--sarthi-on-background)]">महाराष्ट्र खरीदार</p>
+                            <p className="mt-1 text-lg font-black text-[var(--sarthi-primary)]">500 किलो गेहूं चाहिए</p>
                           </div>
                         </div>
                         <div className="mt-3 flex justify-end">
-                          <div className="min-h-[42px] px-4 rounded-2xl bg-[var(--saarthi-primary)] text-white font-black grid place-items-center">
+                          <div className="min-h-[42px] px-4 rounded-2xl bg-[var(--sarthi-primary)] text-white font-black grid place-items-center">
                             मांग भेजें
                           </div>
                         </div>
@@ -406,10 +406,10 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                     >
                       <div className="rounded-3xl border border-white/60 bg-white/82 backdrop-blur-xl shadow-sm px-4 py-3">
                         <div className="flex items-center justify-between gap-3">
-                          <p className="text-sm font-black text-[var(--saarthi-on-background)]">सारथी सेतु किसान खोज रहा है...</p>
+                          <p className="text-sm font-black text-[var(--sarthi-on-background)]">सारथी सेतु किसान खोज रहा है...</p>
                           <motion.span
                             aria-hidden
-                            className="w-2.5 h-2.5 rounded-full bg-[var(--saarthi-primary)]"
+                            className="w-2.5 h-2.5 rounded-full bg-[var(--sarthi-primary)]"
                             animate={reduce ? undefined : { opacity: [0.25, 1, 0.25] }}
                             transition={reduce ? undefined : { duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
                           />
@@ -428,16 +428,16 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                         <div className="flex items-start gap-3">
                           <div className="w-12 h-12 rounded-2xl border border-white/70 bg-white grid place-items-center text-xl">🧑‍🌾</div>
                           <div className="min-w-0">
-                            <p className="text-sm font-black text-[var(--saarthi-on-background)]">मध्य प्रदेश किसान उपलब्ध</p>
-                            <p className="mt-1 text-base font-black text-[var(--saarthi-primary)]">500 किलो गेहूं</p>
-                            <p className="mt-1 text-xs font-bold text-[var(--saarthi-on-surface-variant)]">नमी 12% • तुरंत लोडिंग</p>
+                            <p className="text-sm font-black text-[var(--sarthi-on-background)]">मध्य प्रदेश किसान उपलब्ध</p>
+                            <p className="mt-1 text-base font-black text-[var(--sarthi-primary)]">500 किलो गेहूं</p>
+                            <p className="mt-1 text-xs font-bold text-[var(--sarthi-on-surface-variant)]">नमी 12% • तुरंत लोडिंग</p>
                           </div>
                         </div>
                         <div className="mt-3 flex gap-2 justify-end">
-                          <div className="min-h-[40px] px-4 rounded-2xl bg-[var(--saarthi-primary)] text-white font-black grid place-items-center">
+                          <div className="min-h-[40px] px-4 rounded-2xl bg-[var(--sarthi-primary)] text-white font-black grid place-items-center">
                             स्वीकार करें
                           </div>
-                          <div className="min-h-[40px] px-4 rounded-2xl bg-white/70 border border-white/70 text-[var(--saarthi-on-surface-variant)] font-black grid place-items-center">
+                          <div className="min-h-[40px] px-4 rounded-2xl bg-white/70 border border-white/70 text-[var(--sarthi-on-surface-variant)] font-black grid place-items-center">
                             बात करें
                           </div>
                         </div>
@@ -452,7 +452,7 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                       className="absolute left-6 top-20 w-[min(420px,92%)] pointer-events-auto"
                     >
                       <div className="rounded-3xl border border-white/60 bg-white/86 backdrop-blur-xl shadow-sm px-4 py-4">
-                        <p className="text-sm font-black text-[var(--saarthi-on-background)]">नज़दीकी ट्रक उपलब्ध</p>
+                        <p className="text-sm font-black text-[var(--sarthi-on-background)]">नज़दीकी ट्रक उपलब्ध</p>
                         <div className="mt-3 grid gap-2">
                           {[
                             { id: 'rajesh' as const, name: 'राजेश ट्रांसपोर्ट', km: '5 km' },
@@ -465,16 +465,16 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                                 type="button"
                                 onClick={() => setSelectedCarrier(c.id)}
                                 className={`w-full text-left rounded-2xl border px-4 py-3 flex items-center justify-between gap-3 ${
-                                  sel ? 'border-[var(--saarthi-primary)] bg-green-50' : 'border-white/70 bg-white/80'
+                                  sel ? 'border-[var(--sarthi-primary)] bg-green-50' : 'border-white/70 bg-white/80'
                                 }`}
                               >
-                                <span className="text-sm font-black text-[var(--saarthi-on-background)]">{c.name}</span>
-                                <span className="text-xs font-black text-[var(--saarthi-primary)]">{c.km}</span>
+                                <span className="text-sm font-black text-[var(--sarthi-on-background)]">{c.name}</span>
+                                <span className="text-xs font-black text-[var(--sarthi-primary)]">{c.km}</span>
                               </button>
                             );
                           })}
                         </div>
-                        <p className="mt-2 text-xs font-bold text-[var(--saarthi-on-surface-variant)]">किसान एक ट्रक चुनता है • फिर ट्रक रवाना</p>
+                        <p className="mt-2 text-xs font-bold text-[var(--sarthi-on-surface-variant)]">किसान एक ट्रक चुनता है • फिर ट्रक रवाना</p>
                       </div>
                     </motion.div>
 
@@ -488,8 +488,8 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                       <div className="rounded-3xl border border-white/60 bg-white/86 backdrop-blur-xl shadow-sm px-4 py-4">
                         <div className="flex items-center justify-between gap-3">
                           <div>
-                            <p className="text-sm font-black text-[var(--saarthi-on-background)]">भुगतान</p>
-                            <p className="mt-1 text-lg font-black text-[var(--saarthi-primary)]">₹12,750 भुगतान सफल</p>
+                            <p className="text-sm font-black text-[var(--sarthi-on-background)]">भुगतान</p>
+                            <p className="mt-1 text-lg font-black text-[var(--sarthi-primary)]">₹12,750 भुगतान सफल</p>
                           </div>
                           <div className="w-12 h-12 rounded-2xl border border-white/70 bg-white grid place-items-center text-xl">✅</div>
                         </div>
@@ -499,7 +499,7 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
 
                   {/* Legend (minimal, 5-second comprehension) */}
                   <div className="mt-4 rounded-3xl border border-white/60 bg-white/78 backdrop-blur px-4 py-3 shadow-sm">
-                    <p className="text-xs sm:text-sm font-extrabold text-[var(--saarthi-on-surface-variant)]">
+                    <p className="text-xs sm:text-sm font-extrabold text-[var(--sarthi-on-surface-variant)]">
                       {copy.ctaLine}
                     </p>
                   </div>
@@ -518,13 +518,13 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
               >
                 <div className="flex items-start justify-between gap-3 flex-wrap">
                   <div>
-                    <p className="text-[11px] font-extrabold text-[var(--saarthi-on-surface-variant)]">{active.eyebrow}</p>
-                    <p className="mt-2 text-2xl sm:text-3xl font-black text-[var(--saarthi-on-background)] leading-tight">
+                    <p className="text-[11px] font-extrabold text-[var(--sarthi-on-surface-variant)]">{active.eyebrow}</p>
+                    <p className="mt-2 text-2xl sm:text-3xl font-black text-[var(--sarthi-on-background)] leading-tight">
                       {active.headline}
                     </p>
-                    <p className="mt-2 text-base sm:text-lg font-bold text-[var(--saarthi-primary)]">{active.body}</p>
+                    <p className="mt-2 text-base sm:text-lg font-bold text-[var(--sarthi-primary)]">{active.body}</p>
                   </div>
-                  <div className="w-12 h-12 rounded-3xl grid place-items-center bg-[rgba(34,197,94,0.12)] border border-white/60 text-xl font-black text-[var(--saarthi-primary)]">
+                  <div className="w-12 h-12 rounded-3xl grid place-items-center bg-[rgba(34,197,94,0.12)] border border-white/60 text-xl font-black text-[var(--sarthi-primary)]">
                     {step === 0 ? '📍' : step === 1 ? '🔔' : step === 2 ? '🧑‍🌾' : step === 3 ? '🤝' : step === 4 ? '🚚' : step === 5 ? '🛣️' : '₹'}
                   </div>
                 </div>
@@ -533,7 +533,7 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                   {active.primary ? (
                     <button
                       type="button"
-                      className="min-h-[54px] px-6 rounded-2xl bg-[var(--saarthi-primary)] text-white font-black shadow-sm hover:opacity-95 active:scale-[0.98] transition-all"
+                      className="min-h-[54px] px-6 rounded-2xl bg-[var(--sarthi-primary)] text-white font-black shadow-sm hover:opacity-95 active:scale-[0.98] transition-all"
                     >
                       {active.primary}
                     </button>
@@ -541,7 +541,7 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                   {active.secondary ? (
                     <button
                       type="button"
-                      className="min-h-[54px] px-6 rounded-2xl bg-white/70 border border-white/70 text-[var(--saarthi-on-surface-variant)] font-black"
+                      className="min-h-[54px] px-6 rounded-2xl bg-white/70 border border-white/70 text-[var(--sarthi-on-surface-variant)] font-black"
                     >
                       {active.secondary}
                     </button>
@@ -549,7 +549,7 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                   <button
                     type="button"
                     onClick={onCtaClick}
-                    className="min-h-[54px] px-6 rounded-2xl bg-white/70 border border-white/70 text-[var(--saarthi-primary)] font-black"
+                    className="min-h-[54px] px-6 rounded-2xl bg-white/70 border border-white/70 text-[var(--sarthi-primary)] font-black"
                   >
                     {copy.ctaBtn}
                   </button>
@@ -557,8 +557,8 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
               </motion.div>
 
               <div className="rounded-[2rem] border border-white/60 bg-white/70 backdrop-blur-xl shadow-sm p-5 sm:p-6">
-                <p className="text-sm font-black text-[var(--saarthi-on-background)]">स्क्रोल करें</p>
-                <p className="mt-1 text-xs sm:text-sm font-bold text-[var(--saarthi-on-surface-variant)]">
+                <p className="text-sm font-black text-[var(--sarthi-on-background)]">स्क्रोल करें</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-[var(--sarthi-on-surface-variant)]">
                   हर स्क्रोल पर स्टोरी आगे बढ़ेगी — और ऑटो-लूप भी चलेगा।
                 </p>
                 <div className="mt-3 flex items-center gap-2">
@@ -566,7 +566,7 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
                     <span
                       key={s.k}
                       className={`h-2.5 w-2.5 rounded-full border ${
-                        step === s.k ? 'bg-[var(--saarthi-primary)] border-[var(--saarthi-primary)]' : 'bg-white/70 border-white/70'
+                        step === s.k ? 'bg-[var(--sarthi-primary)] border-[var(--sarthi-primary)]' : 'bg-white/70 border-white/70'
                       }`}
                       aria-hidden
                     />
@@ -578,13 +578,13 @@ export const HowItWorks3DDemo: React.FC<{ onCtaClick?: () => void; lang?: string
 
           {/* End CTA */}
           <div className="mt-6 rounded-[2rem] border border-white/60 bg-white/78 backdrop-blur-xl shadow-sm px-5 py-4 flex items-center justify-between gap-4 flex-wrap">
-            <p className="text-sm sm:text-base font-black text-[var(--saarthi-on-background)]">
+            <p className="text-sm sm:text-base font-black text-[var(--sarthi-on-background)]">
               सीधा सौदा • सही दाम • भरोसेमंद डिलीवरी
             </p>
             <button
               type="button"
               onClick={onCtaClick}
-              className="min-h-[50px] px-6 rounded-2xl bg-[var(--saarthi-primary)] text-white font-black shadow-sm hover:opacity-95 active:scale-[0.98] transition-all"
+              className="min-h-[50px] px-6 rounded-2xl bg-[var(--sarthi-primary)] text-white font-black shadow-sm hover:opacity-95 active:scale-[0.98] transition-all"
             >
               {copy.ctaBtn}
             </button>

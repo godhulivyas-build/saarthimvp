@@ -24,16 +24,16 @@ export const PayoutBreakdown: React.FC<{
 
   return (
     <Card className="p-4">
-      <p className="font-extrabold saarthi-headline">{title}</p>
+      <p className="font-extrabold sarthi-headline">{title}</p>
       <div className="mt-3 space-y-2 text-sm">
         {rows.map((r) => (
           <div key={r.label} className="flex items-center justify-between gap-3">
-            <span className={r.strong ? 'font-extrabold' : 'text-[var(--saarthi-on-surface-variant)]'}>{r.label}</span>
-            <span className={r.strong ? 'font-extrabold text-[var(--saarthi-primary)]' : 'font-bold'}>{fmt(r.value as number)}</span>
+            <span className={r.strong ? 'font-extrabold' : 'text-[var(--sarthi-on-surface-variant)]'}>{r.label}</span>
+            <span className={r.strong ? 'font-extrabold text-[var(--sarthi-primary)]' : 'font-bold'}>{fmt(r.value as number)}</span>
           </div>
         ))}
       </div>
-      {note ? <p className="mt-3 text-xs text-[var(--saarthi-on-surface-variant)] opacity-80">{note}</p> : null}
+      {note ? <p className="mt-3 text-xs text-[var(--sarthi-on-surface-variant)] opacity-80">{note}</p> : null}
     </Card>
   );
 };

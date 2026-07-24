@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dad9",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-surface": "#2e3131",
+                        "secondary": "#0e6c4a",
+                        "on-tertiary-fixed-variant": "#5e3f35",
+                        "secondary-fixed": "#a0f4c8",
+                        "outline": "#717973",
+                        "tertiary": "#3a2017",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-container": "#c79d90",
+                        "surface-container-highest": "#e1e3e2",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-low": "#f3f4f3",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#19724f",
+                        "tertiary-fixed-dim": "#e9bdae",
+                        "secondary-container": "#a0f4c8",
+                        "inverse-primary": "#a5d0b9",
+                        "inverse-on-surface": "#f0f1f0",
+                        "surface-container-high": "#e7e8e7",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "tertiary-container": "#52352b",
+                        "on-primary-container": "#86af99",
+                        "primary": "#012d1d",
+                        "surface-tint": "#3f6653",
+                        "surface": "#f9f9f8",
+                        "surface-variant": "#e1e3e2",
+                        "primary-container": "#1b4332",
+                        "surface-container": "#edeeed",
+                        "on-tertiary-fixed": "#2d150d",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-bright": "#f9f9f8",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-surface": "#191c1c",
+                        "on-background": "#191c1c",
+                        "background": "#f9f9f8",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c1c8c2"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "gutter": "16px",
+                        "stack-sm": "12px",
+                        "container-margin": "20px",
+                        "unit": "8px",
+                        "stack-lg": "40px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Lexend"],
+                        "label-sm": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "title-sm": ["Lexend"],
+                        "label-xl": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "body-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                        "title-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-xl": ["20px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="bg-white dark:bg-zinc-900 shadow-sm flex justify-between items-center w-full px-5 h-16 sticky top-0 z-50 border-b border-zinc-200 dark:border-zinc-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+<span class="text-xl font-black text-emerald-900 dark:text-emerald-50 tracking-tighter font-['Lexend']">SARTHI</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="Driver Profile Photo" class="w-full h-full object-cover" data-alt="portrait of a professional male driver in a light blue collared shirt smiling warmly in bright daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMBtdHUl8jKn_nKPNecYPLI05EQXAJlOLDRr1RXHmfop6PlIgmBtjWPTr5n1iZvzAQ_s8uDQDZKkRhM6gFWUPYh5IjqxDQ8IGZpc1NHdpfhznAT_eddbdBJLtXU4MkouE1QEooQDUx0eMZfTYj4003h_H5_EpGjT0OsavO2BtzG6fmhgtPX9gbqzV1uDEmwzvZDBsbu2jSHzO-EN06vnaOJHMnZUVa08WUANw20mz-ZQxm5XoLt3Lre2XxbtqNJY8xoULAOhpCAhk"/>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto px-container-margin py-stack-md flex flex-col gap-stack-md">
+<!-- Progress Stepper -->
+<section class="flex justify-between items-center w-full relative mb-4">
+<!-- Connector Lines -->
+<div class="absolute top-4 left-0 w-full h-[3px] bg-surface-container-highest -z-10"></div>
+<div class="absolute top-4 left-0 w-1/2 h-[3px] bg-secondary -z-10"></div>
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center border-4 border-surface shadow-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 0, 'wght' 700">check</span>
+</div>
+<span class="font-label-sm text-secondary">Personal</span>
+</div>
+<!-- Step 2: Active -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center border-4 border-surface shadow-sm">
+<span class="font-title-sm text-[14px]">2</span>
+</div>
+<span class="font-label-sm text-primary font-bold">Vehicle</span>
+</div>
+<!-- Step 3: Upcoming -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-outline flex items-center justify-center border-4 border-surface">
+<span class="font-title-sm text-[14px]">3</span>
+</div>
+<span class="font-label-sm text-outline">Documents</span>
+</div>
+</section>
+<!-- Header Information -->
+<div class="flex flex-col gap-unit">
+<h1 class="font-headline-md text-primary">Vehicle Details</h1>
+<p class="font-body-md text-on-surface-variant">Tell us about the vehicle you'll be using for deliveries.</p>
+</div>
+<!-- Vehicle Type Selection (Bento Style) -->
+<div class="grid grid-cols-2 gap-stack-sm">
+<label class="relative flex flex-col items-center p-gutter bg-white border-2 border-primary rounded-xl shadow-sm cursor-pointer ring-2 ring-primary/10">
+<input checked="" class="hidden" name="vehicle_type" type="radio"/>
+<span class="material-symbols-outlined text-4xl text-primary mb-2" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-xl text-primary">Small Truck</span>
+<span class="font-label-sm text-on-surface-variant">Under 3T</span>
+<div class="absolute top-2 right-2 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">check_circle</span>
+</div>
+</label>
+<label class="relative flex flex-col items-center p-gutter bg-white border-2 border-outline-variant rounded-xl cursor-pointer hover:border-secondary-container transition-all">
+<input class="hidden" name="vehicle_type" type="radio"/>
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-2" data-icon="agriculture">agriculture</span>
+<span class="font-label-xl">Tractor</span>
+<span class="font-label-sm text-on-surface-variant">Heavy Duty</span>
+</label>
+<label class="col-span-2 relative flex flex-row items-center justify-between p-gutter bg-white border-2 border-outline-variant rounded-xl cursor-pointer hover:border-secondary-container transition-all">
+<input class="hidden" name="vehicle_type" type="radio"/>
+<div class="flex items-center gap-gutter">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant" data-icon="rv_hookup">rv_hookup</span>
+<div class="flex flex-col">
+<span class="font-label-xl">Large Truck / Trailer</span>
+<span class="font-label-sm text-on-surface-variant">Above 3T, Multi-axle</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Form Fields -->
+<div class="flex flex-col gap-stack-md">
+<!-- Plate Number -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-sm text-on-surface-variant ml-1">Vehicle Plate Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="badge">badge</span>
+<input class="w-full h-16 pl-12 pr-4 bg-white border-2 border-outline-variant rounded-xl text-body-lg focus:border-secondary focus:ring-0 transition-all uppercase placeholder:normal-case" placeholder="e.g. MH 12 AB 1234" type="text"/>
+</div>
+</div>
+<!-- Capacity -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-sm text-on-surface-variant ml-1">Payload Capacity (Metric Tons)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="weight">weight</span>
+<input class="w-full h-16 pl-12 pr-4 bg-white border-2 border-outline-variant rounded-xl text-body-lg focus:border-secondary focus:ring-0 transition-all" placeholder="Enter capacity" type="number"/>
+</div>
+</div>
+<!-- Upload Photo Section -->
+<div class="flex flex-col gap-unit">
+<label class="font-label-sm text-on-surface-variant ml-1">Vehicle Photograph</label>
+<button class="w-full h-40 border-2 border-dashed border-secondary/40 bg-secondary/5 rounded-2xl flex flex-col items-center justify-center gap-2 active:scale-95 transition-all">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-3xl" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<span class="font-label-xl text-secondary">Upload Photo</span>
+<span class="font-label-sm text-on-surface-variant">Clear photo showing the plate</span>
+</button>
+</div>
+</div>
+<!-- Space for buttons fixed at bottom -->
+<div class="h-stack-lg"></div>
+</main>
+<!-- Footer Action Buttons -->
+<footer class="fixed bottom-0 left-0 w-full p-container-margin bg-white dark:bg-zinc-900 border-t border-zinc-100 flex gap-4 items-center z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<button class="flex-1 h-14 border-2 border-secondary text-secondary font-label-xl rounded-xl flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+            Back
+        </button>
+<button class="flex-[2] h-14 bg-secondary text-on-secondary font-label-xl rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-secondary/20 active:scale-95 transition-all">
+            Continue
+            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</footer>
+</body></html>

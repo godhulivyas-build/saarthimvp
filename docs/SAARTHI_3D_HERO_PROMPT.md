@@ -1,7 +1,7 @@
-## SAARTHI 3D interactive hero prompt (website-ready)
+## SARTHI 3D interactive hero prompt (website-ready)
 
 ### One-line goal
-In one immersive 3D story, show the full farmer lifecycle pain points and how **SAARTHI** improves decisions, logistics, labor access, and mandi outcomes—without fake “total income” claims.
+In one immersive 3D story, show the full farmer lifecycle pain points and how **SARTHI** improves decisions, logistics, labor access, and mandi outcomes—without fake “total income” claims.
 
 ### Recommended tools / formats
 - **Spline** (fastest interactive web hero) or **Three.js/React Three Fiber** (maximum control)
@@ -25,12 +25,12 @@ In one immersive 3D story, show the full farmer lifecycle pain points and how **
 ## Scene brief (one continuous world)
 Create one connected farm-world with a central **Indian farmer character** traveling through zones, left-to-right:
 
-`Struggle → Saarthi Hub → Success`
+`Struggle → Sarthi Hub → Success`
 
 ### Farmer character
 - Indian farmer inspired appearance, friendly face
 - Turban/cap, kurta/shirt + dhoti/pants
-- Starts with worried/uncertain expression; becomes confident/happy after Saarthi appears
+- Starts with worried/uncertain expression; becomes confident/happy after Sarthi appears
 - Subtle emotion transitions (eyebrows, posture, pace)
 
 ---
@@ -45,7 +45,7 @@ Create one connected farm-world with a central **Indian farmer character** trave
 ### 2) Labor search area
 - Farmer looks around worried
 - Worker silhouettes/icons appear but fade out (scarcity)
-- After Saarthi: workers appear and converge gently (solution)
+- After Sarthi: workers appear and converge gently (solution)
 
 ### 3) Crop growth area
 - Time-lapse growth: seed → sprout → healthy crop
@@ -64,10 +64,10 @@ Create one connected farm-world with a central **Indian farmer character** trave
 ### 6) Mandi market area
 - Stalls, buyers, price boards
 - Initially chaotic “middlemen cluster”
-- After Saarthi: clearer flow, calmer market motion (still realistic)
+- After Sarthi: clearer flow, calmer market motion (still realistic)
 
-### 7) SAARTHI solution hub (central)
-- Floating smartphone with SAARTHI logo
+### 7) SARTHI solution hub (central)
+- Floating smartphone with SARTHI logo
 - Hologram dashboard panels
 - Glowing connection lines to each zone (pulsing)
 
@@ -94,7 +94,7 @@ Hover on the hub reveals minimal popovers (icons + 1 line only):
 - Camera: slow pan with parallax; optional scroll-driven travel across zones
 - Ambient: birds, clouds drift, crops sway
 - Truck motion loop, crate loading loop
-- Saarthi hub glow pulse + connection lines
+- Sarthi hub glow pulse + connection lines
 - Farmer emotion shift: worried → hopeful → happy
 
 ### Lighting
@@ -105,7 +105,7 @@ Hover on the hub reveals minimal popovers (icons + 1 line only):
 ---
 
 ## Website integration requirements
-- Use **HTML overlay** for CTA: “Join Saarthi”
+- Use **HTML overlay** for CTA: “Join Sarthi”
 - Provide interaction hooks:
   - `onHoverFeature(featureId)` to highlight a zone
   - `onScrollProgress(p)` to move camera (optional)

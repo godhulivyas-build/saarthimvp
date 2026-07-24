@@ -6,7 +6,7 @@ This repository includes a **Vite** front-end for **Sarthi Setu** (farmer, buyer
 
 - **Run locally:** `npm install` then `npm run dev` (default dev server port **3000**).
 - **Production build:** `npm run build`.
-- **Routes:** `/` landing, `/onboarding` seven-step sign-up (mock OTP **`123456`** in development), `/app` role dashboards (requires a completed session in `localStorage` under `saarthi.v2.session`).
+- **Routes:** `/` landing, `/onboarding` seven-step sign-up (mock OTP **`123456`** in development), `/app` role dashboards (requires a completed session in `localStorage` under `sarthi.v2.session`).
 - **Environment:** copy `.env.example` to `.env`. Set `GEMINI_API_KEY` for AI chat; `VITE_GOOGLE_MAPS_API_KEY` enables **embedded Google Maps** (Directions API for driving routes, draggable A/B pins, “Open in Google Maps” for turn-by-turn navigation). In Google Cloud, enable **Maps JavaScript API** and **Directions API** for that key. **Without a key**, booking and onboarding maps use **OpenStreetMap tiles** and the public **OSRM** routing demo (free, rate-limited—fine for demos). `VITE_RAZORPAY_KEY_ID` is reserved for a future real checkout path (payments use a mock flow today).
 - **Vercel:** deployments are driven by **GitHub Actions** (see **`docs/VERCEL.md`**). After you add the three repository secrets there, every **`git push`** to **any branch** deploys to Vercel (**`main`** → production, other branches → preview). Automatic deploys from the Vercel Git integration are **off** in `vercel.json` so previews are not skipped and you do not depend on opening the wrong URL. Connect the Vercel project to **`godhulivyas-build/Sarthi`** (same spelling as `git remote`), not a differently named repo.
 

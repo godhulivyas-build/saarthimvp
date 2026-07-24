@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sarthi - Logistics Journey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#765b00",
+                    "on-primary-fixed": "#22005d",
+                    "on-primary-fixed-variant": "#4f378a",
+                    "surface-container-highest": "#e6e0e9",
+                    "primary-fixed-dim": "#cfbcff",
+                    "on-tertiary-container": "#503d00",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f8f2fa",
+                    "tertiary-fixed-dim": "#e7c365",
+                    "secondary-container": "#e1d4fd",
+                    "inverse-primary": "#cfbcff",
+                    "on-secondary-container": "#645a7d",
+                    "inverse-on-surface": "#f5eff7",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#ece6ee",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#ded8e0",
+                    "on-secondary-fixed": "#1f1635",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#322f35",
+                    "secondary": "#63597c",
+                    "on-tertiary-fixed-variant": "#594400",
+                    "secondary-fixed": "#e9ddff",
+                    "outline": "#7a7582",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#fdf7ff",
+                    "secondary-fixed-dim": "#cdc0e9",
+                    "on-surface": "#1d1b20",
+                    "on-background": "#1d1b20",
+                    "background": "#fdf7ff",
+                    "on-secondary-fixed-variant": "#4b4263",
+                    "tertiary-fixed": "#ffdf93",
+                    "outline-variant": "#cbc4d2",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#494551",
+                    "tertiary-container": "#c9a74d",
+                    "primary": "#4f378a",
+                    "on-primary-container": "#e0d2ff",
+                    "surface-tint": "#6750a4",
+                    "surface-variant": "#e6e0e9",
+                    "primary-container": "#6750a4",
+                    "surface": "#fdf7ff",
+                    "surface-container": "#f2ecf4",
+                    "on-tertiary-fixed": "#241a00"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-margin": "24px",
+                    "touch-target-min": "48px",
+                    "component-gap-sm": "8px",
+                    "component-gap-md": "16px",
+                    "section-gap": "32px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-xl": ["Lexend"],
+                    "body-md": ["Lexend"],
+                    "label-sm": ["Lexend"],
+                    "display-lg": ["Lexend"],
+                    "headline-md": ["Lexend"],
+                    "body-lg": ["Lexend"]
+            },
+            "fontSize": {
+                    "label-xl": ["20px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .step-active { color: #4f378a; }
+        .step-inactive { color: #938f99; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Top Navigation -->
+<nav class="bg-[#1B4332] dark:bg-slate-950 flex justify-between items-center h-16 px-6 w-full docked full-width top-0 z-50 shadow-md border-b border-emerald-800/50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-white cursor-pointer">arrow_back</span>
+<span class="text-2xl font-bold text-white tracking-tight font-lexend">Sarthi</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-white border-b-2 border-emerald-400 pb-1 font-lexend text-base font-medium" href="#">Logistics</a>
+<a class="text-emerald-100/80 hover:text-white font-lexend text-base font-medium transition-colors" href="#">Marketplace</a>
+<a class="text-emerald-100/80 hover:text-white font-lexend text-base font-medium transition-colors" href="#">Dashboard</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-emerald-400">language</span>
+<span class="material-symbols-outlined text-emerald-400">notifications</span>
+<span class="material-symbols-outlined text-emerald-400">account_circle</span>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto p-gutter lg:p-section-gap flex flex-col lg:flex-row gap-gutter">
+<!-- Left Column: Map and Journey Details -->
+<div class="flex-1 space-y-gutter">
+<!-- Header Section -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant flex flex-wrap justify-between items-end gap-4">
+<div>
+<h1 class="font-headline-md text-headline-md text-primary mb-1">Booking #TX-99210</h1>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 24, 2023 • 08:45 AM
+                    </p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Estimated Payout</p>
+<p class="font-headline-md text-headline-md text-tertiary">₹14,500.00</p>
+</div>
+</div>
+<!-- Route Map Container -->
+<div class="relative bg-surface-container rounded-xl overflow-hidden shadow-sm h-[400px] border border-outline-variant">
+<img class="w-full h-full object-cover opacity-80" data-alt="Detailed map view showing a winding route from a rural farm area to a busy city hub with blue navigation line" data-location="Punjab, India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa7PODvu5f2XbFMZkGBbLHddAy5xIgNkeMfD5oG45AaB8tqZdDDRr_cSVIct381QNA8zWMFx9PUllrkVU8UjIJWeOaMHkSd9Nufa6UEyxft5Jg5mk8F8GMm4A-ROh6Z889ORHLUu_NMhcDlnN68UgUlrtrZyahBqA6qOYZvXozfDqh4Ge_UF-PJn1eXpyYlPOdqSYdkg0E6GvPZLH-q-cMEhM27YQ1Two9b1BRscrSgQ6dOPErjT1_zrsgiI6PGXDHhl_jehK5SQw"/>
+<!-- Map Overlay Elements -->
+<div class="absolute top-4 left-4 right-4 flex justify-between pointer-events-none">
+<div class="bg-white/90 backdrop-blur-md p-3 rounded-lg shadow-lg border border-primary/20 pointer-events-auto">
+<p class="font-label-sm text-primary font-bold">CURRENT LOCATION</p>
+<p class="font-body-md text-on-surface">Sector 14, Ludhiana</p>
+</div>
+<div class="bg-white/90 backdrop-blur-md p-3 rounded-lg shadow-lg border border-tertiary/20 pointer-events-auto text-right">
+<p class="font-label-sm text-tertiary font-bold">REMAINING</p>
+<p class="font-body-md text-on-surface">12.4 km (24 mins)</p>
+</div>
+</div>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4">
+<div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg animate-pulse">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+</div>
+</div>
+<!-- Coordination Contacts -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Farmer Contact -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover ring-2 ring-emerald-100" data-alt="Close-up portrait of a weathered, smiling Indian farmer wearing a traditional turban in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANqA4GHEdj1CfArECW0DVyo82y2pXITLwZ8p2dga6cJ6lggUqgz8Tch-twcE9OLM1B9AX09zTQvObiQh1Yi3Tun8WTLj5C3BEz6ctO4X8Hzv86EEbBE_-I12hcY05rWH9sCIloJtDtpyS0YSJT30SDw2ygPMqZDd4j38jisLKHBfInaUTbTQQz7McLB2dQqWGYmRbiMrEZB7icvxm2njP134-Tgp4EagsBjG6h5dzTsyfD8Egy6bno3MI11pK1cX01AxicFenDYgU"/>
+<div>
+<p class="font-label-sm text-outline uppercase">Pickup Contact</p>
+<p class="font-label-xl text-label-xl">Rajesh Kumar</p>
+<p class="font-body-md text-on-surface-variant">Ludhiana Farms</p>
+</div>
+</div>
+<button class="w-touch-target-min h-touch-target-min bg-emerald-600 text-white rounded-full flex items-center justify-center hover:bg-emerald-700 transition-colors shadow-md">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+<!-- Buyer Contact -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover ring-2 ring-primary-fixed-dim" data-alt="Professional man in a business casual shirt smiling in an office setting with warm daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtGnkKN3KePWrCDIZtjeZWd_C3k6HfA4RJNOVh4EPiWocMshmHI54F0Qt2KRXrhqSJrycI5_74nQ1Grm1hrpIz0_lT-unos_HGdyTodmYGpLk5HQf62PkJh2DuDznmyoCHTwmuM2FAuFtdGdFnKBsPMoYYbXsXgV9EERObKaysES4ANhjZf6vXf4Wi4mtcoDuRRzWdVOXHzXx6dXmDwmEJTpz31KDYFbYM3FIv6CsHZDueAJX4kiU-WE6cjzK-xoMl77FURZWkAgo"/>
+<div>
+<p class="font-label-sm text-outline uppercase">Drop-off Contact</p>
+<p class="font-label-xl text-label-xl">Anita Sharma</p>
+<p class="font-body-md text-on-surface-variant">GreenBazaar Hub</p>
+</div>
+</div>
+<button class="w-touch-target-min h-touch-target-min bg-primary text-white rounded-full flex items-center justify-center hover:bg-on-primary-fixed transition-colors shadow-md">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Status & Shipment Details -->
+<div class="w-full lg:w-96 space-y-gutter">
+<!-- Update Status Stepper Card -->
+<div class="bg-white p-6 rounded-xl shadow-lg border border-primary/10">
+<h2 class="font-label-xl text-label-xl mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">timeline</span>
+                    Journey Status
+                </h2>
+<div class="space-y-0 relative">
+<!-- Vertical Line Connector -->
+<div class="absolute left-[19px] top-4 bottom-10 w-0.5 bg-surface-container-highest"></div>
+<div class="absolute left-[19px] top-4 h-1/3 w-0.5 bg-primary"></div>
+<!-- Step 1: Arrived at Pickup -->
+<div class="relative flex gap-4 pb-8">
+<div class="z-10 w-10 h-10 rounded-full bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="font-label-xl text-label-xl text-primary">Arrived at Pickup</p>
+<p class="font-body-md text-on-surface-variant">Completed at 09:15 AM</p>
+</div>
+</div>
+<!-- Step 2: Loaded -->
+<div class="relative flex gap-4 pb-8">
+<div class="z-10 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center ring-4 ring-primary-fixed">
+<span class="material-symbols-outlined" data-weight="fill">local_shipping</span>
+</div>
+<div>
+<p class="font-label-xl text-label-xl text-on-surface">Loaded</p>
+<p class="font-body-md text-on-surface-variant">Ongoing - 10:02 AM</p>
+</div>
+</div>
+<!-- Step 3: In Transit -->
+<div class="relative flex gap-4 pb-8">
+<div class="z-10 w-10 h-10 rounded-full bg-surface-container-highest text-outline flex items-center justify-center">
+<span class="material-symbols-outlined">near_me</span>
+</div>
+<div>
+<p class="font-label-xl text-label-xl text-outline">In Transit</p>
+<p class="font-body-md text-outline">Pending action</p>
+</div>
+</div>
+<!-- Step 4: Arrived at Destination -->
+<div class="relative flex gap-4">
+<div class="z-10 w-10 h-10 rounded-full bg-surface-container-highest text-outline flex items-center justify-center">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-xl text-label-xl text-outline">Arrived at Destination</p>
+<p class="font-body-md text-outline">Pending action</p>
+</div>
+</div>
+</div>
+<button class="mt-8 w-full bg-primary text-white py-4 rounded-full font-label-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-md active:scale-95">
+                    Update to "In Transit"
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<!-- Shipment Specs -->
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant">
+<h3 class="font-label-xl text-label-xl mb-4">Cargo Specifications</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-3 bg-white rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+<span class="font-body-md">Cargo Type</span>
+</div>
+<span class="font-label-xl">Basmati Rice</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-white rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">weight</span>
+<span class="font-body-md">Total Weight</span>
+</div>
+<span class="font-label-xl">1,250 kg</span>
+</div>
+<div class="flex justify-between items-center p-3 bg-white rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">calendar_clock</span>
+<span class="font-body-md">Expected Delivery</span>
+</div>
+<span class="font-label-xl text-error">Today, 4:00 PM</span>
+</div>
+</div>
+</div>
+<!-- Urgent Notification -->
+<div class="bg-error-container p-4 rounded-xl flex gap-3 border border-error/20">
+<span class="material-symbols-outlined text-error">warning</span>
+<div>
+<p class="font-label-sm text-on-error-container font-bold">TRAFFIC ALERT</p>
+<p class="font-body-md text-on-error-container">Heavy congestion on NH44. Rerouting suggested to save 15 mins.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Navigation Shell (Hidden on Mobile, Visible on Web) -->
+<aside class="hidden lg:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-72 bg-white flex-col py-6 border-r border-slate-200 z-40">
+<div class="px-6 mb-8">
+<h4 class="font-black text-emerald-900 text-xl tracking-wide uppercase font-lexend">Ecosystem</h4>
+<p class="text-slate-500 font-lexend text-sm">Transporter View</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 bg-emerald-50 text-emerald-700 font-bold rounded-lg p-4 mx-2 font-lexend text-sm" href="#">
+<span class="material-symbols-outlined">local_shipping</span> Active Job
+            </a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined">storefront</span> Marketplace
+            </a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span> My Wallet
+            </a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-all rounded-lg font-lexend text-sm" href="#">
+<span class="material-symbols-outlined">contact_support</span> Support
+            </a>
+</nav>
+<div class="px-2 mt-auto">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-slate-900 text-white rounded-lg font-lexend text-sm mb-4">
+<span class="material-symbols-outlined text-sm">sync_alt</span> Switch Persona
+            </button>
+<div class="border-t border-slate-100 pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-slate-500 p-2 mx-2 hover:bg-slate-50 rounded font-lexend text-sm" href="#">
+<span class="material-symbols-outlined text-sm">settings</span> Settings
+                </a>
+<a class="flex items-center gap-3 text-slate-500 p-2 mx-2 hover:bg-slate-50 rounded font-lexend text-sm" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Help Center
+                </a>
+</div>
+</div>
+</aside>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.05)] h-16 flex items-center justify-around z-50 border-t border-slate-100 px-4">
+<div class="flex flex-col items-center gap-0.5 text-slate-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-lexend">Home</span>
+</div>
+<div class="flex flex-col items-center gap-0.5 text-primary">
+<span class="material-symbols-outlined" data-weight="fill">local_shipping</span>
+<span class="text-[10px] font-lexend font-bold">Active</span>
+</div>
+<div class="flex flex-col items-center gap-0.5 text-slate-500">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-[10px] font-lexend">Market</span>
+</div>
+<div class="flex flex-col items-center gap-0.5 text-slate-500">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-lexend">Wallet</span>
+</div>
+</nav>
+</body></html>

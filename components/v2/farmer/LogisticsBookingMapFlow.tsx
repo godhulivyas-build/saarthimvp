@@ -327,7 +327,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
 
       const seeded: ProduceItem[] = seedCrops.map((crop) => ({
         id: `seed-${crop}`,
-        farmerName: 'Saarthi',
+        farmerName: 'Sarthi',
         farmerLocation: preferences?.location?.trim() || 'India',
         crop,
         quantity: 0,
@@ -338,7 +338,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
 
       const other: ProduceItem = {
         id: 'seed-other',
-        farmerName: 'Saarthi',
+        farmerName: 'Sarthi',
         farmerLocation: preferences?.location?.trim() || 'India',
         crop: uiLang === 'hi' ? 'अन्य लिखें' : uiLang === 'kn' ? 'ಇತರೆ (ಬರೆಯಿರಿ)' : uiLang === 'te' ? 'ఇతర (రాయండి)' : 'Other (type)',
         quantity: 0,
@@ -457,7 +457,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
   if (loading) {
     return (
       <div className="flex justify-center py-20">
-        <Loader2 className="w-10 h-10 animate-spin text-[var(--saarthi-primary)]" />
+        <Loader2 className="w-10 h-10 animate-spin text-[var(--sarthi-primary)]" />
       </div>
     );
   }
@@ -465,9 +465,9 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
   if (done) {
     return (
       <div className="p-6 text-center pb-24">
-        <Truck className="w-14 h-14 text-[var(--saarthi-primary)] mx-auto mb-3" />
+        <Truck className="w-14 h-14 text-[var(--sarthi-primary)] mx-auto mb-3" />
         <p className="text-lg font-bold">{L('doneTitle')} ✓</p>
-        <p className="mt-2 text-xs text-[var(--saarthi-on-surface-variant)]">
+        <p className="mt-2 text-xs text-[var(--sarthi-on-surface-variant)]">
           {L('bookingId')}: {bookingId}
         </p>
         <div className="mt-5 space-y-2">
@@ -497,7 +497,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
             )}
             target="_blank"
             rel="noreferrer"
-            className="block w-full min-h-[52px] rounded-2xl border-2 border-[var(--saarthi-outline-soft)] bg-white text-[var(--saarthi-primary)] font-extrabold flex items-center justify-center"
+            className="block w-full min-h-[52px] rounded-2xl border-2 border-[var(--sarthi-outline-soft)] bg-white text-[var(--sarthi-primary)] font-extrabold flex items-center justify-center"
           >
             {L('waFeedback')}
           </a>
@@ -554,12 +554,12 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
 
   return (
     <form onSubmit={submit} className="p-4 space-y-4 pb-28">
-      <div className="rounded-3xl border border-[var(--saarthi-outline-soft)] bg-white/90 backdrop-blur p-4">
-        <h2 className="text-xl font-black flex items-center gap-2 saarthi-headline">
-          <Truck className="text-[var(--saarthi-primary)]" />
+      <div className="rounded-3xl border border-[var(--sarthi-outline-soft)] bg-white/90 backdrop-blur p-4">
+        <h2 className="text-xl font-black flex items-center gap-2 sarthi-headline">
+          <Truck className="text-[var(--sarthi-primary)]" />
           {L('title')}
         </h2>
-        <p className="mt-1 text-sm font-bold text-[var(--saarthi-on-surface-variant)]">{L('subtitle')}</p>
+        <p className="mt-1 text-sm font-bold text-[var(--sarthi-on-surface-variant)]">{L('subtitle')}</p>
       </div>
 
       {mapBlock}
@@ -570,7 +570,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
           onClick={() => setPlaceMode('pickup')}
           className={`min-h-[48px] flex-1 min-w-[140px] rounded-2xl font-black text-sm border-2 ${
             placeMode === 'pickup'
-              ? 'border-[var(--saarthi-primary)] bg-green-50 text-green-900'
+              ? 'border-[var(--sarthi-primary)] bg-green-50 text-green-900'
               : 'border-gray-200 bg-white text-gray-700'
           }`}
         >
@@ -581,7 +581,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
           onClick={() => setPlaceMode('drop')}
           className={`min-h-[48px] flex-1 min-w-[140px] rounded-2xl font-black text-sm border-2 ${
             placeMode === 'drop'
-              ? 'border-[var(--saarthi-secondary)] bg-orange-50 text-orange-900'
+              ? 'border-[var(--sarthi-secondary)] bg-orange-50 text-orange-900'
               : 'border-gray-200 bg-white text-gray-700'
           }`}
         >
@@ -589,7 +589,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
         </button>
       </div>
 
-      <div className="rounded-3xl bg-white border border-[var(--saarthi-outline-soft)] p-4 space-y-4">
+      <div className="rounded-3xl bg-white border border-[var(--sarthi-outline-soft)] p-4 space-y-4">
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <p className="font-black text-base">
             {L('pickupTitle')} → {L('dropTitle')}
@@ -603,7 +603,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               setPickAdjust(dropAdjust);
               setDropAdjust(p);
             }}
-            className="min-h-[44px] px-4 rounded-2xl border border-[var(--saarthi-outline-soft)] bg-white text-sm font-black text-[var(--saarthi-primary)] inline-flex items-center gap-2"
+            className="min-h-[44px] px-4 rounded-2xl border border-[var(--sarthi-outline-soft)] bg-white text-sm font-black text-[var(--sarthi-primary)] inline-flex items-center gap-2"
           >
             <ArrowLeftRight className="w-4 h-4" />
             {L('swap')}
@@ -612,16 +612,16 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
 
         {/* Pickup methods */}
         <div>
-          <p className="text-sm font-black text-[var(--saarthi-on-background)]">{L('pickupMethods')}</p>
+          <p className="text-sm font-black text-[var(--sarthi-on-background)]">{L('pickupMethods')}</p>
           <div className="mt-2 flex flex-wrap gap-2">
-            <button type="button" onClick={useMyLocation} className="min-h-[48px] px-4 rounded-2xl bg-[var(--saarthi-primary)] text-white font-black shadow-sm">
+            <button type="button" onClick={useMyLocation} className="min-h-[48px] px-4 rounded-2xl bg-[var(--sarthi-primary)] text-white font-black shadow-sm">
               {L('useMyLocation')}
             </button>
             <button
               type="button"
               onClick={() => setPickupMode('village')}
               className={`min-h-[48px] px-4 rounded-2xl border font-black ${
-                pickupMode === 'village' ? 'border-[var(--saarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'
+                pickupMode === 'village' ? 'border-[var(--sarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'
               }`}
             >
               {L('enterVillage')}
@@ -630,7 +630,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               type="button"
               onClick={() => setPickupMode('mandi')}
               className={`min-h-[48px] px-4 rounded-2xl border font-black ${
-                pickupMode === 'mandi' ? 'border-[var(--saarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'
+                pickupMode === 'mandi' ? 'border-[var(--sarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'
               }`}
             >
               {L('selectMandi')}
@@ -639,7 +639,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               type="button"
               onClick={() => setPickupMode('address')}
               className={`min-h-[48px] px-4 rounded-2xl border font-black ${
-                pickupMode === 'address' ? 'border-[var(--saarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'
+                pickupMode === 'address' ? 'border-[var(--sarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'
               }`}
             >
               {L('manualAddress')}
@@ -649,10 +649,10 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
 
           <div className="mt-3">
             {pickupMode === 'gps' ? (
-              <div className="rounded-2xl border border-gray-200 bg-[var(--saarthi-surface-low)] px-4 py-3">
-                <p className="text-xs font-extrabold text-[var(--saarthi-on-surface-variant)]">आपका स्थान</p>
+              <div className="rounded-2xl border border-gray-200 bg-[var(--sarthi-surface-low)] px-4 py-3">
+                <p className="text-xs font-extrabold text-[var(--sarthi-on-surface-variant)]">आपका स्थान</p>
                 <div className="mt-2 flex items-start gap-2">
-                  <MapPin className="w-5 h-5 text-[var(--saarthi-primary)] mt-0.5 shrink-0" />
+                  <MapPin className="w-5 h-5 text-[var(--sarthi-primary)] mt-0.5 shrink-0" />
                   <input
                     value={pickupText}
                     onChange={(e) => setPickupText(e.target.value)}
@@ -677,7 +677,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
                       onText: (txt) => setPickupText(txt.trim()),
                     })
                   }
-                  className="absolute right-2 top-2 min-h-[40px] min-w-[40px] rounded-2xl bg-[var(--saarthi-primary)] text-white flex items-center justify-center disabled:opacity-60"
+                  className="absolute right-2 top-2 min-h-[40px] min-w-[40px] rounded-2xl bg-[var(--sarthi-primary)] text-white flex items-center justify-center disabled:opacity-60"
                   aria-label={L('speakPickup')}
                 >
                   <Mic className="w-4 h-4" />
@@ -703,7 +703,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
                 ))}
               </select>
             ) : (
-              <div className="rounded-2xl border border-gray-200 bg-[var(--saarthi-surface-low)] px-4 py-3 text-sm font-bold text-[var(--saarthi-on-surface-variant)]">
+              <div className="rounded-2xl border border-gray-200 bg-[var(--sarthi-surface-low)] px-4 py-3 text-sm font-bold text-[var(--sarthi-on-surface-variant)]">
                 {from}
               </div>
             )}
@@ -712,13 +712,13 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
 
         {/* Drop methods */}
         <div>
-          <p className="text-sm font-black text-[var(--saarthi-on-background)]">{L('dropMethods')}</p>
+          <p className="text-sm font-black text-[var(--sarthi-on-background)]">{L('dropMethods')}</p>
           <div className="mt-2 flex flex-wrap gap-2">
             <button
               type="button"
               onClick={() => setDropMode('address')}
               className={`min-h-[48px] px-4 rounded-2xl border font-black ${
-                dropMode === 'address' ? 'border-[var(--saarthi-secondary)] bg-orange-50' : 'border-gray-200 bg-white'
+                dropMode === 'address' ? 'border-[var(--sarthi-secondary)] bg-orange-50' : 'border-gray-200 bg-white'
               }`}
             >
               {L('manualAddress')}
@@ -727,7 +727,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               type="button"
               onClick={() => setDropMode('mandi')}
               className={`min-h-[48px] px-4 rounded-2xl border font-black ${
-                dropMode === 'mandi' ? 'border-[var(--saarthi-secondary)] bg-orange-50' : 'border-gray-200 bg-white'
+                dropMode === 'mandi' ? 'border-[var(--sarthi-secondary)] bg-orange-50' : 'border-gray-200 bg-white'
               }`}
             >
               {L('mandi')}
@@ -736,7 +736,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               type="button"
               onClick={() => setDropMode('buyer')}
               className={`min-h-[48px] px-4 rounded-2xl border font-black ${
-                dropMode === 'buyer' ? 'border-[var(--saarthi-secondary)] bg-orange-50' : 'border-gray-200 bg-white'
+                dropMode === 'buyer' ? 'border-[var(--sarthi-secondary)] bg-orange-50' : 'border-gray-200 bg-white'
               }`}
             >
               {L('buyer')}
@@ -760,7 +760,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
                       onText: (txt) => setDropText(txt.trim()),
                     })
                   }
-                  className="absolute right-2 top-2 min-h-[40px] min-w-[40px] rounded-2xl bg-[var(--saarthi-primary)] text-white flex items-center justify-center disabled:opacity-60"
+                  className="absolute right-2 top-2 min-h-[40px] min-w-[40px] rounded-2xl bg-[var(--sarthi-primary)] text-white flex items-center justify-center disabled:opacity-60"
                   aria-label={L('speakDrop')}
                 >
                   <Mic className="w-4 h-4" />
@@ -783,7 +783,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
         </div>
       </div>
 
-      <div className="rounded-2xl bg-[var(--saarthi-surface-low)] p-4 space-y-1 text-sm">
+      <div className="rounded-2xl bg-[var(--sarthi-surface-low)] p-4 space-y-1 text-sm">
         <p>
           <span className="font-black">{L('distance')}:</span> {distanceKm} km
         </p>
@@ -798,8 +798,8 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
       </div>
 
       {/* Options */}
-      <div className="rounded-3xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
-        <p className="text-base font-black text-[var(--saarthi-on-background)]">{L('optionsTitle')}</p>
+      <div className="rounded-3xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
+        <p className="text-base font-black text-[var(--sarthi-on-background)]">{L('optionsTitle')}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {[
             { on: needReturn, set: setNeedReturn, label: L('returnTrip') },
@@ -812,7 +812,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               type="button"
               onClick={() => toggleChip(c.on, c.set)}
               className={`min-h-[48px] px-4 rounded-2xl border font-black ${
-                c.on ? 'border-[var(--saarthi-primary)] bg-green-50 text-green-900' : 'border-gray-200 bg-white text-gray-700'
+                c.on ? 'border-[var(--sarthi-primary)] bg-green-50 text-green-900' : 'border-gray-200 bg-white text-gray-700'
               }`}
             >
               {c.label}
@@ -822,20 +822,20 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
       </div>
 
       {/* Nearby drivers */}
-      <div className="rounded-3xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
-        <p className="text-base font-black text-[var(--saarthi-on-background)]">{L('nearbyDrivers')}</p>
+      <div className="rounded-3xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
+        <p className="text-base font-black text-[var(--sarthi-on-background)]">{L('nearbyDrivers')}</p>
         <div className="mt-3 grid gap-3">
           {nearby.map((d) => {
             const selected = selectedDriverId === d.id;
             return (
-              <div key={d.id} className={`rounded-2xl border px-4 py-3 ${selected ? 'border-[var(--saarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'}`}>
+              <div key={d.id} className={`rounded-2xl border px-4 py-3 ${selected ? 'border-[var(--sarthi-primary)] bg-green-50' : 'border-gray-200 bg-white'}`}>
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="text-sm font-black text-[var(--saarthi-on-background)]">{d.name}</p>
-                    <p className="mt-0.5 text-xs font-bold text-[var(--saarthi-on-surface-variant)]">
+                    <p className="text-sm font-black text-[var(--sarthi-on-background)]">{d.name}</p>
+                    <p className="mt-0.5 text-xs font-bold text-[var(--sarthi-on-surface-variant)]">
                       ~{d.km} km • ★{d.rating} • {d.vehicle}
                     </p>
-                    <p className="mt-1 text-xs font-bold text-[var(--saarthi-on-surface-variant)]">
+                    <p className="mt-1 text-xs font-bold text-[var(--sarthi-on-surface-variant)]">
                       ETA: {d.etaMin} {L('minutes')}
                     </p>
                   </div>
@@ -843,7 +843,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
                     type="button"
                     onClick={() => setSelectedDriverId(d.id)}
                     className={`min-h-[44px] px-4 rounded-2xl font-black ${
-                      selected ? 'bg-[var(--saarthi-primary)] text-white' : 'bg-[var(--saarthi-surface-low)] text-[var(--saarthi-primary)] border border-[var(--saarthi-outline-soft)]'
+                      selected ? 'bg-[var(--sarthi-primary)] text-white' : 'bg-[var(--sarthi-surface-low)] text-[var(--sarthi-primary)] border border-[var(--sarthi-outline-soft)]'
                     }`}
                   >
                     {L('choose')}
@@ -859,7 +859,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
         href={navHref}
         target="_blank"
         rel="noreferrer"
-        className="flex items-center justify-center gap-2 min-h-[52px] w-full rounded-2xl border-2 border-[var(--saarthi-primary)] text-[var(--saarthi-primary)] font-black text-sm bg-white hover:bg-green-50 transition-colors"
+        className="flex items-center justify-center gap-2 min-h-[52px] w-full rounded-2xl border-2 border-[var(--sarthi-primary)] text-[var(--sarthi-primary)] font-black text-sm bg-white hover:bg-green-50 transition-colors"
       >
         <ExternalLink className="w-4 h-4 shrink-0" />
         {L('openNav')}
@@ -872,7 +872,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
         </p>
       ) : null}
 
-      <div className="rounded-2xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
+      <div className="rounded-2xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
         <p className="font-black text-sm">{L('moistureTitle')}</p>
         <div className="mt-3 grid grid-cols-2 gap-3">
           <div>
@@ -887,9 +887,9 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               onChange={(e) => setMoisturePct(Number(e.target.value) || 0)}
             />
           </div>
-          <div className="rounded-2xl border border-gray-100 bg-[var(--saarthi-surface-low)] p-3">
+          <div className="rounded-2xl border border-gray-100 bg-[var(--sarthi-surface-low)] p-3">
             <p className="text-xs font-bold text-gray-700">{L('riskBand')}</p>
-            <p className="text-sm font-extrabold text-[var(--saarthi-primary)] mt-1">{moisture.band.toUpperCase()}</p>
+            <p className="text-sm font-extrabold text-[var(--sarthi-primary)] mt-1">{moisture.band.toUpperCase()}</p>
             <p className="text-[10px] text-gray-500 mt-1">{moisture.note}</p>
           </div>
         </div>
@@ -898,7 +898,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
         </p>
       </div>
 
-      <div className="rounded-2xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
+      <div className="rounded-2xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
         <p className="font-black text-sm">{L('returnTrip')}</p>
         <div className="mt-3 flex items-center justify-between gap-3">
           <label className="text-sm font-bold text-gray-700">{L('returnTrip')}</label>
@@ -906,7 +906,7 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
             type="button"
             onClick={() => setNeedReturn((v) => !v)}
             className={`min-h-[40px] px-4 rounded-full font-extrabold text-sm transition-colors ${
-              needReturn ? 'bg-[var(--saarthi-primary)] text-white' : 'bg-[var(--saarthi-surface-low)] text-[var(--saarthi-on-surface)]'
+              needReturn ? 'bg-[var(--sarthi-primary)] text-white' : 'bg-[var(--sarthi-surface-low)] text-[var(--sarthi-on-surface)]'
             }`}
           >
             {needReturn ? '✓' : '—'}
@@ -926,9 +926,9 @@ export const LogisticsBookingMapFlow: React.FC<Props> = ({ preferences, onDone }
               />
               <p className="mt-1 text-[10px] text-gray-500">{L('pilotNote')}</p>
             </div>
-            <div className="rounded-2xl border border-gray-100 bg-[var(--saarthi-surface-low)] p-3">
+            <div className="rounded-2xl border border-gray-100 bg-[var(--sarthi-surface-low)] p-3">
               <p className="text-xs font-bold text-gray-700">{L('savings')}</p>
-              <p className="text-2xl font-extrabold text-[var(--saarthi-primary)] mt-1">₹{returnSavingsInr}</p>
+              <p className="text-2xl font-extrabold text-[var(--sarthi-primary)] mt-1">₹{returnSavingsInr}</p>
               <p className="text-[10px] text-gray-500 mt-1">{L('notGuaranteed')}</p>
             </div>
           </div>

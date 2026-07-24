@@ -64,13 +64,13 @@ export const FallbackOsrmLeafletMap: React.FC<Props> = ({
     }).addTo(map);
 
     const iconA = L.divIcon({
-      className: 'saarthi-leaflet-pin',
+      className: 'sarthi-leaflet-pin',
       html: '<div style="width:28px;height:28px;border-radius:50%;background:#166534;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25)">A</div>',
       iconSize: [28, 28],
       iconAnchor: [14, 14],
     });
     const iconB = L.divIcon({
-      className: 'saarthi-leaflet-pin',
+      className: 'sarthi-leaflet-pin',
       html: '<div style="width:28px;height:28px;border-radius:50%;background:#c2410c;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.25)">B</div>',
       iconSize: [28, 28],
       iconAnchor: [14, 14],
@@ -154,5 +154,5 @@ export const FallbackOsrmLeafletMap: React.FC<Props> = ({
     };
   }, [pickup.lat, pickup.lng, drop.lat, drop.lng]);
 
-  return <div ref={containerRef} className="h-[min(52vh,440px)] min-h-[280px] w-full rounded-2xl overflow-hidden border-2 border-[var(--saarthi-surface-high)] z-0" />;
+  return <div ref={containerRef} className="h-[min(52vh,440px)] min-h-[280px] w-full rounded-2xl overflow-hidden border-2 border-[var(--sarthi-surface-high)] z-0" />;
 };

@@ -25,7 +25,7 @@ export const RequireSession: React.FC<{ children: React.ReactNode }> = ({ childr
 
   if (!session.onboardingComplete || !session.persona) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[var(--saarthi-bg)] text-[var(--saarthi-on-surface)]">
+      <div className="min-h-screen flex items-center justify-center bg-[var(--sarthi-bg)] text-[var(--sarthi-on-surface)]">
         <p className="text-sm font-medium">…</p>
       </div>
     );

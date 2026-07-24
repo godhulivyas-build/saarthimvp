@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#765b00",
+            "on-primary-fixed": "#22005d",
+            "on-primary-fixed-variant": "#4f378a",
+            "surface-container-highest": "#e6e0e9",
+            "primary-fixed-dim": "#cfbcff",
+            "on-tertiary-container": "#503d00",
+            "primary-fixed": "#e9ddff",
+            "on-tertiary": "#ffffff",
+            "surface-container-low": "#f8f2fa",
+            "tertiary-fixed-dim": "#e7c365",
+            "secondary-container": "#e1d4fd",
+            "inverse-primary": "#cfbcff",
+            "on-secondary-container": "#645a7d",
+            "inverse-on-surface": "#f5eff7",
+            "error": "#ba1a1a",
+            "surface-container-high": "#ece6ee",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-dim": "#ded8e0",
+            "on-secondary-fixed": "#1f1635",
+            "on-secondary": "#ffffff",
+            "inverse-surface": "#322f35",
+            "secondary": "#63597c",
+            "on-tertiary-fixed-variant": "#594400",
+            "secondary-fixed": "#e9ddff",
+            "outline": "#7a7582",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "surface-bright": "#fdf7ff",
+            "secondary-fixed-dim": "#cdc0e9",
+            "on-surface": "#1d1b20",
+            "on-background": "#1d1b20",
+            "background": "#fdf7ff",
+            "on-secondary-fixed-variant": "#4b4263",
+            "tertiary-fixed": "#ffdf93",
+            "outline-variant": "#cbc4d2",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#494551",
+            "tertiary-container": "#c9a74d",
+            "primary": "#4f378a",
+            "on-primary-container": "#e0d2ff",
+            "surface-tint": "#6750a4",
+            "surface-variant": "#e6e0e9",
+            "primary-container": "#6750a4",
+            "surface": "#fdf7ff",
+            "surface-container": "#f2ecf4",
+            "on-tertiary-fixed": "#241a00"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "unit": "8px",
+            "container-margin": "24px",
+            "touch-target-min": "48px",
+            "component-gap-sm": "8px",
+            "component-gap-md": "16px",
+            "section-gap": "32px",
+            "gutter": "16px"
+          },
+          "fontFamily": {
+            "label-xl": ["Lexend"],
+            "body-md": ["Lexend"],
+            "label-sm": ["Lexend"],
+            "display-lg": ["Lexend"],
+            "headline-md": ["Lexend"],
+            "body-lg": ["Lexend"]
+          },
+          "fontSize": {
+            "label-xl": ["20px", {"lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+            "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background font-body-md text-on-background">
+<!-- TopAppBar from JSON -->
+<header class="bg-[#1B4332] dark:bg-slate-950 docked full-width top-0 z-50 border-b border-emerald-800/50 shadow-md flex justify-between items-center h-16 px-6 w-full sticky">
+<div class="flex items-center gap-8">
+<h1 class="text-2xl font-bold text-white tracking-tight font-lexend">Sarthi</h1>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-lexend text-base font-medium text-emerald-100/80 hover:text-white transition-colors" href="#">Dashboard</a>
+<a class="font-lexend text-base font-medium text-emerald-100/80 hover:text-white transition-colors" href="#">Marketplace</a>
+<a class="font-lexend text-base font-medium text-white border-b-2 border-emerald-400 pb-1" href="#">My Orders</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-emerald-400 hover:bg-emerald-800/50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="p-2 text-emerald-400 hover:bg-emerald-800/50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-emerald-400 hover:bg-emerald-800/50 transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin py-section-gap">
+<!-- Hero Section / Title -->
+<div class="mb-section-gap">
+<h2 class="font-display-lg text-display-lg text-on-surface">Track Your Orders</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">Manage your active shipments and view purchase history.</p>
+</div>
+<!-- Active Orders Section -->
+<section class="mb-section-gap">
+<div class="flex items-center justify-between mb-gutter">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+          Active Shipments
+        </h3>
+<span class="bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label-sm text-label-sm">2 In Transit</span>
+</div>
+<!-- Bento-style Order Card -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Primary Order Tracking Card -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-md overflow-hidden border border-outline-variant flex flex-col">
+<div class="p-6 border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Order #SRT-88291</span>
+<p class="font-label-xl text-label-xl text-on-surface">Organic Basmati Rice (500kg)</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Estimated Delivery</span>
+<p class="font-label-xl text-label-xl text-primary">Oct 24, 2023</p>
+</div>
+</div>
+<!-- Status Timeline -->
+<div class="p-8">
+<div class="relative">
+<!-- Timeline Track -->
+<div class="absolute top-1/2 left-0 w-full h-1 bg-surface-container-highest -translate-y-1/2 rounded-full"></div>
+<div class="absolute top-1/2 left-0 w-[66%] h-1 bg-primary -translate-y-1/2 rounded-full"></div>
+<!-- Steps -->
+<div class="relative flex justify-between items-center">
+<!-- Step 1: Placed -->
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-lg">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+</div>
+<span class="mt-3 font-label-sm text-label-sm text-on-surface">Placed</span>
+</div>
+<!-- Step 2: Transport Assigned -->
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-lg">
+<span class="material-symbols-outlined text-[20px]" data-icon="assignment_ind">assignment_ind</span>
+</div>
+<span class="mt-3 font-label-sm text-label-sm text-on-surface">Assigned</span>
+</div>
+<!-- Step 3: In Transit -->
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center z-10 shadow-xl ring-4 ring-primary-container">
+<span class="material-symbols-outlined text-[24px]" data-icon="local_shipping" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<span class="mt-3 font-label-sm text-label-sm text-primary font-bold">In Transit</span>
+</div>
+<!-- Step 4: Out for Delivery -->
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-outline flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[20px]" data-icon="delivery_dining">delivery_dining</span>
+</div>
+<span class="mt-3 font-label-sm text-label-sm text-outline">Out for Delivery</span>
+</div>
+<!-- Step 5: Delivered -->
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-outline flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_circle">check_circle</span>
+</div>
+<span class="mt-3 font-label-sm text-label-sm text-outline">Delivered</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Preview -->
+<div class="px-6 pb-6 mt-auto">
+<div class="h-48 w-full rounded-xl overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover opacity-60" data-alt="abstract map visualization with GPS tracking routes and delivery pin over a clean minimalist landscape grid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa3QWFijd9TWsSiHVHKUdlsvVyVofQxr1dFB1hija0-XpO8SAxvDNUFsfeIDxwIpX69nKcKyk0mcNJQfFqpGjoIUh6BALudvI8TbhhqlSeefce4N-LAKlQps7i63aPAHsIEZ-IRMjVs6qVEOIUS1nKrnIjqA5AWS9i832BTm3_FQ2fSZLglp-HWzterCbFCFBK9x-aYfwUqaOZk-Z0DYzWI-GKY9N-yqYPK1wfTkIv45IiTKm-faB_qKcs83eQPcIAEUPELkw0JQo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex items-center gap-3 bg-white/90 backdrop-blur-md p-3 rounded-lg shadow-sm border border-outline-variant">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-on-surface">Currently near Nagpur Hub, NH-44</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Stakeholder Cards -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- Farmer Details -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover border-2 border-emerald-100" data-alt="portrait of a proud indian farmer in a sunlit organic field wearing traditional attire and smiling warmly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTNuOEkrVnMil1151TB_yWdLdRiJMpKONzpIgjsQXvZL1iv-IyopFpF3XgbdDDGx8xR4JAoGc5gYNOj4aFukfFjYji3vmEtmPRg79XHowwqtmGFW5XO6dMkBQbxO1GVQeH8gDmErlKSTSd9AWeFaCvd3p4zoW269v1vy64h-fmd84BJkarx0SLhapTA6E_R8K8XtNs6ErrLMoZw3VeUXI5MIEKJdmPt6-t1VhCa4ImkXHTuADsilYFtsiEafbnzXCS0jKjdKeIwfE"/>
+<div>
+<span class="font-label-sm text-label-sm text-tertiary">Farmer (Seller)</span>
+<h4 class="font-label-xl text-label-xl text-on-surface">Rajesh Deshmukh</h4>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-emerald-600" data-icon="location_on">location_on</span>
+<span class="font-body-md text-body-md">Satara Organic Farms, Maharashtra</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-emerald-600" data-icon="verified">verified</span>
+<span class="font-body-md text-body-md">Certified Grade-A Supplier</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 px-4 border border-outline text-primary rounded-full font-label-sm text-label-sm hover:bg-primary-container/10 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+              Contact Seller
+            </button>
+</div>
+<!-- Transporter Details -->
+<div class="bg-white p-6 rounded-xl border border-outline-variant shadow-sm">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[32px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary">Logistics Partner</span>
+<h4 class="font-label-xl text-label-xl text-on-surface">Kisan Logistics Co.</h4>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="person">person</span>
+<span class="font-body-md text-body-md">Driver: Amit Kumar</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="phone_in_talk">phone_in_talk</span>
+<span class="font-body-md text-body-md">+91 98765 43210</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 px-4 bg-primary text-on-primary rounded-full font-label-sm text-label-sm shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="call">call</span>
+              Contact Driver
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Past Orders Section -->
+<section>
+<div class="flex items-center justify-between mb-gutter">
+<h3 class="font-headline-md text-headline-md text-on-surface">Order History</h3>
+<button class="text-primary font-label-sm text-label-sm flex items-center gap-1">
+          View All <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Past Order Item 1 -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant p-5 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-white p-3 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="agriculture">agriculture</span>
+</div>
+<span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Delivered
+            </span>
+</div>
+<h5 class="font-label-xl text-label-xl text-on-surface">Yellow Onions (200kg)</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Order Date: Sep 12, 2023</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-label-xl text-label-xl text-on-surface">₹14,500</span>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Download Invoice</button>
+</div>
+</div>
+<!-- Past Order Item 2 -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant p-5 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-white p-3 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="eco">eco</span>
+</div>
+<span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Delivered
+            </span>
+</div>
+<h5 class="font-label-xl text-label-xl text-on-surface">Fresh Tomatoes (150kg)</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Order Date: Aug 28, 2023</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-label-xl text-label-xl text-on-surface">₹8,200</span>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Download Invoice</button>
+</div>
+</div>
+<!-- Past Order Item 3 -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant p-5 hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-white p-3 rounded-lg border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Delivered
+            </span>
+</div>
+<h5 class="font-label-xl text-label-xl text-on-surface">Wheat Flour (1000kg)</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Order Date: Aug 15, 2023</p>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-label-xl text-label-xl text-on-surface">₹32,000</span>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Download Invoice</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-outline-variant flex justify-around items-center h-16 z-50">
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-[10px] font-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" data-weight="fill" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-[10px] font-label-sm">Orders</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-outline" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[10px] font-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

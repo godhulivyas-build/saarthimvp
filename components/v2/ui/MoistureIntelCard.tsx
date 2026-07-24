@@ -27,11 +27,11 @@ export const MoistureIntelCard: React.FC<{
     <Card className={compact ? 'p-4' : ''}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="font-extrabold saarthi-headline flex items-center gap-2">
-            <Droplets className="w-5 h-5 text-[var(--saarthi-secondary)]" />
+          <p className="font-extrabold sarthi-headline flex items-center gap-2">
+            <Droplets className="w-5 h-5 text-[var(--sarthi-secondary)]" />
             {title}
           </p>
-          <p className="text-xs text-[var(--saarthi-on-surface-variant)] mt-1 flex items-center gap-1">
+          <p className="text-xs text-[var(--sarthi-on-surface-variant)] mt-1 flex items-center gap-1">
             <Info className="w-3.5 h-3.5 shrink-0" />
             Assumptions based on interviews. Not a calibrated dataset yet.
           </p>
@@ -43,9 +43,9 @@ export const MoistureIntelCard: React.FC<{
 
       <div className="mt-4 grid grid-cols-2 gap-3">
         <div>
-          <label className="text-xs font-bold text-[var(--saarthi-on-surface-variant)]">Crop</label>
+          <label className="text-xs font-bold text-[var(--sarthi-on-surface-variant)]">Crop</label>
           <select
-            className="mt-1 w-full min-h-[44px] rounded-xl border-2 border-[var(--saarthi-outline-soft)] px-2 bg-white"
+            className="mt-1 w-full min-h-[44px] rounded-xl border-2 border-[var(--sarthi-outline-soft)] px-2 bg-white"
             value={crop}
             onChange={(e) => setCrop(e.target.value)}
           >
@@ -57,9 +57,9 @@ export const MoistureIntelCard: React.FC<{
           </select>
         </div>
         <div>
-          <label className="text-xs font-bold text-[var(--saarthi-on-surface-variant)]">Moisture (%)</label>
+          <label className="text-xs font-bold text-[var(--sarthi-on-surface-variant)]">Moisture (%)</label>
           <input
-            className="mt-1 w-full min-h-[44px] rounded-xl border-2 border-[var(--saarthi-outline-soft)] px-3 bg-white"
+            className="mt-1 w-full min-h-[44px] rounded-xl border-2 border-[var(--sarthi-outline-soft)] px-3 bg-white"
             type="number"
             min={0}
             max={40}
@@ -70,9 +70,9 @@ export const MoistureIntelCard: React.FC<{
         </div>
       </div>
 
-      <div className="mt-3 rounded-2xl border border-[var(--saarthi-outline-soft)] bg-[var(--saarthi-surface-low)] p-3 text-sm">
-        <p className="font-bold">Moisture risk band: <span className="text-[var(--saarthi-primary)]">{impact.band.toUpperCase()}</span></p>
-        <p className="text-xs text-[var(--saarthi-on-surface-variant)] mt-1">
+      <div className="mt-3 rounded-2xl border border-[var(--sarthi-outline-soft)] bg-[var(--sarthi-surface-low)] p-3 text-sm">
+        <p className="font-bold">Moisture risk band: <span className="text-[var(--sarthi-primary)]">{impact.band.toUpperCase()}</span></p>
+        <p className="text-xs text-[var(--sarthi-on-surface-variant)] mt-1">
           We don’t show numeric deductions until we have a verified dataset. This is a guidance-only flag based on farmer interviews.
         </p>
       </div>

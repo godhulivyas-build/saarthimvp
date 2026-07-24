@@ -1,4 +1,4 @@
-const KEY = 'saarthi.v2.buyerChat';
+const KEY = 'sarthi.v2.buyerChat';
 
 export type BuyerChatMsg = { id: string; role: 'buyer' | 'farmer'; text: string; at: string };
 

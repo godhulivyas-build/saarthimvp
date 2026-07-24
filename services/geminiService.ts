@@ -14,7 +14,7 @@ export const generateTransportOptions = async (
   if (!apiKey) {
     // Fallback mock if no API key is present for demo purposes
     return [
-      { id: '1', provider: 'Saarthi Express', vehicleType: 'Tata Ace (Chota Hathi)', price: 2500, eta: '4 Hours', rating: 4.5 },
+      { id: '1', provider: 'Sarthi Express', vehicleType: 'Tata Ace (Chota Hathi)', price: 2500, eta: '4 Hours', rating: 4.5 },
       { id: '2', provider: 'Kisan Logistics', vehicleType: 'Pickup 8ft', price: 1800, eta: '6 Hours', rating: 4.2 },
       { id: '3', provider: 'Speedy Transport', vehicleType: 'Eicher 14ft', price: 4500, eta: '3 Hours', rating: 4.8 },
     ];
@@ -71,7 +71,7 @@ export const getSupportAdvice = async (issue: string, lang: Lang = 'hi'): Promis
   if (!apiKey) {
     return promptLang === 'hi'
       ? 'अभी इंटरनेट या API कुंजी नहीं है। मंडी जाएँ, स्थानीय खरीदार से भाव पूछें, और ट्रांसपोर्ट के लिए सारथी ऐप में पिकअप मांगें।'
-      : 'No API key or connection. Visit your mandi, ask local buyers for rates, and request pickup in Saarthi.';
+      : 'No API key or connection. Visit your mandi, ask local buyers for rates, and request pickup in Sarthi.';
   }
 
   const model = "gemini-3-flash-preview";
@@ -81,7 +81,7 @@ export const getSupportAdvice = async (issue: string, lang: Lang = 'hi'): Promis
 प्रश्न: "${issue}"
 - मंडी भाव, कहाँ बेचें, ढुलाई/पिकअप — इन पर ध्यान दें।
 - 3 छोटे बिंदुओं में जवाब दें। कठिन शब्द कम।`
-      : `You are Saarthi, a simple assistant for Indian farmers and traders.
+      : `You are Sarthi, a simple assistant for Indian farmers and traders.
 User question: "${issue}"
 Answer in plain English (short words). 3 bullet points. Cover mandi prices, where to sell, or logistics when relevant.`;
 

@@ -40,7 +40,7 @@ const GoogleSinglePin: React.FC<InnerProps> = ({ position, onChange }) => {
 
   return (
     <APIProvider apiKey={GOOGLE_MAPS_API_KEY} libraries={['marker']}>
-      <div className="h-[220px] w-full rounded-2xl overflow-hidden border-2 border-[var(--saarthi-surface-high)]">
+      <div className="h-[220px] w-full rounded-2xl overflow-hidden border-2 border-[var(--sarthi-surface-high)]">
         <Map
           defaultCenter={position}
           defaultZoom={14}
@@ -75,7 +75,7 @@ const LeafletSinglePin: React.FC<InnerProps> = ({ position, onChange }) => {
       maxZoom: 19,
     }).addTo(map);
     const icon = L.divIcon({
-      className: 'saarthi-pin-single',
+      className: 'sarthi-pin-single',
       html: '<div style="width:26px;height:26px;border-radius:50%;background:#166534;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)">⌂</div>',
       iconSize: [26, 26],
       iconAnchor: [13, 13],
@@ -105,7 +105,7 @@ const LeafletSinglePin: React.FC<InnerProps> = ({ position, onChange }) => {
     mapRef.current?.panTo([position.lat, position.lng]);
   }, [position.lat, position.lng]);
 
-  return <div ref={ref} className="h-[220px] w-full rounded-2xl overflow-hidden border-2 border-[var(--saarthi-surface-high)] z-0" />;
+  return <div ref={ref} className="h-[220px] w-full rounded-2xl overflow-hidden border-2 border-[var(--sarthi-surface-high)] z-0" />;
 };
 
 type Props = {

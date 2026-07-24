@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Crops - Sarthi Ecosystem</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#414844",
+                        "tertiary-container": "#52352b",
+                        "on-primary-container": "#86af99",
+                        "primary": "#012d1d",
+                        "surface-tint": "#3f6653",
+                        "surface": "#f9f9f8",
+                        "surface-variant": "#e1e3e2",
+                        "primary-container": "#1b4332",
+                        "surface-container": "#edeeed",
+                        "on-tertiary-fixed": "#2d150d",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-bright": "#f9f9f8",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "on-surface": "#191c1c",
+                        "on-background": "#191c1c",
+                        "background": "#f9f9f8",
+                        "tertiary-fixed": "#ffdbcf",
+                        "outline-variant": "#c1c8c2",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d9dad9",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-surface": "#2e3131",
+                        "secondary": "#0e6c4a",
+                        "on-tertiary-fixed-variant": "#5e3f35",
+                        "secondary-fixed": "#a0f4c8",
+                        "outline": "#717973",
+                        "tertiary": "#3a2017",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "on-primary-fixed": "#002114",
+                        "on-tertiary-container": "#c79d90",
+                        "surface-container-highest": "#e1e3e2",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "surface-container-low": "#f3f4f3",
+                        "primary-fixed": "#c1ecd4",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#19724f",
+                        "tertiary-fixed-dim": "#e9bdae",
+                        "secondary-container": "#a0f4c8",
+                        "inverse-primary": "#a5d0b9",
+                        "inverse-on-surface": "#f0f1f0",
+                        "surface-container-high": "#e7e8e7",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "stack-sm": "12px",
+                        "container-margin": "20px",
+                        "stack-lg": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Lexend"],
+                        "body-lg": ["Lexend"],
+                        "label-sm": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "body-md": ["Lexend"],
+                        "title-sm": ["Lexend"],
+                        "label-xl": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "label-xl": ["20px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 32px;
+            bottom: -8px;
+            width: 4px;
+            background-color: #a0f4c8;
+        }
+        .step-line:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden md:flex flex-col h-screen w-72 bg-white border-r border-slate-200 py-6 fixed left-0 top-0 z-40">
+<div class="px-6 mb-stack-lg">
+<h1 class="text-xl font-black text-emerald-900 tracking-tight">Sarthi Ecosystem</h1>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Modern Agricultural Hub</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 bg-emerald-50 text-emerald-700 font-bold rounded-lg p-4 mx-2 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-lexend text-sm tracking-wide">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-lexend text-sm tracking-wide">Marketplace</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-lexend text-sm tracking-wide">Logistics</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-lexend text-sm tracking-wide">My Wallet</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="font-lexend text-sm tracking-wide">Support</span>
+</a>
+</nav>
+<div class="px-6 py-4 border-t border-slate-100">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-surface-container rounded-xl font-bold text-emerald-900 hover:bg-emerald-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+<span>Switch Persona</span>
+</button>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-lexend text-sm tracking-wide">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 p-4 mx-2 hover:bg-slate-50" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-lexend text-sm tracking-wide">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 pb-24">
+<!-- TopAppBar (Shared Component) -->
+<header class="bg-[#1B4332] text-white shadow-md border-b border-emerald-800/50 flex justify-between items-center h-16 px-6 w-full sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined md:hidden" data-icon="menu">menu</span>
+<h2 class="text-2xl font-bold tracking-tight font-lexend">Sarthi</h2>
+</div>
+<div class="hidden sm:flex items-center bg-emerald-800/50 px-4 py-2 rounded-full border border-emerald-700/50">
+<span class="material-symbols-outlined text-emerald-400 mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm placeholder-emerald-200/50 w-64" placeholder="Search crops or tools..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-emerald-800/50 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined text-emerald-400" data-icon="language">language</span>
+</button>
+<button class="hover:bg-emerald-800/50 p-2 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-emerald-400" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-emerald-200 overflow-hidden border-2 border-emerald-400">
+<img class="w-full h-full object-cover" data-alt="Portrait of a smiling Indian farmer in a field with golden sunset lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsJGtaJZ3QWRaqTsP1crvb2Drt_jtrNDM5arvNBVRNGxmD14qc3zXVRzX6KknO2C5MmVq9EBKrGTztfcA9xT7DBjHVAsj5KTFuRp6-VtMF1V5scvc0YDPxFjZ6_-u_fufosgNoHKznS5nuom1Ur05gXLXGatwjV9KZQg6WrLiNVhgDzif7rREUpJmtyEDM0f0arp1u54D8t8BaRC3Gv2zCFRi13vmvt2RBrrrE4sj3hwejcKnuENpLoy3r1ABfJSYvNj52eNCNJR4"/>
+</div>
+</div>
+</header>
+<!-- Page Hero / Status -->
+<div class="px-6 py-stack-md bg-white border-b border-surface-variant">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-gutter">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">My Crops</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your active harvest and schedule transport.</p>
+</div>
+<div class="flex gap-stack-sm overflow-x-auto pb-2 md:pb-0">
+<div class="bg-secondary-container text-on-secondary-container px-4 py-3 rounded-xl flex items-center gap-3 flex-shrink-0">
+<span class="material-symbols-outlined text-3xl" data-icon="grass" style="font-variation-settings: 'FILL' 1;">grass</span>
+<div>
+<p class="text-xs font-bold uppercase opacity-70">Total Area</p>
+<p class="text-xl font-black">12.5 Acres</p>
+</div>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed px-4 py-3 rounded-xl flex items-center gap-3 flex-shrink-0">
+<span class="material-symbols-outlined text-3xl" data-icon="water_drop" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<div>
+<p class="text-xs font-bold uppercase opacity-70">Irrigation</p>
+<p class="text-xl font-black">Scheduled</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Crop Dashboard (Bento Grid Style) -->
+<div class="px-6 py-stack-md max-w-6xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Crop Card: Wheat -->
+<div class="lg:col-span-7 bg-white rounded-xl shadow-md border border-surface-variant overflow-hidden flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of golden wheat ears in a sunny field swaying in the wind under clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwJW-YBxVQ-HB5-Tsm-JUtZZ53fWLk0rrwISJZGLyd6xRVZEqPFGoULi8lf3HczZTBNuFpRnVnl6IkxGWjUDdCD4IvSspTgbSVPcTTvc4dkYp8rXAvdO9eEAon8J8kKs2zoQt2sibBsKHvbU_eQ0taJtz4mhWHFjpLHlEZEnwY1nrUbw3A2aGHRsmhyEg9zRM6RGUDhGWtGiUjHKH4zdk02tn4RjfSl7DoRrVUM-W669sCKoX55FerPoftabVr-VwlxgVVgp2Jxf4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+<div class="flex items-center gap-4">
+<div class="bg-secondary p-3 rounded-xl shadow-lg">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="wheat">grain</span>
+</div>
+<div class="text-white">
+<h4 class="font-title-sm text-title-sm">Winter Wheat</h4>
+<p class="text-sm opacity-90">Plot #04 • 8.2 Acres</p>
+</div>
+</div>
+</div>
+<div class="absolute top-4 right-4 bg-secondary text-white px-4 py-1 rounded-full font-bold text-sm">
+                            Ready to Sell
+                        </div>
+</div>
+<div class="p-6 flex-1">
+<div class="grid grid-cols-2 gap-stack-md mb-stack-md">
+<div>
+<p class="text-sm text-on-surface-variant font-medium">Estimated Yield</p>
+<p class="text-2xl font-black text-primary">450 Quintals</p>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant font-medium">Market Price</p>
+<p class="text-2xl font-black text-secondary">₹2,125/q</p>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 mb-stack-md">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                                    Harvest Status
+                                </span>
+<span class="text-sm font-bold text-secondary">90% Complete</span>
+</div>
+<div class="w-full bg-surface-variant h-4 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[90%]"></div>
+</div>
+</div>
+<button class="w-full h-16 bg-primary text-white rounded-xl flex items-center justify-center gap-3 shadow-lg hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-2xl" data-icon="local_shipping">local_shipping</span>
+<span class="font-lexend text-xl font-bold uppercase tracking-tight">Sell Produce &amp; Book Truck</span>
+</button>
+</div>
+</div>
+<!-- Upcoming Tasks: Wheat -->
+<div class="lg:col-span-5 bg-surface-container-high rounded-xl p-6 border border-surface-variant">
+<h5 class="font-title-sm text-title-sm text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="assignment" style="font-variation-settings: 'FILL' 1;">assignment</span>
+                        Action Plan
+                    </h5>
+<div class="space-y-6">
+<div class="relative flex gap-4 step-line">
+<div class="z-10 bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined" data-icon="check">check</span>
+</div>
+<div class="pt-1">
+<p class="font-bold text-primary">Final Quality Check</p>
+<p class="text-sm text-on-surface-variant">Completed on Monday, 12 Oct</p>
+</div>
+</div>
+<div class="relative flex gap-4 step-line">
+<div class="z-10 bg-secondary-container text-secondary w-10 h-10 rounded-full flex items-center justify-center shrink-0 border-4 border-white shadow-sm">
+<span class="font-bold">2</span>
+</div>
+<div class="pt-1">
+<p class="font-bold text-primary">Threshing &amp; Bagging</p>
+<p class="text-sm text-on-surface-variant">Expected by Tuesday evening</p>
+</div>
+</div>
+<div class="relative flex gap-4">
+<div class="z-10 bg-white text-on-surface-variant w-10 h-10 rounded-full flex items-center justify-center shrink-0 border-2 border-outline-variant">
+<span class="font-bold">3</span>
+</div>
+<div class="pt-1">
+<p class="font-bold text-on-surface-variant">Transport Loading</p>
+<p class="text-sm text-on-surface-variant">Schedule after booking truck</p>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-tertiary-container/10 border border-tertiary-container/20 rounded-xl p-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="warning">warning</span>
+<div>
+<p class="font-bold text-tertiary text-sm">Weather Alert</p>
+<p class="text-sm text-on-surface-variant">Light rain expected in 48 hours. Secure bags under shade.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Crop Card: Tomato -->
+<div class="lg:col-span-12 grid grid-cols-1 md:grid-cols-3 bg-white rounded-xl shadow-md border border-surface-variant overflow-hidden">
+<div class="md:col-span-1 h-64 md:h-auto relative">
+<img class="w-full h-full object-cover" data-alt="Vibrant red organic tomatoes growing on vine in a greenhouse with soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjWwqxVn5WJDv9PCVWCaj6dFxbZWIfWcs3kAklilp-SS0pLzRmZAOQ1Jv4rrQVGwHqAekTnyNyEbJRs-he43kFsjPpwB7unaMRzAYKrtYrnENSIZ-xyTh3eIIMzVlR13HeTUzYE16Y5ZY5NqgHF_uXPw-2s0wXTW7fHlRlHK6w7MGQscXYL6WkyZYzfO4yyRXlDKfvICEIVIkDswgPDUqi2ilNx1RbAaJ_ANNna_cpSTKGPWPR7VmnybwN4DFitadg5e4DH558s7o"/>
+<div class="absolute inset-0 bg-black/20"></div>
+<div class="absolute top-4 left-4 bg-tertiary text-white px-4 py-1 rounded-full font-bold text-sm">
+                            Fruiting Phase
+                        </div>
+</div>
+<div class="md:col-span-2 p-8 flex flex-col justify-between">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-stack-md">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-error text-3xl" data-icon="nutrition">nutrition</span>
+<h4 class="font-title-sm text-title-sm text-primary">Hybrid Tomatoes</h4>
+</div>
+<p class="text-on-surface-variant">Plot #02 • 2.5 Acres • Drip Irrigation Active</p>
+</div>
+<div class="flex flex-col items-end">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Est. Harvest</p>
+<p class="text-xl font-black text-primary">15 Days</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-stack-md">
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Moisture</p>
+<p class="text-lg font-bold text-primary">Optimal</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Pest Risk</p>
+<p class="text-lg font-bold text-secondary">Low</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Daily Gain</p>
+<p class="text-lg font-bold text-primary">+12kg/A</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl">
+<p class="text-xs font-bold text-on-surface-variant mb-1">Health Index</p>
+<p class="text-lg font-bold text-secondary">Excellent</p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 h-16 border-2 border-primary text-primary rounded-xl flex items-center justify-center gap-3 font-bold hover:bg-primary-container/10 transition-all">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+                                View Growth Timeline
+                            </button>
+<button class="flex-1 h-16 bg-primary text-white rounded-xl flex items-center justify-center gap-3 shadow-lg opacity-60 cursor-not-allowed">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+                                Sell (Coming Soon)
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FAB for Mobile (Contextual) -->
+<button class="md:hidden fixed bottom-24 right-6 w-16 h-16 bg-secondary text-white rounded-full shadow-2xl flex items-center justify-center z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar (Shared Component - Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 flex justify-around items-center h-16 px-2 z-50">
+<a class="flex flex-col items-center justify-center gap-1 text-emerald-700" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-[10px] font-medium">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="text-[10px] font-medium">Logistics</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-[10px] font-medium">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="text-[10px] font-medium">Help</span>
+</a>
+</nav>
+</main>
+</body></html>

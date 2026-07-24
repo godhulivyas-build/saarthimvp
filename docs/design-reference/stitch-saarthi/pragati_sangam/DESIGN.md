@@ -24,7 +24,7 @@ Treat the UI as a physical stack of fine paper.
 - Use `surface-container-lowest` (#ffffff) for the most interactive elements (like cards or input fields) to create a natural "lift."
 
 ### The "Glass & Gradient" Rule
-For the "Saathi Didi" AI companion and high-priority overlays, use **Glassmorphism**. Combine `tertiary_container` with a `backdrop-filter: blur(12px)` to create a frosted glass effect. For main CTAs, use a subtle linear gradient from `primary` (#0d631b) to `primary_container` (#2e7d32) at a 135-degree angle to provide a "soulful" depth that flat colors cannot achieve.
+For the "Sarthi Didi" AI companion and high-priority overlays, use **Glassmorphism**. Combine `tertiary_container` with a `backdrop-filter: blur(12px)` to create a frosted glass effect. For main CTAs, use a subtle linear gradient from `primary` (#0d631b) to `primary_container` (#2e7d32) at a 135-degree angle to provide a "soulful" depth that flat colors cannot achieve.
 
 ---
 
@@ -37,7 +37,7 @@ In this design system, the "Bilingual UI" is not a toggle hidden in a menu; it i
 - **Support Language:** Directly underneath or beside, use the secondary language in a `title-sm` or `body-md` scale using the `on_surface_variant` (#40493d) token to provide clear visual hierarchy without clutter.
 
 ### Scale Application
-- **Display (L/M/S):** Reserved for hero impact moments or "Saathi Didi" greetings. 
+- **Display (L/M/S):** Reserved for hero impact moments or "Sarthi Didi" greetings. 
 - **Title (L/M/S):** Used for bilingual section headers. Always ensure the Hindi script has 1.2x the line height of the English script to prevent "Matra" clipping.
 - **Label (M/S):** Used strictly for micro-copy and metadata.
 
@@ -47,7 +47,7 @@ In this design system, the "Bilingual UI" is not a toggle hidden in a menu; it i
 We eschew traditional drop shadows in favor of **Tonal Layering**.
 
 - **The Layering Principle:** Depth is achieved by "stacking." A `surface-container-lowest` card sitting on a `surface-container-high` background creates a clear, sophisticated lift.
-- **Ambient Shadows:** For floating elements like the "Saathi Didi" mic, use a "Ghost Shadow." 
+- **Ambient Shadows:** For floating elements like the "Sarthi Didi" mic, use a "Ghost Shadow." 
   - `box-shadow: 0 12px 32px -4px rgba(47, 49, 46, 0.08);` 
   - This mimics natural light rather than a synthetic digital effect.
 - **The "Ghost Border" Fallback:** If a border is required for high-glare environments, use the `outline_variant` token at **15% opacity**. Never use 100% opaque lines.
@@ -56,7 +56,7 @@ We eschew traditional drop shadows in favor of **Tonal Layering**.
 
 ## 5. Components
 
-### The "Saathi Didi" AI Companion
+### The "Sarthi Didi" AI Companion
 The centerpiece of the UI.
 - **Visuals:** A floating circular button (`9999px` radius) using the `tertiary_container` color.
 - **Treatment:** Apply a glassmorphism blur and the "Ambient Shadow" mentioned above.
@@ -84,7 +84,7 @@ The centerpiece of the UI.
 - **Do** prioritize vertical whitespace over lines. If a section feels messy, increase the margin rather than adding a divider.
 - **Do** ensure all tap targets are at least 48x48dp, even for "small" UI elements.
 - **Do** use the `primary_fixed` color for "success" states instead of a generic bright green to maintain the earthy tone.
-- **Do** treat "Saathi Didi" as a person. Her messages should appear in speech bubbles that use `secondary_container` and `xl` roundedness.
+- **Do** treat "Sarthi Didi" as a person. Her messages should appear in speech bubbles that use `secondary_container` and `xl` roundedness.
 
 ### Don't
 - **Don't** use pure black (#000000). Use `on_background` (#1a1c19) for all "black" text to keep the interface soft.

@@ -20,7 +20,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onRoleSelect }) => {
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-600 mb-4 shadow-lg">
           <Truck className="w-8 h-8 text-white" />
         </div>
-        <h1 className="text-4xl font-bold text-gray-900 mb-2 tracking-tight">Saarthi</h1>
+        <h1 className="text-4xl font-bold text-gray-900 mb-2 tracking-tight">Sarthi</h1>
         <p className="text-gray-600">Your Agri-Logistics Companion</p>
       </div>
 

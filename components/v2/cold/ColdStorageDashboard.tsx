@@ -29,7 +29,7 @@ export const ColdStorageDashboard: React.FC<Props> = ({ view }) => {
   if (loading) {
     return (
       <div className="flex justify-center py-20">
-        <Loader2 className="w-10 h-10 animate-spin text-[var(--saarthi-primary)]" />
+        <Loader2 className="w-10 h-10 animate-spin text-[var(--sarthi-primary)]" />
       </div>
     );
   }
@@ -39,9 +39,9 @@ export const ColdStorageDashboard: React.FC<Props> = ({ view }) => {
   if (view === 'home') {
     return (
       <div className="p-4 space-y-4 pb-28">
-        <div className="rounded-2xl bg-white p-4 shadow-sm border border-[var(--saarthi-surface-high)]">
+        <div className="rounded-2xl bg-white p-4 shadow-sm border border-[var(--sarthi-surface-high)]">
           <p className="text-sm text-gray-600">{tV2('v2.cold.occupancy')}</p>
-          <p className="text-3xl font-extrabold text-[var(--saarthi-primary)]">{occ}%</p>
+          <p className="text-3xl font-extrabold text-[var(--sarthi-primary)]">{occ}%</p>
         </div>
         <p className="text-sm text-gray-600">{t('dashboard.viewAll')}</p>
       </div>
@@ -52,7 +52,7 @@ export const ColdStorageDashboard: React.FC<Props> = ({ view }) => {
     return (
       <div className="p-4 space-y-3 pb-28">
         <h2 className="text-lg font-bold flex items-center gap-2">
-          <Warehouse className="text-[var(--saarthi-tertiary)]" />
+          <Warehouse className="text-[var(--sarthi-tertiary)]" />
           {tV2('v2.cold.slots')}
         </h2>
         {slots.map((s) => (
@@ -111,26 +111,26 @@ export const ColdStorageDashboard: React.FC<Props> = ({ view }) => {
     const revenueDay = slots.reduce((a, s) => a + s.usedTons * s.pricePerTonDay, 0);
     return (
       <div className="p-4 pb-28 space-y-4">
-        <h2 className="text-lg font-extrabold saarthi-headline">{tV2('v2.cold.occupancy')}</h2>
+        <h2 className="text-lg font-extrabold sarthi-headline">{tV2('v2.cold.occupancy')}</h2>
         <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-2xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
-            <p className="text-xs text-[var(--saarthi-on-surface-variant)] font-bold">Capacity</p>
-            <p className="text-2xl font-black text-[var(--saarthi-on-background)]">{total}t</p>
+          <div className="rounded-2xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
+            <p className="text-xs text-[var(--sarthi-on-surface-variant)] font-bold">Capacity</p>
+            <p className="text-2xl font-black text-[var(--sarthi-on-background)]">{total}t</p>
           </div>
-          <div className="rounded-2xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
-            <p className="text-xs text-[var(--saarthi-on-surface-variant)] font-bold">Used</p>
-            <p className="text-2xl font-black text-[var(--saarthi-primary)]">{used}t</p>
+          <div className="rounded-2xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
+            <p className="text-xs text-[var(--sarthi-on-surface-variant)] font-bold">Used</p>
+            <p className="text-2xl font-black text-[var(--sarthi-primary)]">{used}t</p>
           </div>
-          <div className="rounded-2xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
-            <p className="text-xs text-[var(--saarthi-on-surface-variant)] font-bold">Occupancy</p>
-            <p className="text-2xl font-black text-[var(--saarthi-primary)]">{occ}%</p>
+          <div className="rounded-2xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
+            <p className="text-xs text-[var(--sarthi-on-surface-variant)] font-bold">Occupancy</p>
+            <p className="text-2xl font-black text-[var(--sarthi-primary)]">{occ}%</p>
           </div>
-          <div className="rounded-2xl bg-white border border-[var(--saarthi-outline-soft)] p-4">
-            <p className="text-xs text-[var(--saarthi-on-surface-variant)] font-bold">Est. revenue/day</p>
-            <p className="text-2xl font-black text-[var(--saarthi-on-background)]">₹{Math.round(revenueDay)}</p>
+          <div className="rounded-2xl bg-white border border-[var(--sarthi-outline-soft)] p-4">
+            <p className="text-xs text-[var(--sarthi-on-surface-variant)] font-bold">Est. revenue/day</p>
+            <p className="text-2xl font-black text-[var(--sarthi-on-background)]">₹{Math.round(revenueDay)}</p>
           </div>
         </div>
-        <p className="text-xs text-[var(--saarthi-on-surface-variant)] opacity-80">
+        <p className="text-xs text-[var(--sarthi-on-surface-variant)] opacity-80">
           Demo analytics. Later: connect to bookings, invoices, and sensor compliance.
         </p>
       </div>

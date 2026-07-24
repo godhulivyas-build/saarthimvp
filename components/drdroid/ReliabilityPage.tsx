@@ -5,8 +5,8 @@ export const ReliabilityPage: React.FC = () => {
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="saarthi-headline text-xl sm:text-2xl font-extrabold">Why reliability matters</h2>
-        <p className="text-sm text-[var(--saarthi-on-surface-variant)]">
+        <h2 className="sarthi-headline text-xl sm:text-2xl font-extrabold">Why reliability matters</h2>
+        <p className="text-sm text-[var(--sarthi-on-surface-variant)]">
           In logistics, reliability is the product: users don’t forgive silent failures, long hangs, or inconsistent answers—especially during dispatch and delays.
         </p>
       </div>
@@ -14,7 +14,7 @@ export const ReliabilityPage: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-4">
         <Card className="p-4">
           <p className="font-bold">SLOs (example)</p>
-          <ul className="mt-2 text-sm text-[var(--saarthi-on-surface-variant)] space-y-1">
+          <ul className="mt-2 text-sm text-[var(--sarthi-on-surface-variant)] space-y-1">
             <li>- Availability: 99.9% for gateway</li>
             <li>- Latency: p95 &lt; 2s for cached / lightweight responses</li>
             <li>- Degraded mode: always return something useful within timeout</li>
@@ -23,7 +23,7 @@ export const ReliabilityPage: React.FC = () => {
 
         <Card className="p-4">
           <p className="font-bold">Failure modes</p>
-          <ul className="mt-2 text-sm text-[var(--saarthi-on-surface-variant)] space-y-1">
+          <ul className="mt-2 text-sm text-[var(--sarthi-on-surface-variant)] space-y-1">
             <li>- Model down / slow</li>
             <li>- OOMKills due to undersized memory</li>
             <li>- Cold-start + model pull delays</li>
@@ -34,7 +34,7 @@ export const ReliabilityPage: React.FC = () => {
 
       <Card className="p-4">
         <p className="font-bold">Mitigations demonstrated in this repo</p>
-        <ul className="mt-2 text-sm text-[var(--saarthi-on-surface-variant)] space-y-1">
+        <ul className="mt-2 text-sm text-[var(--sarthi-on-surface-variant)] space-y-1">
           <li>- Readiness/liveness probes gate traffic</li>
           <li>- Timeouts in gateway prevent UI hanging</li>
           <li>- Degraded fallback response preserves user trust</li>

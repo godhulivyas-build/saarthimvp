@@ -1,4 +1,4 @@
-export type SaarthiUserRole = 'farmer' | 'buyer' | 'logistics_partner' | 'cold_storage_owner';
+export type SarthiUserRole = 'farmer' | 'buyer' | 'logistics_partner' | 'cold_storage_owner';
 
 export enum UserRole {
   FARMER = 'Farmer (Kisan)',
@@ -15,7 +15,7 @@ export enum AppScreen {
   DASHBOARD = 'DASHBOARD'
 }
 
-export type SaarthiScreen = 'landing' | 'dashboard';
+export type SarthiScreen = 'landing' | 'dashboard';
 
 export type FarmerDashboardView =
   | 'home'
@@ -36,7 +36,7 @@ export type LogisticsDashboardView = 'home' | 'jobs' | 'nearby_loads' | 'my_trip
 export type BuyerDashboardView = 'home' | 'post_demand' | 'browse' | 'orders' | 'wallet' | 'payments';
 export type ColdStorageDashboardView = 'home' | 'slots' | 'requests' | 'analytics' | 'earnings';
 
-export type SaarthiDashboardView =
+export type SarthiDashboardView =
   | { role: 'farmer'; view: FarmerDashboardView }
   | { role: 'logistics_partner'; view: LogisticsDashboardView }
   | { role: 'buyer'; view: BuyerDashboardView }
@@ -233,7 +233,7 @@ export interface V2AuthSession {
   phone: string;
   name: string;
   preferredLang: 'hi' | 'en' | 'kn' | 'te';
-  persona: SaarthiUserRole | null;
+  persona: SarthiUserRole | null;
   addressLabel: string;
   lat: number | null;
   lng: number | null;

@@ -45,8 +45,8 @@ export const AssistantPage: React.FC = () => {
   return (
     <div className="space-y-5">
       <div className="space-y-1">
-        <h2 className="saarthi-headline text-xl sm:text-2xl font-extrabold">AI Chatbot (via Gateway)</h2>
-        <p className="text-sm text-[var(--saarthi-on-surface-variant)]">
+        <h2 className="sarthi-headline text-xl sm:text-2xl font-extrabold">AI Chatbot (via Gateway)</h2>
+        <p className="text-sm text-[var(--sarthi-on-surface-variant)]">
           This page is designed for infra demos: request IDs, latency, fallbacks, and a stable API boundary between UI and the LLM.
         </p>
       </div>
@@ -54,7 +54,7 @@ export const AssistantPage: React.FC = () => {
       <Card className="p-4 space-y-2">
         <p className="font-bold">Gateway meta</p>
         {meta ? (
-          <div className="text-xs text-[var(--saarthi-on-surface-variant)] space-y-1">
+          <div className="text-xs text-[var(--sarthi-on-surface-variant)] space-y-1">
             <div>
               <span className="font-bold">Primary</span>: {meta.providers.primary} ({meta.ollama.defaultModel})
             </div>
@@ -81,7 +81,7 @@ export const AssistantPage: React.FC = () => {
                   setPrompt(s.seed);
                 }}
                 className={`w-full text-left px-3 py-2 rounded-xl border text-sm font-bold ${
-                  scenario === s.id ? 'bg-[var(--saarthi-primary)] text-white border-[var(--saarthi-primary)]' : 'bg-white border-[var(--saarthi-outline-soft)]'
+                  scenario === s.id ? 'bg-[var(--sarthi-primary)] text-white border-[var(--sarthi-primary)]' : 'bg-white border-[var(--sarthi-outline-soft)]'
                 }`}
               >
                 {s.title}
@@ -96,19 +96,19 @@ export const AssistantPage: React.FC = () => {
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              className="w-full min-h-[140px] rounded-xl border border-[var(--saarthi-outline-soft)] px-3 py-2 text-sm"
+              className="w-full min-h-[140px] rounded-xl border border-[var(--sarthi-outline-soft)] px-3 py-2 text-sm"
             />
           </div>
           <div className="flex items-center gap-2">
             <V2Button variant="primary" bilingual={{ primary: loading ? 'Running…' : 'Run', secondary: 'Demo' }} onClick={run} disabled={loading} />
-            <span className="text-xs text-[var(--saarthi-on-surface-variant)]">Scenario: {scenario}</span>
+            <span className="text-xs text-[var(--sarthi-on-surface-variant)]">Scenario: {scenario}</span>
           </div>
 
           <div>
             <p className="font-bold mb-1">Response</p>
             {resp ? (
-              <div className="rounded-xl border border-[var(--saarthi-outline-soft)] bg-white p-3 text-sm space-y-2">
-                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--saarthi-on-surface-variant)]">
+              <div className="rounded-xl border border-[var(--sarthi-outline-soft)] bg-white p-3 text-sm space-y-2">
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-[var(--sarthi-on-surface-variant)]">
                   <span>
                     <span className="font-bold">requestId</span>: {resp.requestId}
                   </span>
@@ -126,7 +126,7 @@ export const AssistantPage: React.FC = () => {
                 {resp.error ? <p className="text-xs text-red-600">error: {resp.error}</p> : null}
               </div>
             ) : (
-              <p className="text-sm text-[var(--saarthi-on-surface-variant)]">No response yet.</p>
+              <p className="text-sm text-[var(--sarthi-on-surface-variant)]">No response yet.</p>
             )}
           </div>
         </Card>

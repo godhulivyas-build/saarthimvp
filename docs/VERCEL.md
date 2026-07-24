@@ -8,7 +8,7 @@ Your local `origin` is:
 
 `https://github.com/godhulivyas-build/Sarthi.git` → repo slug **`Sarthi`** (spelling matters).
 
-In Vercel → your project → **Settings → Git**, the connected repository must be **`godhulivyas-build/Sarthi`**, not a similarly named repo (e.g. **`Saarthi`** with an extra `a`). If it is wrong, **Disconnect** and reconnect to **`Sarthi`**.
+In Vercel → your project → **Settings → Git**, the connected repository must be **`godhulivyas-build/Sarthi`**, not a similarly named repo (e.g. **`Sarthi`** with an extra `a`). If it is wrong, **Disconnect** and reconnect to **`Sarthi`**.
 
 ## 2) One-time: add GitHub Actions secrets
 

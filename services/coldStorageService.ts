@@ -1,7 +1,7 @@
 import type { ColdStorageRequest, ColdStorageSlot } from '../types';
 
-const SLOTS_KEY = 'saarthi.v2.cold.slots';
-const REQ_KEY = 'saarthi.v2.cold.requests';
+const SLOTS_KEY = 'sarthi.v2.cold.slots';
+const REQ_KEY = 'sarthi.v2.cold.requests';
 
 const defaultSlots: ColdStorageSlot[] = [
   { id: 's1', label: 'Chamber A', capacityTons: 100, usedTons: 42, pricePerTonDay: 120 },

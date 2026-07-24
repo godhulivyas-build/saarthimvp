@@ -20,12 +20,12 @@ export const V2Button: React.FC<Props> = ({
   const base = 'inline-flex flex-col items-center justify-center gap-0.5 font-bold transition-all disabled:opacity-50 disabled:pointer-events-none';
   const w = fullWidth ? 'w-full' : '';
   const styles: Record<Variant, string> = {
-    primary: 'saarthi-cta-primary px-6 py-3',
+    primary: 'sarthi-cta-primary px-6 py-3',
     secondary:
-      'min-h-[52px] rounded-2xl px-6 bg-[var(--saarthi-secondary-container)] text-[var(--saarthi-on-secondary)] shadow-md hover:brightness-105',
+      'min-h-[52px] rounded-2xl px-6 bg-[var(--sarthi-secondary-container)] text-[var(--sarthi-on-secondary)] shadow-md hover:brightness-105',
     outline:
-      'min-h-[52px] rounded-2xl px-6 border-2 border-[var(--saarthi-primary)] text-[var(--saarthi-primary)] bg-white hover:bg-[var(--saarthi-surface-low)]',
-    ghost: 'min-h-[48px] rounded-xl px-4 text-[var(--saarthi-primary)] hover:bg-white/60',
+      'min-h-[52px] rounded-2xl px-6 border-2 border-[var(--sarthi-primary)] text-[var(--sarthi-primary)] bg-white hover:bg-[var(--sarthi-surface-low)]',
+    ghost: 'min-h-[48px] rounded-xl px-4 text-[var(--sarthi-primary)] hover:bg-white/60',
   };
 
   return (

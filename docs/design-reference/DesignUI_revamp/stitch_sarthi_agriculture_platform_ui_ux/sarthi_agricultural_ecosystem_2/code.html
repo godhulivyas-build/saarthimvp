@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sarthi - Your Trusted Farming Partner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#414844",
+                        "surface-container-highest": "#e1e3e2",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#a5d0b9",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#86af99",
+                        "surface-dim": "#d9dad9",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#19724f",
+                        "primary-fixed": "#c1ecd4",
+                        "secondary-fixed": "#a0f4c8",
+                        "surface-container-low": "#f3f4f3",
+                        "on-tertiary-container": "#c79d90",
+                        "tertiary-fixed-dim": "#e9bdae",
+                        "on-surface": "#191c1c",
+                        "on-tertiary-fixed-variant": "#5e3f35",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "inverse-primary": "#a5d0b9",
+                        "inverse-surface": "#2e3131",
+                        "surface-bright": "#f9f9f8",
+                        "outline-variant": "#c1c8c2",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f0",
+                        "tertiary-container": "#52352b",
+                        "surface": "#f9f9f8",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#3a2017",
+                        "surface-variant": "#e1e3e2",
+                        "secondary": "#0e6c4a",
+                        "surface-container-high": "#e7e8e7",
+                        "secondary-fixed-dim": "#85d7ad",
+                        "background": "#f9f9f8",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#edeeed",
+                        "primary-container": "#1b4332",
+                        "primary": "#012d1d",
+                        "on-secondary-fixed-variant": "#005236",
+                        "secondary-fixed": "#a0f4c8",
+                        "on-primary-fixed": "#002114",
+                        "surface-tint": "#3f6653",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-secondary-fixed": "#002113",
+                        "on-background": "#191c1c",
+                        "outline": "#717973",
+                        "on-tertiary-fixed": "#2d150d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "8px",
+                        "stack-sm": "12px",
+                        "container-margin": "20px",
+                        "stack-md": "24px",
+                        "stack-lg": "40px"
+                    },
+                    "fontFamily": {
+                        "title-sm": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "label-sm": ["Lexend"],
+                        "headline-md": ["Lexend"],
+                        "body-md": ["Lexend"],
+                        "label-xl": ["Lexend"],
+                        "body-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "title-sm": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-xl": ["20px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "26px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Lexend', sans-serif; background-color: #f9f9f8; }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-6 h-16 w-full bg-white dark:bg-slate-900 shadow-sm border-b-2 border-emerald-100 dark:border-emerald-900">
+<div class="text-2xl font-black text-emerald-900 dark:text-emerald-50">Sarthi</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-emerald-900 dark:text-emerald-400 font-lexend text-base hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+<span class="hidden md:inline">Language</span>
+</button>
+<button class="p-2 rounded-full text-emerald-900 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-800 transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface-container-low py-16 md:py-24">
+<div class="mx-auto max-w-7xl px-container-margin grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8 order-2 lg:order-1">
+<div class="flex flex-col gap-4">
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Sarthi: Your Trusted Farming Partner</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">Empowering farmers with technology and expert advice. Join the digital revolution in agriculture and secure your growth.</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="min-h-[64px] px-8 bg-secondary text-on-secondary rounded-xl font-label-xl text-label-xl flex items-center justify-center gap-3 shadow-lg hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                            Get Started
+                        </button>
+<button class="min-h-[64px] px-8 border-2 border-secondary text-secondary rounded-xl font-label-xl text-label-xl flex items-center justify-center gap-3 hover:bg-secondary-container/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="play_circle">play_circle</span>
+                            Watch Tutorial
+                        </button>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative">
+<div class="aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+<img alt="Indian Farmer Smiling" class="w-full h-full object-cover" data-alt="Close-up portrait of a smiling Indian farmer in a vibrant green wheat field during golden hour with warm, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEm0cucss6EOePVYvskIAk1D5xEnC5mapgN8lA2uChvznan8lv8g969cdIEFepdMbh-UBPyqxk0OAgePvNmx4oPKZCOSDtRoiLv0gLNiEE7Rbapuu3SVfTnrV8FXAnfbfGhZF1dXht4aZDf7lgtbnsbDwbSqf83Mxw3zgz23U9M68Wu68Q0eRhwfp_j1u8CE7F-wWn1Xhrpl1aV5ULFxWy1vIldCSspstQWszvArfHKNp9hs0e_9dJRyEGQb-65-tGx1w68YE2dsY"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl flex items-center gap-4 max-w-xs border border-emerald-50">
+<div class="h-12 w-12 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="verified_user" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary">Trusted by 10k+</p>
+<p class="font-body-md text-[12px] text-on-surface-variant">Farmers across India</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Features Section (Bento Grid) -->
+<section class="py-stack-lg bg-background">
+<div class="mx-auto max-w-7xl px-container-margin">
+<div class="flex flex-col gap-4 text-center mb-12">
+<h2 class="font-headline-md text-headline-md text-primary">Powerful Tools for Modern Agriculture</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Everything you need to manage your crops, from expert consultation to local market insights.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 min-h-[600px]">
+<!-- Expert Advice -->
+<div class="md:col-span-2 md:row-span-1 bg-white p-8 rounded-3xl shadow-sm border border-emerald-50 flex flex-col justify-between group hover:shadow-md transition-all">
+<div class="flex flex-col gap-4">
+<span class="material-symbols-outlined text-[48px] text-secondary" data-icon="psychology">psychology</span>
+<h3 class="font-title-sm text-title-sm text-primary">Expert Advice</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Connect directly with certified agronomists for personalized crop solutions.</p>
+</div>
+<div class="mt-8 flex items-center text-secondary font-label-sm gap-2 group-hover:gap-4 transition-all">
+                            Learn more <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Marketplace -->
+<div class="md:col-span-2 md:row-span-2 relative overflow-hidden bg-primary-container p-8 rounded-3xl shadow-sm text-white flex flex-col justify-end group">
+<div class="absolute inset-0 opacity-40">
+<img alt="Farming Marketplace" class="w-full h-full object-cover grayscale" data-alt="overhead view of a vibrant colorful Indian rural market with fresh vegetables and local farmers trading under woven umbrellas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7ExmWTLDykEHGW-wcI8cKwSYxPw8WV0PFGe14WObt4y1qGHJLpbPpXWO95fu-yUk_Q4YrY1iCKMAXrojizT8sqgtmOn4eYHPN5YJ2AzADSIoUdDn_W6U2JgyhBa576_RXk2LNyGj-Dn8dLK_OR1INan5v6SfTK_hz1QEkmlVbRtUiUIe1AmPflvCAry3VXQq7MH0_3WUuti8r5J1-Jl95GCbIv99Y0TBnrdVVW4RqyJz57Uz_xM6q87pApj7wYKMzOBBYT0ErYek"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-[48px] text-secondary-fixed" data-icon="storefront">storefront</span>
+<h3 class="font-title-sm text-title-sm mt-4">Marketplace</h3>
+<p class="font-body-md text-body-md text-primary-fixed-dim mt-2">Get the best prices for your produce and buy quality seeds and fertilizers directly.</p>
+<button class="mt-6 px-6 py-3 bg-secondary-fixed text-on-secondary-fixed rounded-xl font-label-sm hover:brightness-110 transition-all active:scale-95">Explore Market</button>
+</div>
+</div>
+<!-- Disease Detection -->
+<div class="md:col-span-1 md:row-span-1 bg-surface-container-high p-8 rounded-3xl shadow-sm border border-emerald-100 flex flex-col items-start gap-4 hover:bg-emerald-50 transition-colors">
+<div class="h-14 w-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[32px]" data-icon="potted_plant">potted_plant</span>
+</div>
+<h3 class="font-label-xl text-label-xl text-primary">Disease Detection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Scan leaves to identify pests and diseases instantly using AI.</p>
+</div>
+<!-- Weather Alerts -->
+<div class="md:col-span-1 md:row-span-1 bg-secondary-container p-8 rounded-3xl shadow-sm flex flex-col items-start gap-4 hover:brightness-105 transition-all">
+<div class="h-14 w-14 rounded-2xl bg-white/50 shadow-sm flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[32px]" data-icon="thunderstorm">thunderstorm</span>
+</div>
+<h3 class="font-label-xl text-label-xl text-on-secondary-container">Weather Alerts</h3>
+<p class="font-body-md text-body-md text-on-secondary-container/80">Real-time alerts for rain, hail, and extreme temperatures.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-stack-lg px-container-margin">
+<div class="max-w-5xl mx-auto bg-primary rounded-[2.5rem] p-12 md:p-20 text-center flex flex-col items-center gap-8 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-full opacity-10">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-secondary-fixed rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary-fixed rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 max-w-2xl flex flex-col gap-6">
+<h2 class="font-display-lg text-display-lg text-on-primary">Ready to transform your farm?</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim">Join thousands of farmers who are using Sarthi to increase their yield and secure their livelihood.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+<button class="min-h-[64px] px-10 bg-secondary-fixed text-on-secondary-fixed rounded-xl font-label-xl text-label-xl flex items-center justify-center gap-3 shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                            Get Started Now
+                            <span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-12">
+<div class="mx-auto max-w-7xl px-container-margin grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="flex flex-col gap-4">
+<span class="text-2xl font-black text-emerald-900">Sarthi</span>
+<p class="font-body-md text-on-surface-variant">Empowering the roots of our nation with modern technology and agricultural wisdom.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-xl text-primary">Company</h4>
+<nav class="flex flex-col gap-2 font-body-md text-on-surface-variant">
+<a class="hover:text-secondary" href="#">About Us</a>
+<a class="hover:text-secondary" href="#">Our Impact</a>
+<a class="hover:text-secondary" href="#">Partners</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-xl text-primary">Resources</h4>
+<nav class="flex flex-col gap-2 font-body-md text-on-surface-variant">
+<a class="hover:text-secondary" href="#">Farming Blog</a>
+<a class="hover:text-secondary" href="#">Help Center</a>
+<a class="hover:text-secondary" href="#">Policy</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-xl text-primary">Contact</h4>
+<p class="font-body-md text-on-surface-variant">support@sarthi.farming.in</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer" data-icon="language">language</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer" data-icon="share">share</span>
+</div>
+</div>
+</div>
+<div class="mx-auto max-w-7xl px-container-margin mt-12 pt-8 border-t border-outline-variant text-center font-label-sm text-on-surface-variant">
+                © 2024 Sarthi Digital Agriculture. All rights reserved.
+            </div>
+</footer>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 md:hidden bg-white dark:bg-slate-900 rounded-t-2xl border-t-4 border-emerald-600 shadow-[0_-4px_10px_rgba(27,67,50,0.1)] touch-manipulation h-20">
+<a class="flex flex-col items-center justify-center bg-emerald-100 dark:bg-emerald-900 text-emerald-900 dark:text-emerald-50 rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-lexend text-[12px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-lexend text-[12px] font-bold">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span class="font-lexend text-[12px] font-bold">Expert</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="agriculture">agriculture</span>
+<span class="font-lexend text-[12px] font-bold">Crops</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="font-lexend text-[12px] font-bold">More</span>
+</a>
+</nav>
+</body></html>

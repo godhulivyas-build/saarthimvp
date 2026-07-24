@@ -20,7 +20,7 @@ export async function createMockPayment(orderId: string, total: number): Promise
   };
   store.unshift(rec);
   try {
-    localStorage.setItem('saarthi.v2.payments', JSON.stringify(store.slice(0, 50)));
+    localStorage.setItem('sarthi.v2.payments', JSON.stringify(store.slice(0, 50)));
   } catch {
     // ignore
   }
@@ -29,7 +29,7 @@ export async function createMockPayment(orderId: string, total: number): Promise
 
 export function loadPayments(): PaymentRecord[] {
   try {
-    const raw = localStorage.getItem('saarthi.v2.payments');
+    const raw = localStorage.getItem('sarthi.v2.payments');
     if (!raw) return [...store];
     return JSON.parse(raw) as PaymentRecord[];
   } catch {

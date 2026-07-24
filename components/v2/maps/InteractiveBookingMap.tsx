@@ -117,7 +117,7 @@ export const BookingRouteMapInner: React.FC<BookingRouteMapInnerProps> = ({
   return (
     <>
       <RouteFromDirections pickup={pickup} drop={drop} onRoute={onRouteComputed} />
-      <div className="rounded-2xl overflow-hidden border-2 border-[var(--saarthi-surface-high)] h-[min(52vh,440px)] min-h-[280px] w-full">
+      <div className="rounded-2xl overflow-hidden border-2 border-[var(--sarthi-surface-high)] h-[min(52vh,440px)] min-h-[280px] w-full">
         <Map
           defaultCenter={mid}
           defaultZoom={8}
