@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { Sprout, Store, Truck, ChevronDown } from 'lucide-react';
 import { useAppState } from '../../state/AppState';
 import { useV2Session } from '../../state/v2Session';
-import { useI18n } from '../../i18n/I18nContext';
+import { useTr } from '../../i18n/useTr';
 import type { SarthiUserRole } from '../../types';
 
-const PERSONAS: { role: SarthiUserRole; icon: typeof Sprout; en: string; hi: string }[] = [
-  { role: 'farmer', icon: Sprout, en: 'Farmer', hi: 'किसान' },
-  { role: 'buyer', icon: Store, en: 'Buyer', hi: 'खरीदार' },
-  { role: 'logistics_partner', icon: Truck, en: 'Transporter', hi: 'ट्रांसपोर्टर' },
+const PERSONAS: { role: SarthiUserRole; icon: typeof Sprout; en: string; hi: string; kn: string; te: string; ta: string }[] = [
+  { role: 'farmer', icon: Sprout, en: 'Farmer', hi: 'किसान', kn: 'ರೈತ', te: 'రైతు', ta: 'விவசாயி' },
+  { role: 'buyer', icon: Store, en: 'Buyer', hi: 'खरीदार', kn: 'ಖರೀದಿದಾರ', te: 'కొనుగోలుదారు', ta: 'வாங்குபவர்' },
+  { role: 'logistics_partner', icon: Truck, en: 'Transporter', hi: 'ट्रांसपोर्टर', kn: 'ಟ್ರಾನ್ಸ್‌ಪೋರ್ಟರ್', te: 'రవాణాదారు', ta: 'போக்குவரத்தாளர்' },
 ];
 
 /**
@@ -21,8 +21,7 @@ export const PersonaSwitcher: React.FC = () => {
   const navigate = useNavigate();
   const { state, setUserRole } = useAppState();
   const { session, updateSession } = useV2Session();
-  const { lang } = useI18n();
-  const isHi = lang === 'hi';
+  const tr = useTr();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -58,10 +57,10 @@ export const PersonaSwitcher: React.FC = () => {
         {isAuthenticated ? (
           <>
             <CurrentIcon className="w-4 h-4" />
-            <span className="hidden sm:inline">{isHi ? current.hi : current.en}</span>
+            <span className="hidden sm:inline">{tr(current.en, current.hi, current.kn, current.te, current.ta)}</span>
           </>
         ) : (
-          <span>{isHi ? 'भूमिका चुनें' : 'Choose role'}</span>
+          <span>{tr('Choose role', 'भूमिका चुनें', 'ಪಾತ್ರ ಆಯ್ಕೆಮಾಡಿ', 'పాత్రను ఎంచుకోండి', 'பாத்திரத்தைத் தேர்ந்தெடுக்கவும்')}</span>
         )}
         <ChevronDown className="w-3.5 h-3.5" />
       </button>
@@ -81,7 +80,7 @@ export const PersonaSwitcher: React.FC = () => {
                 }`}
               >
                 <Icon className="w-4 h-4" />
-                {isHi ? p.hi : p.en}
+                {tr(p.en, p.hi, p.kn, p.te, p.ta)}
               </button>
             );
           })}

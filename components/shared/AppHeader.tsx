@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { LogOut, ArrowUpRight } from 'lucide-react';
 import { useAppState } from '../../state/AppState';
 import { useV2Session } from '../../state/v2Session';
-import { useI18n } from '../../i18n/I18nContext';
+import { useTr } from '../../i18n/useTr';
 import { NavBar, type NavItem } from '../ui/tubelight-navbar';
 import { PersonaSwitcher } from '../ui/PersonaSwitcher';
 import { LanguageDropdown } from '../ui/LanguageDropdown';
@@ -20,7 +20,7 @@ export const AppHeader: React.FC<Props> = ({ navItems = [] }) => {
   const navigate = useNavigate();
   const { logout } = useAppState();
   const { session, clearSession } = useV2Session();
-  const { lang } = useI18n();
+  const tr = useTr();
   const isAuthenticated = session.onboardingComplete && session.persona;
 
   const handleLogout = () => {
@@ -52,14 +52,14 @@ export const AppHeader: React.FC<Props> = ({ navItems = [] }) => {
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 font-bold text-sm hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors"
             >
               <LogOut className="w-4 h-4" />
-              <span className="hidden sm:inline">{lang === 'hi' ? 'लॉग आउट' : 'Logout'}</span>
+              <span className="hidden sm:inline">{tr('Logout', 'लॉग आउट', 'ಲಾಗ್ ಔಟ್', 'లాగ్ అవుట్', 'வெளியேறு')}</span>
             </button>
           ) : (
             <button
               onClick={() => navigate('/onboarding')}
               className="bg-primary hover:bg-emerald-800 text-white px-4 py-1.5 rounded-xl font-bold text-sm transition-transform active:scale-95 shadow-md flex items-center gap-1.5"
             >
-              {lang === 'hi' ? 'जुड़ें' : 'Join'}
+              {tr('Join', 'जुड़ें', 'ಸೇರಿ', 'చేరండి', 'இணை')}
               <ArrowUpRight className="w-4 h-4" />
             </button>
           )}
