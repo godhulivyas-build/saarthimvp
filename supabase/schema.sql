@@ -109,3 +109,29 @@ create policy "anyone can self-register as a transporter"
   with check (true);
 
 create index if not exists transporters_district_idx on public.transporters (district);
+
+-- Sarthi Bazaar: real consumer/buyer purchase inquiries (no payment processing yet —
+-- this captures a real lead so a farmer/seller can be contacted to confirm and arrange
+-- payment + delivery). Contains real names/phone numbers, so it is insert-only from the
+-- app; there is deliberately no public select policy — review inquiries in the Supabase
+-- Table Editor, not from the anon-key client.
+
+create table if not exists public.produce_inquiries (
+  id uuid primary key default gen_random_uuid(),
+  crop text not null,
+  quantity_quintal double precision not null,
+  buyer_name text not null,
+  buyer_phone text not null,
+  district text,
+  notes text,
+  status text not null default 'new' check (status in ('new', 'contacted', 'closed')),
+  created_at timestamptz not null default now()
+);
+
+alter table public.produce_inquiries enable row level security;
+
+create policy "anyone can submit a produce inquiry"
+  on public.produce_inquiries for insert
+  with check (true);
+
+create index if not exists produce_inquiries_crop_idx on public.produce_inquiries (crop);

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, ArrowUpRight, TrendingUp, Store, Instagram, Linkedin, MessageCircle, X } from 'lucide-react';
+import { ShieldCheck, ArrowUpRight, TrendingUp, Store, Instagram, Linkedin, MessageCircle, X, ShoppingBag } from 'lucide-react';
 import { useI18n } from '../i18n/I18nContext';
 import { useTr, type Tr } from '../i18n/useTr';
 import MandiPriceTicker from './landing/MandiPriceTicker';
@@ -122,8 +122,9 @@ export const LandingPage: React.FC = () => {
   const tr = useTr();
 
   const navItems = [
+    { name: tr('Sarthi Bazaar', 'सारथी बाज़ार', 'ಸಾರಥಿ ಬಜಾರ್', 'సార్థి బజార్', 'சார்தி பஜார்'), url: '/bazaar', icon: ShoppingBag },
     { name: tr('Price Tracker', 'भाव ट्रैकर', 'ಬೆಲೆ ಟ್ರ್ಯಾಕರ್', 'ధర ట్రాకర్', 'விலை டிராக்கர்'), url: '#live-prices', icon: TrendingUp },
-    { name: tr('Benefits', 'फ़ायदे', 'ಪ್ರಯೋಜನಗಳು', 'ప్రయోజనాలు', 'நன்மைகள்'), url: '#advantages', icon: Store },
+    { name: tr('Benefits', 'फ़ायदे', 'ಪ್ರಯೋಜನಗಳు', 'ప్రయోజనాలు', 'நன்மைகள்'), url: '#advantages', icon: Store },
   ];
 
   const galleryItems: GalleryItem[] = [
@@ -180,6 +181,13 @@ export const LandingPage: React.FC = () => {
                 >
                   <span className="material-symbols-outlined text-lg">record_voice_over</span>
                   {t('landing.v2.ctaDidi')}
+                </button>
+                <button
+                  onClick={() => navigate('/bazaar')}
+                  className="min-h-[56px] px-7 bg-amber-500 hover:bg-amber-600 text-white rounded-full font-semibold text-base flex items-center justify-center gap-2 shadow-sm active:scale-95 transition-all"
+                >
+                  <ShoppingBag className="w-5 h-5" />
+                  {tr('Shop Sarthi Bazaar', 'सारथी बाज़ार देखें', 'ಸಾರಥಿ ಬಜಾರ್ ನೋಡಿ', 'సార్థి బజార్ చూడండి', 'சார்தி பஜாரைப் பாருங்கள்')}
                 </button>
               </div>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { LucideIcon } from 'lucide-react';
 
@@ -24,6 +25,7 @@ interface NavBarProps {
  * Adapted for a same-page anchor nav (no next/link, no client directive needed in Vite).
  */
 export function NavBar({ items, className, activeName, onNavigate }: NavBarProps) {
+  const navigate = useNavigate();
   const [internalActive, setInternalActive] = useState(items[0]?.name);
   const activeTab = activeName ?? internalActive;
 
@@ -37,7 +39,11 @@ export function NavBar({ items, className, activeName, onNavigate }: NavBarProps
           <a
             key={item.name}
             href={item.url}
-            onClick={() => {
+            onClick={(e) => {
+              if (!item.url.startsWith('#')) {
+                e.preventDefault();
+                navigate(item.url);
+              }
               setInternalActive(item.name);
               onNavigate?.(item);
             }}

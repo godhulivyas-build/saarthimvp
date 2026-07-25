@@ -13,6 +13,7 @@ import { KubernetesPage } from './components/drdroid/KubernetesPage';
 import { MonitoringPage } from './components/drdroid/MonitoringPage';
 import { ReliabilityPage } from './components/drdroid/ReliabilityPage';
 import { AgriPlatformPage } from './components/platform/AgriPlatformPage';
+import { SarthiBazaar } from './components/bazaar/SarthiBazaar';
 
 const DashboardRouteSync: React.FC = () => {
   const { setCurrentScreen } = useAppState();
@@ -69,6 +70,7 @@ const App: React.FC = () => {
         />
         <Route path="/platform/agritech" element={<AgriPlatformPage />} />
         <Route path="/discover" element={<Navigate to="/" replace />} />
+        <Route path="/bazaar" element={<SarthiBazaar />} />
         <Route path="/onboarding" element={<OnboardingWizard />} />
         <Route
           path="/app"
